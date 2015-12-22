@@ -28,6 +28,10 @@
 		</dependency>
 		<dependency>
 			<groupId>org.javolution</groupId>
+			<artifactId>javolution</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.javolution</groupId>
 			<artifactId>javolution-core-java</artifactId>
 		</dependency>
 		<dependency>
