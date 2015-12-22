@@ -143,6 +143,11 @@
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
+				<artifactId>sensors.swing</artifactId>
+				<version>${newVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.commonreality</groupId>
 				<artifactId>net</artifactId>
 				<version>${newVersion}</version>
 			</dependency>
