@@ -116,6 +116,11 @@
 				<artifactId>api</artifactId>
 				<version>${newVersion}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.commonreality</groupId>
+				<artifactId>support</artifactId>
+				<version>${newVersion}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 

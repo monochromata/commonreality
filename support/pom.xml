@@ -8,18 +8,9 @@
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<groupId>org.commonreality</groupId>
-	<artifactId>time</artifactId>
+	<artifactId>support</artifactId>
 	<version>${newVersion}</version>
-	<description>CommonReality Time implementations.</description>
-	<packaging>jar</packaging>
-
-	<distributionManagement>
-		<!-- TODO: downloadUrl -->
-		<site>
-			<id>ftp.monochromata.de</id>
-			<url>sftp://ftp.monochromata.de/webseiten/maven/sites/${project.groupId}.${project.artifactId}/</url>
-		</site>
-	</distributionManagement>
+	<description>Supporting classes for CommonReality implementations.</description>
 
 	<dependencies>
 		<dependency>
@@ -33,14 +24,6 @@
 		<dependency>
 			<groupId>org.javolution</groupId>
 			<artifactId>javolution-core-java</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.commonreality</groupId>
-			<artifactId>api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.commonreality</groupId>
-			<artifactId>support</artifactId>
 		</dependency>
 	</dependencies>
 
