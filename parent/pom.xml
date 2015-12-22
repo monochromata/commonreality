@@ -97,7 +97,7 @@
 			<!-- Duplicates the dependencies also covered by the libs module -->
 			<dependency>
 				<groupId>commons-logging</groupId>
-				<artifactId>:commons-logging</artifactId>
+				<artifactId>commons-logging</artifactId>
 				<version>${commons.logging.version}</version>
 			</dependency>
 			<dependency>
