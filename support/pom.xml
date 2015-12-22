@@ -12,6 +12,14 @@
 	<version>${newVersion}</version>
 	<description>Supporting classes for CommonReality implementations.</description>
 
+	<distributionManagement>
+		<!-- TODO: downloadUrl -->
+		<site>
+			<id>ftp.monochromata.de</id>
+			<url>sftp://ftp.monochromata.de/webseiten/maven/sites/${project.groupId}.${project.artifactId}/</url>
+		</site>
+	</distributionManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>commons-logging</groupId>
