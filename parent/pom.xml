@@ -44,6 +44,9 @@
 		<docfilessubdirs>true</docfilessubdirs>
 		<!-- Include sources in JavaDoc -->
 		<linksource>true</linksource>
+		<!-- TODO: Update to commons-logging:commons-logging:1.2 -->
+		<commons.logging.version>1.1.1</commons.logging.version>
+		<javolution.core.java.version>6.0.0</javolution.core.java.version>
 		<mars-repo.url>http://download.eclipse.org/releases/mars</mars-repo.url>
 		<!-- TODO: Use a URL on commonreality.org -->
 		<commonreality.libs.repo.url>http://monochromata.de/eclipse/sites/org.commonreality.libs</commonreality.libs.repo.url>
@@ -88,6 +91,27 @@
 			<uniqueVersion>false</uniqueVersion>
 		</snapshotRepository>
 	</distributionManagement>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Duplicates the dependencies also covered by the libs module -->
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>:commons-logging</artifactId>
+				<version>${commons.logging.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.javolution</groupId>
+				<artifactId>javolution-core-java</artifactId>
+				<version>${javolution.core.java.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.commonreality</groupId>
+				<artifactId>api</artifactId>
+				<version>${newVersion}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<pluginManagement>
