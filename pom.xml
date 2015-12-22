@@ -47,6 +47,7 @@
 		<module>api</module>
 		<module>core</module>
 		<module>modalities</module>
+		<module>modalities.spatial</module>
 		<module>net</module>
 		<module>support</module>
 		<module>time</module>

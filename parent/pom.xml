@@ -128,6 +128,11 @@
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
+				<artifactId>modalities.spatial</artifactId>
+				<version>${newVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.commonreality</groupId>
 				<artifactId>net</artifactId>
 				<version>${newVersion}</version>
 			</dependency>
