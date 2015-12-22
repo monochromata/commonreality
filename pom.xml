@@ -46,6 +46,7 @@
 		<!-- TODO: Add further modules and make sure libs is deployed first ... -->
 		<module>api</module>
 		<module>core</module>
+		<module>modalities</module>
 		<module>net</module>
 		<module>support</module>
 		<module>time</module>
