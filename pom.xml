@@ -50,6 +50,7 @@
 		<module>modalities.spatial</module>
 		<module>net</module>
 		<module>sensors</module>
+		<module>sensors.base</module>
 		<module>support</module>
 		<module>time</module>
 	</modules>
