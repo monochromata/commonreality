@@ -49,6 +49,7 @@
 		<module>modalities</module>
 		<module>modalities.spatial</module>
 		<module>net</module>
+		<module>sensors</module>
 		<module>support</module>
 		<module>time</module>
 	</modules>
