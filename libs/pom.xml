@@ -169,8 +169,7 @@
 									<!-- Is already a bundle, hence no instructions are specified. -->
 								</artifact>
 								<artifact>
-									<!-- TODO: Update to org.apache.commons:commons-lang3:3.4 -->
-									<id>commons-lang:commons-lang:2.5</id>
+									<id>commons-lang:commons-lang:${commons.lang.version}</id>
 									<source>true</source>
 									<!-- Is already a bundle, hence no instructions are specified. -->
 								</artifact>
@@ -198,6 +197,62 @@
 								</artifact>
 								<artifact>
 									<id>org.mozilla:rhino:1.7.7</id>
+									<source>true</source>
+									<instructions>
+										<Import-Package>*</Import-Package>
+										<Export-Package>*</Export-Package>
+									</instructions>
+								</artifact>
+								<artifact>
+									<id>com.jcraft:jzlib:${jzlib.version}</id>
+									<source>true</source>
+									<instructions>
+										<Import-Package>*</Import-Package>
+										<Export-Package>*</Export-Package>
+									</instructions>
+								</artifact>
+								<artifact>
+									<id>org.slf4j:slf4j-api:${slf4j.version}</id>
+									<source>true</source>
+									<instructions>
+										<Import-Package>*</Import-Package>
+										<Export-Package>*</Export-Package>
+									</instructions>
+								</artifact>
+								<artifact>
+									<id>org.slf4j:slf4j-nop:${slf4j.version}</id>
+									<source>true</source>
+									<instructions>
+										<Import-Package>*</Import-Package>
+										<Export-Package>*</Export-Package>
+									</instructions>
+								</artifact>
+								<artifact>
+									<id>org.apache.mina:mina-core:${mina.version}</id>
+									<source>true</source>
+									<instructions>
+										<Import-Package>*</Import-Package>
+										<Export-Package>*</Export-Package>
+									</instructions>
+								</artifact>
+								<artifact>
+									<id>org.apache.mina:mina-filter-compression:${mina.version}</id>
+									<source>true</source>
+									<instructions>
+										<Import-Package>*</Import-Package>
+										<Export-Package>*</Export-Package>
+									</instructions>
+								</artifact>
+								<artifact>
+									<id>org.apache.mina:mina-statemachine:${mina.version}</id>
+									<source>true</source>
+									<instructions>
+										<Import-Package>*</Import-Package>
+										<Export-Package>*</Export-Package>
+									</instructions>
+								</artifact>
+								<artifact>
+									<id>org.apache.mina:mina-transport-apr:${mina.version}</id>
 									<source>true</source>
 									<instructions>
 										<Import-Package>*</Import-Package>
