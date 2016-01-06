@@ -52,6 +52,7 @@
 		<module>sensors</module>
 		<module>sensors.base</module>
 		<module>sensors.swing</module>
+		<module>sensors.xml</module>
 		<module>support</module>
 		<module>time</module>
 	</modules>
