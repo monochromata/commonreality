@@ -125,9 +125,39 @@
 				<version>${javolution.core.java.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.jcraft</groupId>
+				<groupId>com.jcraft</groupId>
 				<artifactId>jzlib</artifactId>
 				<version>${jzlib.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-nop</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.mina</groupId>
+				<artifactId>mina-core</artifactId>
+				<version>${mina.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.mina</groupId>
+				<artifactId>mina-filter-compression</artifactId>
+				<version>${mina.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.mina</groupId>
+				<artifactId>mina-statemachine</artifactId>
+				<version>${mina.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.mina</groupId>
+				<artifactId>mina-transport-apr</artifactId>
+				<version>${mina.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
@@ -137,6 +167,11 @@
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>core</artifactId>
+				<version>${newVersion}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.commonreality</groupId>
+				<artifactId>mina</artifactId>
 				<version>${newVersion}</version>
 			</dependency>
 			<dependency>
