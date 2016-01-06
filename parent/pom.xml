@@ -56,6 +56,7 @@
 		<slf4j.version>1.6.4</slf4j.version>
 		<!-- TODO: Update to latest version 3.0.0-M2 or 2.0.10 -->
 		<mina.version>2.0.4</mina.version>
+		<netty.version>5.0.0.Alpha2</netty.version>
 		<mars-repo.url>http://download.eclipse.org/releases/mars</mars-repo.url>
 		<!-- TODO: Use a URL on commonreality.org -->
 		<commonreality.libs.repo.url>http://monochromata.de/eclipse/sites/org.commonreality.libs</commonreality.libs.repo.url>
@@ -179,6 +180,36 @@
 						<artifactId>mina-core</artifactId>
 					</exclusion>
 				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-buffer</artifactId>
+				<version>${netty.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-codec</artifactId>
+				<version>${netty.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-common</artifactId>
+				<version>${netty.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-handler</artifactId>
+				<version>${netty.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-resolver</artifactId>
+				<version>${netty.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-transport</artifactId>
+				<version>${netty.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>

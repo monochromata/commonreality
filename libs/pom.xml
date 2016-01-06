@@ -247,6 +247,54 @@
 									<source>true</source>
 									<!-- Is already a bundle, hence no instructions are specified. -->
 								</artifact>
+								<artifact>
+									<id>io.netty:netty-buffer:${netty.version}</id>
+									<source>true</source>
+									<instructions>
+										<Import-Package>*</Import-Package>
+										<Export-Package>*</Export-Package>
+									</instructions>
+								</artifact>
+								<artifact>
+									<id>io.netty:netty-codec:${netty.version}</id>
+									<source>true</source>
+									<instructions>
+										<Import-Package>*</Import-Package>
+										<Export-Package>*</Export-Package>
+									</instructions>
+								</artifact>
+								<artifact>
+									<id>io.netty:netty-common:${netty.version}</id>
+									<source>true</source>
+									<instructions>
+										<Import-Package>*</Import-Package>
+										<Export-Package>*</Export-Package>
+									</instructions>
+								</artifact>
+								<artifact>
+									<id>io.netty:netty-handler:${netty.version}</id>
+									<source>true</source>
+									<instructions>
+										<Import-Package>*</Import-Package>
+										<Export-Package>*</Export-Package>
+									</instructions>
+								</artifact>
+								<artifact>
+									<id>io.netty:netty-resolver:${netty.version}</id>
+									<source>true</source>
+									<instructions>
+										<Import-Package>*</Import-Package>
+										<Export-Package>*</Export-Package>
+									</instructions>
+								</artifact>
+								<artifact>
+									<id>io.netty:netty-transport:${netty.version}</id>
+									<source>true</source>
+									<instructions>
+										<Import-Package>*</Import-Package>
+										<Export-Package>*</Export-Package>
+									</instructions>
+								</artifact>
 							</artifacts>
 							<!-- TODO: Ineffective until https://github.com/reficio/p2-maven-plugin/pull/75 
 								gets merged -->
