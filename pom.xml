@@ -50,6 +50,7 @@
 		<module>modalities</module>
 		<module>modalities.spatial</module>
 		<module>net</module>
+		<module>netty</module>
 		<module>sensors</module>
 		<module>sensors.base</module>
 		<module>sensors.swing</module>
