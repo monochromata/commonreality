@@ -148,16 +148,37 @@
 				<groupId>org.apache.mina</groupId>
 				<artifactId>mina-filter-compression</artifactId>
 				<version>${mina.version}</version>
+				<exclusions>
+					<exclusion>
+						<!-- Exclude this, because the type=bundle is specified, which is not available via Maven. -->
+						<groupId>org.apache.mina</groupId>
+						<artifactId>mina-core</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.mina</groupId>
 				<artifactId>mina-statemachine</artifactId>
 				<version>${mina.version}</version>
+				<exclusions>
+					<exclusion>
+						<!-- Exclude this, because the type=bundle is specified, which is not available via Maven. -->
+						<groupId>org.apache.mina</groupId>
+						<artifactId>mina-core</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.mina</groupId>
 				<artifactId>mina-transport-apr</artifactId>
 				<version>${mina.version}</version>
+				<exclusions>
+					<exclusion>
+						<!-- Exclude this, because the type=bundle is specified, which is not available via Maven. -->
+						<groupId>org.apache.mina</groupId>
+						<artifactId>mina-core</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
