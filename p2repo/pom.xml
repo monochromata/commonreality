@@ -10,7 +10,8 @@
 	<groupId>org.commonreality</groupId>
 	<artifactId>libs</artifactId>
 	<version>${newVersion}</version>
-	<description>Creates a P2 repository (a.k.a. update site) with dependencies of bundles in group org.commonreality.</description>
+	<description>Creates a P2 repository (a.k.a. update site) that provides the Maven artifacts in
+	the group org.commonreality and their dependencies as Eclipse plugins.</description>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -22,7 +23,9 @@
 		<license>
 			<name>GNU Lesser General Public License</name>
 			<url>http://www.gnu.org/licenses/lgpl-3.0.en.html</url>
-			<comments>Note that this license applies to the Maven files that create the p2 repository only, but not to the contents of the repository!</comments>
+			<comments>Note that this license applies to the Maven files that create the p2 repository and
+			to the Maven artifacts in the org.commonreality group, but not necessarily to the dependencies
+			also provided by p2 repository!</comments>
 		</license>
 	</licenses>
 
@@ -32,6 +35,67 @@
 			<url>http://repo.reficio.org/maven/</url>
 		</pluginRepository>
 	</pluginRepositories>
+
+	<!-- Dependencies are only listed to have p2repo built after all projects 
+		included in it. -->
+	<dependencies>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>mina</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>modalities</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>modalities.spatial</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>net</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>netty</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>sensors</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>sensors.base</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>sensors.swing</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>sensors.xml</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>support</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>tests</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>time</artifactId>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -71,7 +135,8 @@
 						<configuration>
 							<pedantic>true</pedantic>
 							<artifacts>
-								<!-- Duplicates the dependencies from the dependenciesManagement section of the parent POM -->
+								<!-- Duplicates the dependencies from the dependenciesManagement 
+									section of the parent POM -->
 								<artifact>
 									<id>junit:junit:4.12</id>
 									<source>true</source>
@@ -271,6 +336,33 @@
 									<source>true</source>
 									<!-- Is already a bundle, hence no instructions are specified. -->
 								</artifact>
+								<artifact>
+									<id>org.commonreality:api:${newVersion}</id>
+									<source>true</source>
+									<instructions>
+									<Bundle-ManifestVersion>2</Bundle-ManifestVersion>
+									<Bundle-Name>CommonReality API</Bundle-Name>
+									<Bundle-SymbolicName>org.commonreality.api;singleton:=true</Bundle-SymbolicName>
+									<Bundle-Version>${newVersion}</Bundle-Version>
+									<Bundle-RequiredExecutionEnvironment>JavaSE-1.8</Bundle-RequiredExecutionEnvironment>
+									<Export-Package>*</Export-Package>
+									<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
+									<Bundle-ClassPath>.</Bundle-ClassPath>
+									</instructions>
+								</artifact>
+<!-- 								core -->
+<!-- 								mina -->
+<!-- 								modalities -->
+<!-- 								modalities.spatial -->
+<!-- 								net -->
+<!-- 								netty -->
+<!-- 								sensors -->
+<!-- 								sensors.base -->
+<!-- 								sensors.swing -->
+<!-- 								sensors.xml -->
+<!-- 								support -->
+<!-- 								tests -->
+<!-- 								time -->
 							</artifacts>
 							<!-- TODO: Ineffective until https://github.com/reficio/p2-maven-plugin/pull/75 
 								gets merged -->
@@ -317,6 +409,11 @@
 										</artifact>
 									</artifacts>
 								</feature>
+								<!-- TODO: Add feature definitions for org.commonreality.core and 
+									org.commonreality.support (req: required, in: included) api - req:core core 
+									- in+req:core mina - req:core modalities - in:core modalities.spatial net 
+									- in+req:core netty sensors sensors.base sensors.swing sensors.xml support 
+									- req:core, in:support tests time - req:core -->
 							</featureDefinitions>
 						</configuration>
 					</execution>

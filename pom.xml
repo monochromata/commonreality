@@ -42,8 +42,6 @@
 	</scm>
 
 	<modules>
-		<!-- Note that libs is built separately up-front -->
-		<!-- TODO: Add further modules and make sure libs is deployed first ... -->
 		<module>api</module>
 		<module>core</module>
 		<module>mina</module>
@@ -58,6 +56,7 @@
 		<module>support</module>
 		<module>tests</module>
 		<module>time</module>
+		<module>p2repo</module>
 	</modules>
 
 	<build>
