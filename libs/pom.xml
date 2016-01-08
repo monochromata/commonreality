@@ -214,18 +214,12 @@
 								<artifact>
 									<id>org.slf4j:slf4j-api:${slf4j.version}</id>
 									<source>true</source>
-									<instructions>
-										<Import-Package>*</Import-Package>
-										<Export-Package>*</Export-Package>
-									</instructions>
+									<!-- Is already a bundle, hence no instructions are specified. -->
 								</artifact>
 								<artifact>
 									<id>org.slf4j:slf4j-nop:${slf4j.version}</id>
 									<source>true</source>
-									<instructions>
-										<Import-Package>*</Import-Package>
-										<Export-Package>*</Export-Package>
-									</instructions>
+									<!-- Is already a bundle, hence no instructions are specified. -->
 								</artifact>
 								<artifact>
 									<id>org.apache.mina:mina-core:${mina.version}</id>
