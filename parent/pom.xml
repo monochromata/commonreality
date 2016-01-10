@@ -60,13 +60,17 @@
 		<mina.version>2.0.4</mina.version>
 		<netty.version>5.0.0.Alpha2</netty.version>
 		<mars-repo.url>http://download.eclipse.org/releases/mars</mars-repo.url>
-		<!-- TODO: Use a URL on commonreality.org -->
-		<commonreality.p2repo.url>http://monochromata.de/eclipse/sites/org.commonreality.p2repo</commonreality.p2repo.url>
-		<commonreality.path>maven/releases/${project.groupId}</commonreality.path>
-		<!-- TODO: Use a URL on commonreality.org -->
-		<commonreality.repo.url>http://monochromata.de/${commonreality.path}</commonreality.repo.url>
-		<!-- TODO: Use a URL on commonreality.org -->
-		<commonreality.upload.url>sftp://ftp.monochromata.de/webseiten/${commonreality.path}</commonreality.upload.url>
+		<!-- TODO: Use commonreality.org -->
+		<commonreality.server>monochromata.de</commonreality.server>
+		<commonreality.ftp.server>ftp.${commonreality.server}</commonreality.ftp.server>
+		<commonreality.download.prefix>http://${commonreality.server}</commonreality.download.prefix>
+		<commonreality.upload.prefix>sftp://${commonreality.ftp.server}/webseiten</commonreality.upload.prefix>
+		<commonreality.p2repo.path>eclipse/sites/${project.groupId}</commonreality.p2repo.path>
+		<commonreality.p2repo.url>${commonreality.download.prefix}/${commonreality.p2repo.path></commonreality.p2repo.url>
+		<commonreality.p2repo.upload.url>${commonreality.upload.prefix}/${commonreality.p2repo.path></commonreality.p2repo.upload.url>
+		<commonreality.repo.path>maven/releases/${project.groupId}</commonreality.repo.path>
+		<commonreality.repo.url>${commonreality.download.prefix}/${commonreality.repo.path}</commonreality.repo.url>
+		<commonreality.repo.upload.url>${commonreality.upload.prefix}/${commonreality.repo.path}</commonreality.repo.upload.url>
 	</properties>
 
 	<!-- The repository contents constitute an implicit target platform definition. -->
@@ -76,11 +80,6 @@
 			<url>${mars-repo.url}</url>
 			<layout>p2</layout>
 		</repository>
-<!-- 		<repository> -->
-<!-- 			<id>commonreality-p2repo</id> -->
-<!-- 			<url>${commonreality.p2repo.url}</url> -->
-<!-- 			<layout>p2</layout> -->
-<!-- 		</repository> -->
 		<repository>
 			<id>commonreality-repo</id>
 			<url>${commonreality.repo.url}</url>
@@ -98,12 +97,12 @@
 	<distributionManagement>
 		<repository>
 			<id>release-repository</id>
-			<url>${commonreality.upload.url}</url>
+			<url>${commonreality.repo.upload.url}</url>
 		</repository>
 		<!-- TODO: there are no snapshots, actually -->
 		<snapshotRepository>
 			<id>snapshot-repository</id>
-			<url>${commonreality.upload.url}</url>
+			<url>${commonreality.repo.upload.url}</url>
 			<uniqueVersion>false</uniqueVersion>
 		</snapshotRepository>
 	</distributionManagement>
