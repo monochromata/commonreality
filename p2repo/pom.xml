@@ -341,7 +341,7 @@
 									<id>org.commonreality:api:${newVersion}</id>
 									<source>true</source>
 									<instructions>
-										<Bundle-ManifestVersion></Bundle-ManifestVersion>
+										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality API</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.api;singleton:=true</Bundle-SymbolicName>
 										<Bundle-Version>${newVersion}</Bundle-Version>
