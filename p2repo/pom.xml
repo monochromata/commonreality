@@ -341,17 +341,36 @@
 									<id>org.commonreality:api:${newVersion}</id>
 									<source>true</source>
 									<instructions>
-									<Bundle-ManifestVersion>2</Bundle-ManifestVersion>
-									<Bundle-Name>CommonReality API</Bundle-Name>
-									<Bundle-SymbolicName>org.commonreality.api;singleton:=true</Bundle-SymbolicName>
-									<Bundle-Version>${newVersion}</Bundle-Version>
-									<Bundle-RequiredExecutionEnvironment>JavaSE-1.8</Bundle-RequiredExecutionEnvironment>
-									<Export-Package>*</Export-Package>
-									<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
-									<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ManifestVersion></Bundle-ManifestVersion>
+										<Bundle-Name>CommonReality API</Bundle-Name>
+										<Bundle-SymbolicName>org.commonreality.api;singleton:=true</Bundle-SymbolicName>
+										<Bundle-Version>${newVersion}</Bundle-Version>
+										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
+										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
+										<Export-Package>*</Export-Package>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
+										<Bundle-ClassPath>.</Bundle-ClassPath>
 									</instructions>
 								</artifact>
-<!-- 								core -->
+								<artifact>
+									<id>org.commonreality:core:${newVersion}</id>
+									<source>true</source>
+									<instructions>
+										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
+										<Bundle-Name>Common Reality Plug-in</Bundle-Name>
+										<Bundle-SymbolicName>org.commonreality.core;singleton:=true</Bundle-SymbolicName>
+										<Bundle-Version>${newVersion}</Bundle-Version>
+										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
+										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
+										<Require-Bundle>org.commonreality.net;bundle-version="${newVersion}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.time;bundle-version="${newVersion}",org.commonreality.support;bundle-version="${newVersion}"</Require-Bundle>
+										<Export-Package>*</Export-Package>
+										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
+										<!-- TODO: List all required bundles as buddies? -->  
+										<Eclipse-RegisterBuddy>org.apache.log4j</Eclipse-RegisterBuddy>
+										<!-- TODO: Add a bundle activation policy? -->
+										<Bundle-ClassPath>.</Bundle-ClassPath>
+									</instructions>
+								</artifact>
 <!-- 								mina -->
 <!-- 								modalities -->
 <!-- 								modalities.spatial -->

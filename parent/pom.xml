@@ -71,6 +71,10 @@
 		<commonreality.repo.path>maven/releases/${project.groupId}</commonreality.repo.path>
 		<commonreality.repo.url>${commonreality.download.prefix}/${commonreality.repo.path}</commonreality.repo.url>
 		<commonreality.repo.upload.url>${commonreality.upload.prefix}/${commonreality.repo.path}</commonreality.repo.upload.url>
+		<!-- Bundle properties -->
+		<bundle.manifest.version>2</bundle.manifest.version>
+		<bundle.vendor>commonreality.org</bundle.vendor>
+		<bundle.required.execution.environment>JavaSE-1.8</bundle.required.execution.environment>
 	</properties>
 
 	<!-- The repository contents constitute an implicit target platform definition. -->
