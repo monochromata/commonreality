@@ -436,7 +436,7 @@
 						<configuration>
 							<fromDir>${project.build.directory}/repository</fromDir>
 							<includes>*/**</includes>
-							<serverId>commonreality.ftp.server</serverId>
+							<serverId>${commonreality.ftp.server}</serverId>
 							<url>${commonreality.p2repo.upload.url}</url>
 							<!-- <toDir></toDir> -->
 						</configuration>
