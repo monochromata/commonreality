@@ -76,10 +76,14 @@
 			<url>${mars-repo.url}</url>
 			<layout>p2</layout>
 		</repository>
+<!-- 		<repository> -->
+<!-- 			<id>commonreality-p2repo</id> -->
+<!-- 			<url>${commonreality.p2repo.url}</url> -->
+<!-- 			<layout>p2</layout> -->
+<!-- 		</repository> -->
 		<repository>
-			<id>commonreality-p2repo</id>
-			<url>${commonreality.p2repo.url}</url>
-			<layout>p2</layout>
+			<id>commonreality-repo</id>
+			<url>${commonreality.repo.url}</url>
 		</repository>
 	</repositories>
 
