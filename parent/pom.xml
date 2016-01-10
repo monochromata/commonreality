@@ -66,8 +66,8 @@
 		<commonreality.download.prefix>http://${commonreality.server}</commonreality.download.prefix>
 		<commonreality.upload.prefix>sftp://${commonreality.ftp.server}/webseiten</commonreality.upload.prefix>
 		<commonreality.p2repo.path>eclipse/sites/${project.groupId}</commonreality.p2repo.path>
-		<commonreality.p2repo.url>${commonreality.download.prefix}/${commonreality.p2repo.path></commonreality.p2repo.url>
-		<commonreality.p2repo.upload.url>${commonreality.upload.prefix}/${commonreality.p2repo.path></commonreality.p2repo.upload.url>
+		<commonreality.p2repo.url>${commonreality.download.prefix}/${commonreality.p2repo.path}</commonreality.p2repo.url>
+		<commonreality.p2repo.upload.url>${commonreality.upload.prefix}/${commonreality.p2repo.path}</commonreality.p2repo.upload.url>
 		<commonreality.repo.path>maven/releases/${project.groupId}</commonreality.repo.path>
 		<commonreality.repo.url>${commonreality.download.prefix}/${commonreality.repo.path}</commonreality.repo.url>
 		<commonreality.repo.upload.url>${commonreality.upload.prefix}/${commonreality.repo.path}</commonreality.repo.upload.url>
