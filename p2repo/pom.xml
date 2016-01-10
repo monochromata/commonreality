@@ -340,10 +340,11 @@
 								<artifact>
 									<id>org.commonreality:api:${newVersion}</id>
 									<source>true</source>
+									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality API</Bundle-Name>
-										<Bundle-SymbolicName>org.commonreality.api;singleton:=true</Bundle-SymbolicName>
+										<Bundle-SymbolicName>org.commonreality.api</Bundle-SymbolicName>
 										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
@@ -355,10 +356,11 @@
 								<artifact>
 									<id>org.commonreality:core:${newVersion}</id>
 									<source>true</source>
+									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>Common Reality Plug-in</Bundle-Name>
-										<Bundle-SymbolicName>org.commonreality.core;singleton:=true</Bundle-SymbolicName>
+										<Bundle-SymbolicName>org.commonreality.core</Bundle-SymbolicName>
 										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
