@@ -61,7 +61,7 @@
 		<netty.version>5.0.0.Alpha2</netty.version>
 		<mars-repo.url>http://download.eclipse.org/releases/mars</mars-repo.url>
 		<!-- TODO: Use a URL on commonreality.org -->
-		<commonreality.libs.repo.url>http://monochromata.de/eclipse/sites/org.commonreality.libs</commonreality.libs.repo.url>
+		<commonreality.p2repo.url>http://monochromata.de/eclipse/sites/org.commonreality.p2repo</commonreality.p2repo.url>
 		<commonreality.path>maven/releases/${project.groupId}</commonreality.path>
 		<!-- TODO: Use a URL on commonreality.org -->
 		<commonreality.repo.url>http://monochromata.de/${commonreality.path}</commonreality.repo.url>
@@ -77,8 +77,8 @@
 			<layout>p2</layout>
 		</repository>
 		<repository>
-			<id>commonreality-libs</id>
-			<url>${commonreality.libs.repo.url}</url>
+			<id>commonreality-p2repo</id>
+			<url>${commonreality.p2repo.url}</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>
