@@ -537,7 +537,6 @@ public abstract class AbstractParticipant extends ThinParticipant implements
       }
       catch (Exception e)
       {
-        // TODO Auto-generated catch block
         LOGGER.error("AbstractParticipant.send threw Exception : ", e);
       }
     }
