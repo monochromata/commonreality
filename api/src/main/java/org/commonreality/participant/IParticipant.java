@@ -164,8 +164,8 @@ public interface IParticipant extends IIdentifiable
    * send a message to common reality. If the message is an {@link IRequest} the
    * {@link Future} will contain the {@link IAcknowledgement} message. If the
    * message is not an {@link IRequest}, the {@link Future} will contain null
-   * <br>
-   * This is usually used to send object data and commands. The typical pattern
+   * 
+   * <p>This is usually used to send object data and commands. The typical pattern
    * is to send the {@link ObjectDataRequest} followed by the
    * {@link ObjectCommandRequest} to commit the new data. While the underlying
    * communications will ensure in order delivery, that delivery is dependent
@@ -175,7 +175,7 @@ public interface IParticipant extends IIdentifiable
    * the command request on another. Since the encoding of the data will
    * typically take longer, the command may arrive before the data. If you use
    * this model, you should probably wait for the acknowledgment of the data
-   * transmission before sending the command.
+   * transmission before sending the command.</p>
    * 
    * @param message
    * @return
