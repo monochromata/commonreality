@@ -452,8 +452,29 @@
 										<Bundle-ClassPath>.</Bundle-ClassPath>
 									</instructions>
 								</artifact>
+								<artifact>
+									<id>org.commonreality:netty:${newVersion}</id>
+									<source>true</source>
+									<singleton>true</singleton>
+									<instructions>
+										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
+										<Bundle-Name>CommonReality networking based on netty.io</Bundle-Name>
+										<Bundle-SymbolicName>org.commonreality.netty</Bundle-SymbolicName>
+										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
+										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
+										<!-- Keep in sync with dependencies in netty POM. -->
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.net;bundle-version="${newVersion}",org.commonreality.support;bundle-version="${newVersion}",io.netty.buffer;bundle-version="${netty.version}",io.netty.codec;bundle-version="${netty.version}",io.netty.common;bundle-version="${netty.version}",io.netty.handler;bundle-version="${netty.version}",io.netty.resolver;bundle-version="${netty.version}",io.netty.transport;bundle-version="${netty.version}"</Require-Bundle>
+										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
+										<!-- TODO: List all required bundles as buddies? -->
+										<!-- TODO: log4j is actually not listed as required ... -->
+										<Eclipse-RegisterBuddy>commons-logging,org.commonreality.net,org.commonreality.support</Eclipse-RegisterBuddy> 
+										<Export-Package>*</Export-Package>
+										<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
+									</instructions>
+								</artifact>
 
-<!-- 								netty -->
 <!-- 								sensors -->
 <!-- 								sensors.base -->
 <!-- 								sensors.swing -->

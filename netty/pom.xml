@@ -20,6 +20,7 @@
 		</site>
 	</distributionManagement>
 
+	<!-- Keep in sync with Require-Bundle attribute for netty in p2repo POM. -->
 	<dependencies>
 		<dependency>
 			<groupId>commons-logging</groupId>
