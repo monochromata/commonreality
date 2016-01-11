@@ -36,11 +36,11 @@ import org.commonreality.time.IClock;
  * configure()<br>
  * initialize()<br>
  * start()<br>
- * suspend() & resume() <br>
+ * suspend(); resume() <br>
  * stop() <br>
  * reset() <br>
  * start()<br>
- * suspend() & resume() <br>
+ * suspend(); resume() <br>
  * stop() <br>
  * shutdown() <br>
  * 
@@ -161,13 +161,15 @@ public interface IParticipant extends IIdentifiable
   public void disconnect(boolean force) throws Exception;
 
   /**
-   * send a message to common reality. If the message is an {@link IRequest} the
+   * Send a message to common reality. If the message is an
+   * {@code org.commonreality.net.message.request.IRequest} the
    * {@link Future} will contain the {@link IAcknowledgement} message. If the
-   * message is not an {@link IRequest}, the {@link Future} will contain null
+   * message is not an {@code org.commonreality.net.message.request.IRequest},
+   * the {@link Future} will contain null.  
    * 
    * <p>This is usually used to send object data and commands. The typical pattern
-   * is to send the {@link ObjectDataRequest} followed by the
-   * {@link ObjectCommandRequest} to commit the new data. While the underlying
+   * is to send the {@code org.commonreality.net.message.request.object.ObjectDataRequest} followed by the
+   * {@code org.commonreality.net.message.request.code.ObjectCommandRequest} to commit the new data. While the underlying
    * communications will ensure in order delivery, that delivery is dependent
    * not upon the order of send commands, rather the order in which the messages
    * are transformed to a sendable representation (i.e. stream of bytes). This
@@ -176,6 +178,12 @@ public interface IParticipant extends IIdentifiable
    * typically take longer, the command may arrive before the data. If you use
    * this model, you should probably wait for the acknowledgment of the data
    * transmission before sending the command.</p>
+   * 
+   * <p>TODO: The specification of the behaviour that requires reference to
+   * {@code IRequest}, {@code ObjectDataRequest} and {@lcode ObjectCommandRequest}
+   * might be moved to {@code AbstractParticipant} in the {@code net} sub-project
+   * since the {@code api} sub-project does not depend on the {@code net}
+   * sub-project and therefore might better not depend on it via JavaDoc references.</p>
    * 
    * @param message
    * @return

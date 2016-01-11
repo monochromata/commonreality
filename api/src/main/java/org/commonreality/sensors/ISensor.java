@@ -26,7 +26,7 @@ import org.commonreality.reality.IReality;
  * {@link IReality} are permitted to create objects. In order to create objects,
  * the sensor should use {@link IRequestableEfferentObjectManager} and
  * {@link IRequestableAfferentObjectManager} to request new object instances.
- * For more details, see {@link XMLSensor}
+ * For more details, see {@code org.commonreality.sensors.xml.XMLSensor}
  * 
  * @author developer
  */
