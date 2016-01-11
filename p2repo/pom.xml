@@ -359,21 +359,41 @@
 									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
-										<Bundle-Name>Common Reality Plug-in</Bundle-Name>
+										<Bundle-Name>CommonReality core implementation</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.core</Bundle-SymbolicName>
 										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
+										<!-- Needs to be kept in sync with dependencies of core/ -->
 										<Require-Bundle>org.commonreality.net;bundle-version="${newVersion}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.time;bundle-version="${newVersion}",org.commonreality.support;bundle-version="${newVersion}"</Require-Bundle>
 										<Export-Package>*</Export-Package>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
-										<!-- TODO: List all required bundles as buddies? -->  
+										<!-- TODO: List all required bundles as buddies? -->
+										<!-- TODO: log4j is actually not listed as required ... -->
 										<Eclipse-RegisterBuddy>org.apache.log4j</Eclipse-RegisterBuddy>
 										<!-- TODO: Add a bundle activation policy? -->
 										<Bundle-ClassPath>.</Bundle-ClassPath>
 									</instructions>
 								</artifact>
-<!-- 								mina -->
+								<artifact>
+									<id>org.commonreality:mina:${newVersion}</id>
+									<source>true</source>
+									<singleton>true</singleton>
+									<instructions>
+										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
+										<Bundle-Name>CommonReality networking based on Apache Mina</Bundle-Name>
+										<Bundle-SymbolicName>org.commonreality.mina</Bundle-SymbolicName>
+										<Bundle-Version>${newVersion}</Bundle-Version>
+										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
+										<!-- Needs to be kept in sync with dependencies of mina/ -->
+										<Require-Bundle>org.commonreality.net;bundle-version="${newVersion}",commons-logging;bundle-version="${commons.logging.version}",com.jcraft.jzlib;bundle-version="${jzlib.version}",slf4j.api;bundle-version="${slf4j.version}",slf4j.nop;bundle-version="${slf4j.version}",org.apache.mina.core;bundle-version="${mina.version}",org.apache.mina.filter.compression;bundle-version="${mina.version}",org.apache.mina.statemachine;bundle-version="${mina.version}",org.apache.mina.transport.apr;bundle-version="${mina.version}"</Require-Bundle>
+										<Export-Package>org.commonreality.mina,org.commonreality.mina.protocol,org.commonreality.mina.service,org.commonreality.mina.transport</Export-Package>
+										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
+										<!-- TODO: List all required bundles as buddies? -->
+										<Eclipse-RegisterBuddy>org.commonreality.net</Eclipse-RegisterBuddy>
+										<Bundle-ClassPath>.</Bundle-ClassPath>
+									</instructions>
+								</artifact>
 <!-- 								modalities -->
 <!-- 								modalities.spatial -->
 <!-- 								net -->

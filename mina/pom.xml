@@ -20,6 +20,7 @@
 		</site>
 	</distributionManagement>
 
+	<!-- Need to be kepts in sync with Require-Bundle attribute for mina/ in p2repo -->
 	<dependencies>
 		<dependency>
 			<groupId>commons-logging</groupId>
