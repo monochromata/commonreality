@@ -21,6 +21,7 @@
 		</site>
 	</distributionManagement>
 
+	<!-- Need to be kept in sync with Require-Bundle attribute of modalities/ in p2repo -->
 	<dependencies>
 		<dependency>
 			<groupId>commons-logging</groupId>

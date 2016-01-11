@@ -385,16 +385,34 @@
 										<Bundle-SymbolicName>org.commonreality.mina</Bundle-SymbolicName>
 										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
+										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Needs to be kept in sync with dependencies of mina/ -->
 										<Require-Bundle>org.commonreality.net;bundle-version="${newVersion}",commons-logging;bundle-version="${commons.logging.version}",com.jcraft.jzlib;bundle-version="${jzlib.version}",slf4j.api;bundle-version="${slf4j.version}",slf4j.nop;bundle-version="${slf4j.version}",org.apache.mina.core;bundle-version="${mina.version}",org.apache.mina.filter.compression;bundle-version="${mina.version}",org.apache.mina.statemachine;bundle-version="${mina.version}",org.apache.mina.transport.apr;bundle-version="${mina.version}"</Require-Bundle>
-										<Export-Package>org.commonreality.mina,org.commonreality.mina.protocol,org.commonreality.mina.service,org.commonreality.mina.transport</Export-Package>
+										<Export-Package>*</Export-Package>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<!-- TODO: List all required bundles as buddies? -->
 										<Eclipse-RegisterBuddy>org.commonreality.net</Eclipse-RegisterBuddy>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
 									</instructions>
 								</artifact>
-<!-- 								modalities -->
+								<artifact>
+									<id>org.commonreality:modalities:${newVersion}</id>
+									<source>true</source>
+									<singleton>true</singleton>
+									<instructions>
+										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
+										<Bundle-Name>CommonReality modalities</Bundle-Name>
+										<Bundle-SymbolicName>org.commonreality.modalities</Bundle-SymbolicName>
+										<Bundle-Version>${newVersion}</Bundle-Version>
+										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
+										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
+										<!-- Needs to be kept in sync with dependencies in modalities/ -->
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.core;bundle-version="${newVersion}"</Require-Bundle>
+										<!-- TODO: Use the buddy mechanism, too? -->
+										<Export-Package>*</Export-Package>
+										<Bundle-ClassPath>.</Bundle-ClassPath>
+									</instructions>
+								</artifact>
 <!-- 								modalities.spatial -->
 <!-- 								net -->
 <!-- 								netty -->
