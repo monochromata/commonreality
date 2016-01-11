@@ -20,6 +20,7 @@
 		</site>
 	</distributionManagement>
 
+	<!-- Keep in sync with Require-Bundle attribute for sensors.xml in p2repo POM. -->
 	<dependencies>
 		<dependency>
 			<groupId>commons-logging</groupId>
@@ -28,12 +29,10 @@
 		<dependency>
 			<groupId>org.javolution</groupId>
 			<artifactId>javolution</artifactId>
-			<version>${javolution.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.javolution</groupId>
 			<artifactId>javolution-core-java</artifactId>
-			<version>${javolution.core.java.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.commonreality</groupId>
