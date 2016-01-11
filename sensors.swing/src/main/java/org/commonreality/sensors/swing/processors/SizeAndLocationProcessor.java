@@ -26,8 +26,8 @@ import org.commonreality.sensors.swing.key.AWTObjectKey;
  * size of arbitrary JComponents using the physical screen width & height and
  * viewers distance (in meters)
  * 
- * @bug does not handled multiple monitors correctly.
- * @bug we probably need to attach listeners to the parents all the way up to
+ * TODO: (BUG) does not handled multiple monitors correctly.
+ * TODO: (BUG) we probably need to attach listeners to the parents all the way up to
  *      the root so that we know when they move, which will change the location
  *      of the children
  * @author harrison

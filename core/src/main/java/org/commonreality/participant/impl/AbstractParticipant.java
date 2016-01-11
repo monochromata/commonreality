@@ -416,7 +416,7 @@ public abstract class AbstractParticipant extends ThinParticipant implements
   }
 
   /**
-   * @bug this starts all services in a random order. it should be server first
+   * TODO: (BUG) this starts all services in a random order. it should be server first
    *      then clients to avoid deadlock in complex configurations
    * @see org.commonreality.participant.IParticipant#connect()
    */
