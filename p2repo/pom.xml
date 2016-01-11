@@ -516,8 +516,28 @@
 										<Bundle-ClassPath>.</Bundle-ClassPath>
 									</instructions>
 								</artifact>
+								<artifact>
+									<id>org.commonreality:sensors.swing:${newVersion}</id>
+									<source>true</source>
+									<singleton>true</singleton>
+									<instructions>
+										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
+										<Bundle-Name>CommonReality Swing sensor</Bundle-Name>
+										<Bundle-SymbolicName>org.commonreality.sensors.swing</Bundle-SymbolicName>
+										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
+										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
+										<!-- Keep in sync with dependencies in sensors.swing POM. -->
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.modalities;bundle-version="${newVersion}",org.commonreality.sensors;bundle-version="${newVersion}",org.commonreality.sensors.base;bundle-version="${newVersion}"</Require-Bundle> 
+										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
+										<!-- TODO: List all required bundles as buddies? -->
+										<!-- TODO: log4j is actually not listed as required ... -->
+										<Eclipse-RegisterBuddy>org.apache.log4j</Eclipse-RegisterBuddy> 
+										<Export-Package>*</Export-Package>
+										<Bundle-ClassPath>.</Bundle-ClassPath>
+									</instructions>
+								</artifact>
 
-<!-- 								sensors.swing -->
 <!-- 								sensors.xml -->
 <!-- 								support -->
 <!-- 								tests -->
