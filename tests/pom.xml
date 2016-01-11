@@ -20,7 +20,7 @@
 		</site>
 	</distributionManagement>
 
-	<!-- Keep in sync with Require-Bundle attribute for tests in p2repo POM. -->
+	<!-- Keep in sync with RequireBundle and RegisterBuddy attributes for tests in p2repo POM. -->
 	<dependencies>
 		<dependency>
 			<groupId>org.jmock</groupId>

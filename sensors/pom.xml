@@ -21,7 +21,7 @@
 		</site>
 	</distributionManagement>
 
-	<!-- Keep in sync with Require-Bundle attribute of sensors in p2repo POM. -->
+	<!-- Keep in sync with RequireBundle and RegisterBuddy attributes of sensors in p2repo POM. -->
 	<dependencies>
 		<dependency>
 			<groupId>org.commonreality</groupId>

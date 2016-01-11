@@ -349,8 +349,8 @@
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<Export-Package>*</Export-Package>
-										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 									</instructions>
 								</artifact>
 								<artifact>
@@ -366,13 +366,11 @@
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Needs to be kept in sync with dependencies in core POM -->
 										<Require-Bundle>org.commonreality.net;bundle-version="${newVersion}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.time;bundle-version="${newVersion}",org.commonreality.support;bundle-version="${newVersion}"</Require-Bundle>
-										<Export-Package>*</Export-Package>
+										<Eclipse-RegisterBuddy>org.commonreality.net,org.commonreality.api,org.commonreality.time,org.commonreality.support</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
-										<!-- TODO: List all required bundles as buddies? -->
-										<!-- TODO: log4j is actually not listed as required ... -->
-										<Eclipse-RegisterBuddy>org.apache.log4j</Eclipse-RegisterBuddy>
-										<!-- TODO: Add a bundle activation policy? -->
+										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 									</instructions>
 								</artifact>
 								<artifact>
@@ -388,11 +386,11 @@
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Needs to be kept in sync with dependencies in mina POM -->
 										<Require-Bundle>org.commonreality.net;bundle-version="${newVersion}",commons-logging;bundle-version="${commons.logging.version}",com.jcraft.jzlib;bundle-version="${jzlib.version}",slf4j.api;bundle-version="${slf4j.version}",slf4j.nop;bundle-version="${slf4j.version}",org.apache.mina.core;bundle-version="${mina.version}",org.apache.mina.filter.compression;bundle-version="${mina.version}",org.apache.mina.statemachine;bundle-version="${mina.version}",org.apache.mina.transport.apr;bundle-version="${mina.version}"</Require-Bundle>
-										<Export-Package>*</Export-Package>
+										<Eclipse-RegisterBuddy>org.commonreality.net,commons-logging,com.jcraft.jzlib,slf4j.api,slf4j.nop,org.apache.mina.core,org.apache.mina.filter.compression,org.apache.mina.statemachine,org.apache.mina.transport.apr</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
-										<!-- TODO: List all required bundles as buddies? -->
-										<Eclipse-RegisterBuddy>org.commonreality.net</Eclipse-RegisterBuddy>
+										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 									</instructions>
 								</artifact>
 								<artifact>
@@ -408,9 +406,11 @@
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Needs to be kept in sync with dependencies in modalities POM -->
 										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.core;bundle-version="${newVersion}"</Require-Bundle>
-										<!-- TODO: Use the buddy mechanism, too? -->
+										<Eclipse-RegisterBuddy>commons-logging,org.commonreality.api,org.commonreality.core</Eclipse-RegisterBuddy>
+										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 									</instructions>
 								</artifact>
 								<artifact>
@@ -426,9 +426,11 @@
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Needs to be kept in sync with dependencies in modalities.spatial POM -->
 										<Require-Bundle>org.commonreality.api;bundle-version="${newVersion}",org.commonreality.modalities;bundle-version="${newVersion}",org.commonreality.core;bundle-version="${newVersion}"</Require-Bundle>
-										<!-- TODO: Use the buddy mechanism, too? -->
+										<Eclipse-RegisterBuddy>org.commonreality.api,org.commonreality.modalities,org.commonreality.core</Eclipse-RegisterBuddy>
+										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 									</instructions>
 								</artifact>
 								<artifact>
@@ -444,12 +446,11 @@
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in net POM -->
 										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${newVersion}"</Require-Bundle>
-										<Export-Package>*</Export-Package>
+										<Eclipse-RegisterBuddy>commons-logging,org.commonreality.api</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
-										<!-- TODO: List all required bundles as buddies? -->
-										<!-- TODO: CR.core and log4j are actually not listed as required ... -->
-										<Eclipse-RegisterBuddy>org.apache.log4j, org.commonreality.core</Eclipse-RegisterBuddy>
+										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 									</instructions>
 								</artifact>
 								<artifact>
@@ -465,10 +466,8 @@
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in netty POM. -->
 										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.net;bundle-version="${newVersion}",org.commonreality.support;bundle-version="${newVersion}",io.netty.buffer;bundle-version="${netty.version}",io.netty.codec;bundle-version="${netty.version}",io.netty.common;bundle-version="${netty.version}",io.netty.handler;bundle-version="${netty.version}",io.netty.resolver;bundle-version="${netty.version}",io.netty.transport;bundle-version="${netty.version}"</Require-Bundle>
-										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
-										<!-- TODO: List all required bundles as buddies? -->
-										<!-- TODO: log4j is actually not listed as required ... -->
-										<Eclipse-RegisterBuddy>commons-logging,org.commonreality.net,org.commonreality.support</Eclipse-RegisterBuddy> 
+										<Eclipse-RegisterBuddy>commons-logging,org.commonreality.net,org.commonreality.support,io.netty.buffer,io.netty.codec,io.netty.common,io.netty.handler,io.netty.resolverio.netty.transport</Eclipse-RegisterBuddy>
+										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy> 
 										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
 										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
@@ -487,12 +486,11 @@
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in sensors POM. -->
 										<Require-Bundle>org.commonreality.api;bundle-version="${newVersion}",org.commonreality.core;bundle-version="${newVersion}",org.commonreality.modalities;bundle-version="${newVersion}",org.commonreality.net;bundle-version="${newVersion}",org.commonreality.time;bundle-version="${newVersion}"</Require-Bundle>
+										<Eclipse-RegisterBuddy>org.commonreality.api,org.commonreality.core,org.commonreality.modalities,org.commonreality.net,org.commonreality.time</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
-										<!-- TODO: List all required bundles as buddies? -->
-										<!-- TODO: log4j is actually not listed as required ... -->
-										<Eclipse-RegisterBuddy>org.commonreality.core,org.apache.log4j</Eclipse-RegisterBuddy>
 										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 									</instructions>
 								</artifact>
 								<artifact>
@@ -508,12 +506,11 @@
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in sensors.base POM. -->
 										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core.java;bundle-version="${javolution.core.java.version}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.core;bundle-version="${newVersion}",org.commonreality.net;bundle-version="${newVersion}",org.commonreality.time;bundle-version="${newVersion}"</Require-Bundle>
+										<Eclipse-RegisterBuddy>commons-logging,org.javolution,org.javolution.core.java,org.commonreality.api,org.commonreality.core,org.commonreality.net,org.commonreality.time</Eclipse-RegisterBuddy> 
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
-										<!-- TODO: List all required bundles as buddies? -->
-										<!-- TODO: log4j is actually not listed as required ... -->
-										<Eclipse-RegisterBuddy>org.commonreality.core, org.apache.log4j</Eclipse-RegisterBuddy> 
 										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 									</instructions>
 								</artifact>
 								<artifact>
@@ -529,12 +526,11 @@
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in sensors.swing POM. -->
 										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.modalities;bundle-version="${newVersion}",org.commonreality.sensors;bundle-version="${newVersion}",org.commonreality.sensors.base;bundle-version="${newVersion}"</Require-Bundle> 
+										<Eclipse-RegisterBuddy>commons-logging,org.commonreality.api,org.commonreality.modalities,org.commonreality.sensors,org.commonreality.sensors.base</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
-										<!-- TODO: List all required bundles as buddies? -->
-										<!-- TODO: log4j is actually not listed as required ... -->
-										<Eclipse-RegisterBuddy>org.apache.log4j</Eclipse-RegisterBuddy> 
 										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 									</instructions>
 								</artifact>
 								<artifact>
@@ -550,12 +546,11 @@
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in sensors.xml POM. -->
 										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core-java;bundle-version="${javolution.core.java.version}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.core;bundle-version="${newVersion}",org.commonreality.modalities;bundle-version="${newVersion}",org.commonreality.net;bundle-version="${newVersion}",org.commonreality.sensors;bundle-version="${newVersion}",org.commonreality.sensors.base;bundle-version="${newVersion}",org.commonreality.time;bundle-version="${newVersion}"</Require-Bundle>
-										<Export-Package>*</Export-Package>
+										<Eclipse-RegisterBuddy>commons-logging,org.javolution,org.javolution.core-java,org.commonreality.api,org.commonreality.core,org.commonreality.modalities,org.commonreality.net,org.commonreality.sensors,org.commonreality.sensors.base,org.commonreality.time</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
-										<!-- TODO: List all required bundles as buddies? -->
-										<!-- TODO: log4j is actually not listed as required ... -->
-										<Eclipse-RegisterBuddy>org.commonreality.core, org.apache.log4j</Eclipse-RegisterBuddy>
+										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 									</instructions>
 								</artifact>
 								<artifact>
@@ -571,8 +566,11 @@
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in support POM. -->
 										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core-java;bundle-version="${javolution.core.java.version}"</Require-Bundle>
+										<Eclipse-RegisterBuddy>commons-logging,org.javolution,org.javolution.core-java</Eclipse-RegisterBuddy>
+										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 									</instructions>
 								</artifact>
 								<artifact>
@@ -588,12 +586,11 @@
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in tests POM. -->
 										<Require-Bundle>org.jmock.junit4;bundle-version="${jmock.version}",org.jqno.equalsverifier;bundle-version="${equalsverifier.version}",commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.core;bundle-version="${newVersion}",org.commonreality.mina;bundle-version="${newVersion}",org.commonreality.net;bundle-version="${newVersion}",org.commonreality.netty;bundle-version="${newVersion}",org.commonreality.time;bundle-version="${newVersion}"</Require-Bundle>
-										<Export-Package>*</Export-Package>
+										<Eclipse-RegisterBuddy>org.jmock.junit4,org.jqno.equalsverifier,commons-logging,org.commonreality.api,org.commonreality.core,org.commonreality.mina,org.commonreality.net,org.commonreality.netty,org.commonreality.time</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
-										<!-- TODO: List all required bundles as buddies? -->
-										<!-- TODO: log4j is actually not listed as required ... -->
-										<Eclipse-RegisterBuddy>org.apache.log4j</Eclipse-RegisterBuddy>
-										<Bundle-ClassPath>.</Bundle-ClassPath> 
+										<Export-Package>*</Export-Package>
+										<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
 									</instructions>
 								</artifact>
 								<artifact>
@@ -608,7 +605,9 @@
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in time POM. -->
-										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core-java;bundle-version="${javolution.core.java.version}"org.commonreality.api;bundle-version="${newVersion}",org.commonreality.support;bundle-version="${newVersion}"</Require-Bundle>
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core-java;bundle-version="${javolution.core.java.version}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.support;bundle-version="${newVersion}"</Require-Bundle>
+										<Eclipse-RegisterBuddy>commons-logging,org.javolution,org.javolution.core-java,org.commonreality.api,org.commonreality.support</Eclipse-RegisterBuddy>
+										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
 										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>

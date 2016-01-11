@@ -19,7 +19,7 @@
 		</site>
 	</distributionManagement>
 		
-	<!-- Needs to be kept in sync with Require-Bundle attribute for core/ in p2repo -->
+	<!-- Needs to be kept in sync with RequireBundle and RegisterBuddy attributes for core/ in p2repo -->
 	<dependencies>
 		<dependency>
 			<groupId>org.commonreality</groupId>
