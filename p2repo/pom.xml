@@ -495,8 +495,28 @@
 										<Bundle-ClassPath>.</Bundle-ClassPath>
 									</instructions>
 								</artifact>
+								<artifact>
+									<id>org.commonreality:sensors.base:${newVersion}</id>
+									<source>true</source>
+									<singleton>true</singleton>
+									<instructions>
+										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
+										<Bundle-Name>CommonReality sensor base classes</Bundle-Name>
+										<Bundle-SymbolicName>org.commonreality.sensors.base</Bundle-SymbolicName>
+										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
+										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
+										<!-- Keep in sync with dependencies in sensors.base POM. -->
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core.java;bundle-version="${javolution.core.java.version}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.core;bundle-version="${newVersion}",org.commonreality.net;bundle-version="${newVersion}",org.commonreality.time;bundle-version="${newVersion}"</Require-Bundle>
+										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
+										<!-- TODO: List all required bundles as buddies? -->
+										<!-- TODO: log4j is actually not listed as required ... -->
+										<Eclipse-RegisterBuddy>org.commonreality.core, org.apache.log4j</Eclipse-RegisterBuddy> 
+										<Export-Package>*</Export-Package>
+										<Bundle-ClassPath>.</Bundle-ClassPath>
+									</instructions>
+								</artifact>
 
-<!-- 								sensors.base -->
 <!-- 								sensors.swing -->
 <!-- 								sensors.xml -->
 <!-- 								support -->
