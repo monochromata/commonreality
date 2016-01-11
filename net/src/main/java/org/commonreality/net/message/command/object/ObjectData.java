@@ -53,7 +53,7 @@ final public class ObjectData extends BaseMessage implements IObjectData,
   }
 
   /**
-   * @see org.commonreality.net.message.command.object.IObjectData#getObjectData()
+   * @see org.commonreality.net.message.command.object.IObjectData#getData()
    */
   public Collection<IObjectDelta> getData()
   {

@@ -45,7 +45,7 @@ public class NewIdentifierRequest extends BaseMessage implements
   }
 
   /**
-   * @see org.commonreality.net.message.request.object.INewIdentifierRequest#getRequestedNames()
+   * @see org.commonreality.net.message.request.object.INewIdentifierRequest#getIdentifiers()
    */
   public Collection<IIdentifier> getIdentifiers()
   {

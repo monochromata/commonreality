@@ -12,7 +12,6 @@ public interface ITransportProvider
   /**
    * configure the session
    * 
-   * @param session
    * @return
    */
   public Object configureServer();
