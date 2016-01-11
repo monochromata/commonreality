@@ -180,7 +180,7 @@ public interface IParticipant extends IIdentifiable
    * transmission before sending the command.</p>
    * 
    * <p>TODO: The specification of the behaviour that requires reference to
-   * {@code IRequest}, {@code ObjectDataRequest} and {@lcode ObjectCommandRequest}
+   * {@code IRequest}, {@code ObjectDataRequest} and {@code ObjectCommandRequest}
    * might be moved to {@code AbstractParticipant} in the {@code net} sub-project
    * since the {@code api} sub-project does not depend on the {@code net}
    * sub-project and therefore might better not depend on it via JavaDoc references.</p>
