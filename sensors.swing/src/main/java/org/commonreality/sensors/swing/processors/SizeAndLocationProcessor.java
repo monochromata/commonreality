@@ -22,14 +22,15 @@ import org.commonreality.object.IMutableObject;
 import org.commonreality.sensors.swing.key.AWTObjectKey;
 
 /**
- * rough approximation of a processor that computes the retinotopic loction &
- * size of arbitrary JComponents using the physical screen width & height and
+ * rough approximation of a processor that computes the retinotopic loction and
+ * size of arbitrary JComponents using the physical screen width and height and
  * viewers distance (in meters)
  * 
- * TODO: (BUG) does not handled multiple monitors correctly. TODO: (BUG) we
+ * <p>TODO: (BUG) does not handled multiple monitors correctly.</p>
+ * <p>TODO: (BUG) we
  * probably need to attach listeners to the parents all the way up to the root
  * so that we know when they move, which will change the location of the
- * children
+ * children</p>
  * 
  * @author harrison
  */

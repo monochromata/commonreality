@@ -59,8 +59,6 @@ public abstract class AWTObjectCreator implements IObjectCreator<AWTObjectKey>
 
   /**
    * set up the initial visual properties for this percept..
-   * 
-   * @param object
    */
   protected void initialize(AWTObjectKey objectKey, IMutableObject simObject)
   {
