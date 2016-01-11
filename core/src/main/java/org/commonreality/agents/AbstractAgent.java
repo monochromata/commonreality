@@ -57,9 +57,6 @@ public abstract class AbstractAgent extends AbstractParticipant implements
 
   private ICredentials     _credentials;
 
-  /**
-   * @param type
-   */
   public AbstractAgent()
   {
     super(IIdentifier.Type.AGENT);
