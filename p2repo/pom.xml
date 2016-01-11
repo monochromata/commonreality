@@ -558,8 +558,24 @@
 										<Bundle-ClassPath>.</Bundle-ClassPath>
 									</instructions>
 								</artifact>
+								<artifact>
+									<id>org.commonreality:support:${newVersion}</id>
+									<source>true</source>
+									<singleton>true</singleton>
+									<instructions>
+										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
+										<Bundle-Name>CommonReality classes supporting the implementation</Bundle-Name>
+										<Bundle-SymbolicName>org.commonreality.support</Bundle-SymbolicName>
+										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
+										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
+										<!-- Keep in sync with dependencies in support POM. -->
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core-java;bundle-version="${javolution.core.java.version}"</Require-Bundle>
+										<Export-Package>*</Export-Package>
+										<Bundle-ClassPath>.</Bundle-ClassPath>
+									</instructions>
+								</artifact>
 
-<!-- 								support -->
 <!-- 								tests -->
 <!-- 								time -->
 							</artifacts>
