@@ -552,7 +552,7 @@ public class BasicClock implements IClock
 
   /**
    * A starter authoritative for the basic clock. One can extend this by merely
-   * adapting {@link #requestTimeChange(double)}
+   * adapting {@link #requestTimeChange(double, Object)}
    * 
    * @author harrison
    */
