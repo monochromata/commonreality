@@ -415,6 +415,9 @@
 								</artifact>
 								<artifact>
 									<id>org.commonreality:modalities.spatial:${newVersion}</id>
+									<source>true</source>
+									<singleton>true</singleton>
+									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality spatial modality</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.modalities.spatial</Bundle-SymbolicName>
@@ -426,6 +429,7 @@
 										<!-- TODO: Use the buddy mechanism, too? -->
 										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
+									</instructions>
 								</artifact>
 <!-- 								modalities.spatial -->
 <!-- 								net -->
