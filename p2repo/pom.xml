@@ -587,7 +587,7 @@
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in tests POM. -->
-										<Require-Bundle>org.jmock.junit4;bundle-version="${jmock.version}",commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.core;bundle-version="${newVersion}",org.commonreality.mina;bundle-version="${newVersion}",org.commonreality.net;bundle-version="${newVersion}",org.commonreality.netty;bundle-version="${newVersion}",org.commonreality.time;bundle-version="${newVersion}"</Require-Bundle>
+										<Require-Bundle>org.jmock.junit4;bundle-version="${jmock.version}",org.jqno.equalsverifier;bundle-version="${equalsverifier.version}",commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.core;bundle-version="${newVersion}",org.commonreality.mina;bundle-version="${newVersion}",org.commonreality.net;bundle-version="${newVersion}",org.commonreality.netty;bundle-version="${newVersion}",org.commonreality.time;bundle-version="${newVersion}"</Require-Bundle>
 										<Export-Package>*</Export-Package>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<!-- TODO: List all required bundles as buddies? -->
@@ -596,8 +596,24 @@
 										<Bundle-ClassPath>.</Bundle-ClassPath> 
 									</instructions>
 								</artifact>
-
-<!-- 								time -->
+								<artifact>
+									<id>org.commonreality:time:${newVersion}</id>
+									<source>true</source>
+									<singleton>true</singleton>
+									<instructions>
+										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
+										<Bundle-Name>CommonReality time implementations</Bundle-Name>
+										<Bundle-SymbolicName>org.commonreality.time</Bundle-SymbolicName>
+										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
+										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
+										<!-- Keep in sync with dependencies in time POM. -->
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core-java;bundle-version="${javolution.core.java.version}"org.commonreality.api;bundle-version="${newVersion}",org.commonreality.support;bundle-version="${newVersion}"</Require-Bundle>
+										<Export-Package>*</Export-Package>
+										<Bundle-ClassPath>.</Bundle-ClassPath>
+										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
+									</instructions>
+								</artifact>
 							</artifacts>
 							<!-- TODO: Ineffective until https://github.com/reficio/p2-maven-plugin/pull/75 
 								gets merged -->
