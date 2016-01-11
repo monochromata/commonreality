@@ -26,9 +26,9 @@ import org.commonreality.sensors.handlers.ICommandTimingEquation;
  * {@link IEfferentObject} must also have a {@link VocalizationCommandTemplate}
  * as a member of the collection {@link IEfferentObject#COMMAND_TEMPLATES}. The
  * sensor must also be able to track the vocalizations (recommend extending
- * {@link #start(DeltaTracker)}) and then set the command as completed upon
- * termination {@link #completed(IEfferentCommand, Object)} or
- * {@link #aborted(IEfferentCommand, Object)} <br>
+ * {@link #start(IEfferentCommand, IAgentObject, EfferentCommandHandler)}) and then set the command as completed upon
+ * termination {@link EfferentCommandHandler#completed(IEfferentCommand, Object)} or
+ * {@link EfferentCommandHandler#aborted(IEfferentCommand, Object)} <br>
  * This class will then handle the commands on the provided executor. And when a
  * vocalization is actually executed it will be delegated to {@link ISpeaker}
  * 

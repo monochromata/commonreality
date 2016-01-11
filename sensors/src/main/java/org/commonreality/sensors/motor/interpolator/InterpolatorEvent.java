@@ -64,7 +64,6 @@ public class InterpolatorEvent
    * updated
    * 
    * @param currentTime
-   * @return
    */
   final public void update(double currentTime)
   {

@@ -189,7 +189,7 @@ public class EfferentCommandHandler implements IEfferentCommandListener
   /**
    * process a new efferent command, checking
    * {@link #shouldAccept(IEfferentCommand)} and either
-   * {@link #accept(DeltaTracker)} or {@link #reject(DeltaTracker)}
+   * {@link #accept(DeltaTracker)} or {@link #reject(DeltaTracker, Object)}
    * 
    * @param command
    */

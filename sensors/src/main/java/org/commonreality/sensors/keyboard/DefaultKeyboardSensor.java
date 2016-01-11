@@ -26,7 +26,7 @@ import org.commonreality.sensors.motor.interpolator.InterpolatorActuator;
 import org.commonreality.time.IAuthoritativeClock;
 
 /**
- * generic keyboard & mouse handler.
+ * generic keyboard and mouse handler.
  * 
  * @author harrison
  */
