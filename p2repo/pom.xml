@@ -431,8 +431,28 @@
 										<Bundle-ClassPath>.</Bundle-ClassPath>
 									</instructions>
 								</artifact>
-<!-- 								modalities.spatial -->
-<!-- 								net -->
+								<artifact>
+									<id>org.commonreality:net:${newVersion}</id>
+									<source>true</source>
+									<singleton>true</singleton>
+									<instructions>
+										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
+										<Bundle-Name>CommonReality networking base</Bundle-Name>
+										<Bundle-SymbolicName>org.commonreality.net</Bundle-SymbolicName>
+										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
+										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
+										<!-- Keep in sync with dependencies in net POM -->
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${newVersion}"</Require-Bundle>
+										<Export-Package>*</Export-Package>
+										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
+										<!-- TODO: List all required bundles as buddies? -->
+										<!-- TODO: CR.core and log4j are actually not listed as required ... -->
+										<Eclipse-RegisterBuddy>org.apache.log4j, org.commonreality.core</Eclipse-RegisterBuddy>
+										<Bundle-ClassPath>.</Bundle-ClassPath>
+									</instructions>
+								</artifact>
+
 <!-- 								netty -->
 <!-- 								sensors -->
 <!-- 								sensors.base -->

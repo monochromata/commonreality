@@ -21,6 +21,7 @@
 		</site>
 	</distributionManagement>
 
+	<!-- Keep in sync with Require-Bundle attribute for net in p2repo POM -->
 	<dependencies>
 		<dependency>
 			<groupId>commons-logging</groupId>
