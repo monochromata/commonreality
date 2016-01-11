@@ -34,7 +34,7 @@ public class DefaultAuralPropertyHandler extends DefaultPropertyHandler
                                       .getLog(DefaultAuralPropertyHandler.class);
 
   /**
-   * @see org.commonreality.modalities.aural.IAuralPropertyHandler#isAudible()
+   * @see org.commonreality.modalities.aural.IAuralPropertyHandler#isAudible(ISimulationObject)
    */
   public boolean isAudible(ISimulationObject object)
       throws UnknownPropertyNameException
@@ -61,7 +61,7 @@ public class DefaultAuralPropertyHandler extends DefaultPropertyHandler
   }
 
   /**
-   * @see org.commonreality.modalities.aural.IAuralPropertyHandler#getType(org.commonreality.object.ISimulationObject)
+   * @see org.commonreality.modalities.aural.IAuralPropertyHandler#getTypes(ISimulationObject)
    */
   public String[] getTypes(ISimulationObject object)
       throws UnknownPropertyNameException

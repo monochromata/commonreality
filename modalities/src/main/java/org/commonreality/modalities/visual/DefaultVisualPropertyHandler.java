@@ -150,8 +150,7 @@ public class DefaultVisualPropertyHandler extends DefaultPropertyHandler
   }
 
   /**
-   * @see org.commonreality.modalities.IModalityPropertyHandler#hasModality(java.lang.String,
-   *      org.commonreality.object.ISensoryObject)
+   * @see org.commonreality.modalities.IModalityPropertyHandler#hasModality(ISensoryObject)
    */
   public boolean hasModality(ISensoryObject sensoryObject)
   {
