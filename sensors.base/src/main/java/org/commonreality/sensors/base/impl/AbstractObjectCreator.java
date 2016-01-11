@@ -53,7 +53,10 @@ public abstract class AbstractObjectCreator implements IObjectCreator<DefaultObj
   }
   
   /**
-   * set up default properties.. this just sets the {@link IVisualPropertyHandler#IS_VISUAL} to true
+   * set up default properties.. this just sets the {@code IVisualPropertyHandler#IS_VISUAL} to true
+   * 
+   * <p>TODO: No, this method is actually empty</p>
+   * 
    * @param objectKey
    * @param afferentPercept
    */

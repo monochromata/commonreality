@@ -22,7 +22,7 @@ public interface IObjectKey
 
   /**
    * used internally if the object represents an updated value, even though its
-   * {@link #hashCode()} and {@link #equals(Object)} methods return identical
+   * {@link Object#hashCode()} and {@link Object#equals(Object)} methods return identical
    * values. This is used when the key object is actually immutable
    * 
    * @param object
