@@ -71,9 +71,6 @@ public class ObjectDelta implements IObjectDelta
     }
   }
 
-  /**
-   * @see org.commonreality.object.delta.IObjectDelta#apply(java.lang.Object)
-   */
   public void apply(IMutableObject object)
   {
     if (!_identifier.equals(object.getIdentifier()))

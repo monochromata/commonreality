@@ -48,7 +48,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 /**
- * parses and creates a running reality interface <code>
+ * parses and creates a running reality interface {@code
  *  <reality>
  *   <credentials>
  *    <credential value=""/>
@@ -60,7 +60,7 @@ import org.xml.sax.SAXException;
  *    </sensor>
  *   </sensors>
  *  </reality>
- * </code>
+ * }
  * 
  * @author developer
  */

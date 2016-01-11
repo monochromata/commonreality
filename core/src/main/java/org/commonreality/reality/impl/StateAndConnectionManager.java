@@ -52,13 +52,15 @@ import org.commonreality.time.impl.OwnedClock.OwnedAuthoritativeClock;
 import org.commonreality.util.LockUtilities;
 
 /**
- * state and connection manager does just that but is centralized so that we can
+ * State and connection manager does just that but is centralized so that we can
  * ensure synchronization during the connection and state change phases of a
- * simulation's life. </br> </br> previous versions that used a separate
+ * simulation's life.
+ * 
+ * <p>Previous versions that used a separate
  * connection manager and state handler was not sufficient as state changes
  * could occur while a connection was being established. Even more
  * frustratingly, if two connections were established at the same time, one or
- * the other might not get the data for the other. </br>
+ * the other might not get the data for the other. </p>
  * 
  * @author harrison
  */
@@ -442,10 +444,11 @@ public class StateAndConnectionManager
   }
 
   /**
-   * return all the participants that are actively connected. These participants
-   * have all connected and sent all their participant data to reality</br>
-   * </br> The container will not be cleared before insertion. If container is
-   * null, a new one is created
+   * Return all the participants that are actively connected. These participants
+   * have all connected and sent all their participant data to reality.
+   * 
+   * <p>The container will not be cleared before insertion. If container is
+   * null, a new one is created.</p>
    */
   public Collection<IIdentifier> getActiveParticipants(
       Collection<IIdentifier> participantContainer)
@@ -570,8 +573,8 @@ public class StateAndConnectionManager
   }
 
   /**
-   * return the {@link IoSession} for the participant. This {@link IIdentifier}
-   * must be in the current set returned by {@link #getActiveParticipants()},
+   * return the {@link ISessionInfo} for the participant. This {@link IIdentifier}
+   * must be in the current set returned by {@link #getActiveParticipants(Collection)},
    * otherwise it will return null, signaling that the participant has
    * disconnected.
    */
@@ -661,18 +664,16 @@ public class StateAndConnectionManager
 
   /**
    * will send message to all participants and wait at most timeToWait
-   * milliseconds for acknowledgements from them. If some have not acknowledged
+   * milliseconds for acknowledgments from them. If some have not acknowledged
    * by the timeToWait limit, they are returned so that other processing can be
-   * performed. </br> If {@link #getParticipantSession(IIdentifier)} returns
+   * performed.
+   * 
+   * <p>If {@link #getParticipantSession(IIdentifier)} returns
    * null for any identifier (disconnected), it will be ignored and added to the
-   * list of nonresponders.</br>
+   * list of non-responders.</p>
    * 
    * @return collection of identifiers of participants who have not responded in
    *         time.
-   * @param participants
-   * @param message
-   * @param timeToWait
-   *          or 0 if indefinite
    */
   public Collection<IIdentifier> setState(IParticipant.State state)
   {
@@ -837,12 +838,11 @@ public class StateAndConnectionManager
   /**
    * called when a participant connects and asks to be added to the simulation.
    * This will check the participant's credentials and determine whether or not
-   * to allow the connection to continue.<br>
-   * <br>
-   * If the participant is allowed to connect, it wont actually be added to the
+   * to allow the connection to continue.
+   * 
+   * <p>If the participant is allowed to connect, it wont actually be added to the
    * simulation until after we have received all of its information. At which
-   * time, {@link #acceptParticipant()} will be called<br>
-   * <br>
+   * time, {@link #acceptParticipant(ISessionInfo, ISimulationObject, ObjectCommandHandler)} will be called<p>
    */
   public void participantConnected(final ISessionInfo<?> session,
       IConnectionRequest request)

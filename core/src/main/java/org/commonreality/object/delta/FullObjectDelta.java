@@ -33,11 +33,6 @@ public class FullObjectDelta extends ObjectDelta
    */
   static private final Log LOGGER = LogFactory.getLog(FullObjectDelta.class);
 
-  /**
-   * @param identifier
-   * @param newValues
-   * @param oldValues
-   */
   public FullObjectDelta(ISimulationObject object)
   {
     super(object.getIdentifier(), Collections.EMPTY_MAP, Collections.EMPTY_MAP);

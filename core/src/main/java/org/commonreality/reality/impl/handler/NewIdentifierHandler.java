@@ -36,9 +36,7 @@ public class NewIdentifierHandler extends AbstractObjectInformationHandler
 
   static private final Log LOGGER = LogFactory
                                       .getLog(NewIdentifierHandler.class);
-  /**
-   * @param participant
-   */
+
   public NewIdentifierHandler(IReality reality,
       StateAndConnectionManager manager, GeneralObjectHandler objectHandler)
   {

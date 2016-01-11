@@ -33,9 +33,6 @@ public abstract class AbstractObjectInformationHandler
   private GeneralObjectHandler _objectHandler;
   private IReality _reality;
   
-  /**
-   * @param participant
-   */
   public AbstractObjectInformationHandler(IReality reality, StateAndConnectionManager manager, GeneralObjectHandler objectHandler)
   {
     _reality = reality;

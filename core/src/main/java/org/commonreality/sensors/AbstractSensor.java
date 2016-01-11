@@ -70,9 +70,6 @@ public abstract class AbstractSensor extends AbstractParticipant implements
 
   private Set<IIdentifier>           _relevantAgents;
 
-  /**
-   * @param type
-   */
   public AbstractSensor()
   {
     super(IIdentifier.Type.SENSOR);

@@ -45,9 +45,6 @@ public class ObjectCommandHandler extends AbstractObjectInformationHandler
   static private final Log LOGGER = LogFactory
                                       .getLog(ObjectCommandHandler.class);
 
-  /**
-   * @param participant
-   */
   public ObjectCommandHandler(IReality reality,
       StateAndConnectionManager manager, GeneralObjectHandler objectHandler)
   {

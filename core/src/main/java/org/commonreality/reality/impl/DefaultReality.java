@@ -321,7 +321,7 @@ public class DefaultReality extends AbstractParticipant implements IReality
   }
 
   /**
-   * @see org.commonreality.participant.impl.AbstractParticipant#reset()
+   * @see org.commonreality.participant.impl.AbstractParticipant#reset(boolean)
    */
   @Override
   public void reset(boolean clockWillBeReset) throws Exception
@@ -620,8 +620,7 @@ public class DefaultReality extends AbstractParticipant implements IReality
   }
 
   /**
-   * @see org.commonreality.reality.IReality#newIdentifier(org.commonreality.participant.identifier.IParticipantIdentifier,
-   *      java.lang.String)
+   * @see org.commonreality.reality.IReality#newIdentifier(IIdentifier, IIdentifier)
    */
   public IIdentifier newIdentifier(IIdentifier owner, IIdentifier template)
   {
@@ -634,7 +633,7 @@ public class DefaultReality extends AbstractParticipant implements IReality
   }
 
   /**
-   * @see org.commonreality.reality.IReality#add(org.commonreality.net.message.credentials.ICredentials)
+   * @see org.commonreality.reality.IReality#add(ICredentials, boolean)
    */
   public void add(ICredentials credentials, boolean wantsClockControl)
   {
