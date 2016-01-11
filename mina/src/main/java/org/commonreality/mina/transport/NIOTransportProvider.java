@@ -40,18 +40,12 @@ public class NIOTransportProvider implements ITransportProvider
   static private final Log LOGGER = LogFactory
                                       .getLog(NIOTransportProvider.class);
 
-  /**
-   * @see org.commonreality.mina.transport.IMINATransportProvider#createAcceptor()
-   */
   public IoAcceptor createAcceptor()
   {
     SocketAcceptor sa = new NioSocketAcceptor();
     return sa;
   }
 
-  /**
-   * @see org.commonreality.mina.transport.IMINATransportProvider#createConnector()
-   */
   public IoConnector createConnector()
   {
     return new NioSocketConnector();
@@ -79,7 +73,7 @@ public class NIOTransportProvider implements ITransportProvider
    * possible options: int,String port String hostname, int port InetAddress ip,
    * int port port =0 is not permitted
    * 
-   * @see org.commonreality.mina.transport.IMINATransportProvider#createAddress(java.lang.Object[])
+   * @see org.commonreality.net.transport.ITransportProvider#createAddress(Object...)
    */
   public SocketAddress createAddress(Object... args)
   {

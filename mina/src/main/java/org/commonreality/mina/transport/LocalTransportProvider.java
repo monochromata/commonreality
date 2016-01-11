@@ -35,24 +35,18 @@ public class LocalTransportProvider implements ITransportProvider
   static private final Log LOGGER = LogFactory
                                       .getLog(LocalTransportProvider.class);
 
-  /**
-   * @see org.commonreality.mina.transport.IMINATransportProvider#createAcceptor()
-   */
   public IoAcceptor createAcceptor()
   {
     return new VmPipeAcceptor();
   }
 
-  /**
-   * @see org.commonreality.mina.transport.IMINATransportProvider#createConnector()
-   */
   public IoConnector createConnector()
   {
     return new VmPipeConnector();
   }
 
   /**
-   * @see org.commonreality.mina.transport.IMINATransportProvider#createAddress(java.lang.Object[])
+   * @see org.commonreality.net.transport.ITransportProvider#createAddress(Object...)
    */
   public SocketAddress createAddress(Object... args)
   {

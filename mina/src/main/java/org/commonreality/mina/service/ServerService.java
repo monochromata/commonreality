@@ -186,7 +186,7 @@ public class ServerService implements IServerService
   }
 
   /**
-   * @see org.commonreality.mina.service.IMINAService#start()
+   * @see org.commonreality.net.service.IServerService#start(SocketAddress)
    */
   public SocketAddress start(SocketAddress address) throws Exception
   {
@@ -199,7 +199,7 @@ public class ServerService implements IServerService
   }
 
   /**
-   * @see org.commonreality.mina.service.IMINAService#stop()
+   * @see org.commonreality.net.service.IServerService#stop(SocketAddress)
    */
   public void stop(SocketAddress address) throws Exception
   {

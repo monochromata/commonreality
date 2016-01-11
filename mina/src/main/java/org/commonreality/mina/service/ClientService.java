@@ -205,7 +205,7 @@ public class ClientService implements IClientService
   }
 
   /**
-   * @see org.commonreality.mina.service.IMINAService#start()
+   * @see org.commonreality.net.service.IClientService#start(SocketAddress)
    */
   public SocketAddress start(SocketAddress address) throws Exception
   {
@@ -216,7 +216,7 @@ public class ClientService implements IClientService
   }
 
   /**
-   * @see org.commonreality.mina.service.IMINAService#stop()
+   * @see org.commonreality.net.service.IClientService#stop(SocketAddress)
    */
   public void stop(SocketAddress address) throws Exception
   {
