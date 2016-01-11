@@ -364,7 +364,7 @@
 										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
-										<!-- Needs to be kept in sync with dependencies of core/ -->
+										<!-- Needs to be kept in sync with dependencies in core POM -->
 										<Require-Bundle>org.commonreality.net;bundle-version="${newVersion}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.time;bundle-version="${newVersion}",org.commonreality.support;bundle-version="${newVersion}"</Require-Bundle>
 										<Export-Package>*</Export-Package>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
@@ -386,7 +386,7 @@
 										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
-										<!-- Needs to be kept in sync with dependencies of mina/ -->
+										<!-- Needs to be kept in sync with dependencies in mina POM -->
 										<Require-Bundle>org.commonreality.net;bundle-version="${newVersion}",commons-logging;bundle-version="${commons.logging.version}",com.jcraft.jzlib;bundle-version="${jzlib.version}",slf4j.api;bundle-version="${slf4j.version}",slf4j.nop;bundle-version="${slf4j.version}",org.apache.mina.core;bundle-version="${mina.version}",org.apache.mina.filter.compression;bundle-version="${mina.version}",org.apache.mina.statemachine;bundle-version="${mina.version}",org.apache.mina.transport.apr;bundle-version="${mina.version}"</Require-Bundle>
 										<Export-Package>*</Export-Package>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
@@ -406,12 +406,26 @@
 										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
-										<!-- Needs to be kept in sync with dependencies in modalities/ -->
+										<!-- Needs to be kept in sync with dependencies in modalities POM -->
 										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.core;bundle-version="${newVersion}"</Require-Bundle>
 										<!-- TODO: Use the buddy mechanism, too? -->
 										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
 									</instructions>
+								</artifact>
+								<artifact>
+									<id>org.commonreality:modalities.spatial:${newVersion}</id>
+										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
+										<Bundle-Name>CommonReality spatial modality</Bundle-Name>
+										<Bundle-SymbolicName>org.commonreality.modalities.spatial</Bundle-SymbolicName>
+										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
+										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
+										<!-- Needs to be kept in sync with dependencies in modalities.spatial POM -->
+										<Require-Bundle>org.commonreality.api;bundle-version="${newVersion}",org.commonreality.modalities;bundle-version="${newVersion}",org.commonreality.core;bundle-version="${newVersion}"</Require-Bundle>
+										<!-- TODO: Use the buddy mechanism, too? -->
+										<Export-Package>*</Export-Package>
+										<Bundle-ClassPath>.</Bundle-ClassPath>
 								</artifact>
 <!-- 								modalities.spatial -->
 <!-- 								net -->
