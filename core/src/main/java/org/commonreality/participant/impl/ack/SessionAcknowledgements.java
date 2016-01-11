@@ -19,12 +19,12 @@ import org.commonreality.net.session.ISessionListener;
  * contains session specific ack data. Many IMessages require an acknowledgment.
  * Some code may want to block until that ack is received. Once the ack is
  * received, any locks are released and the ack is moved to a memory sensitive
- * cache, allowing it to be accessed for a limited duration of time. <br/>
- * <br/>
- * 3/19/15 : recent profiling showed that the expireGarbageAcks() wasn't
+ * cache, allowing it to be accessed for a limited duration of time.
+ * 
+ * <p>3/19/15 : recent profiling showed that the expireGarbageAcks() wasn't
  * behaving as expected. Specifically, we were holding on to acks that should
  * have expired. Specifically, the AckFutureReference's soft reference wasn't
- * reclaiming. Moved to weak references.
+ * reclaiming. Moved to weak references.</p>
  * 
  * @author harrison
  */

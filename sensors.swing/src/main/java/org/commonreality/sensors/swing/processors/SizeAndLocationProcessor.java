@@ -24,8 +24,7 @@ import org.commonreality.sensors.swing.key.AWTObjectKey;
 /**
  * rough approximation of a processor that computes the retinotopic loction &
  * size of arbitrary JComponents using the physical screen width & height and
- * viewers distance (in meters) <br/>
- * 
+ * viewers distance (in meters)
  * 
  * @bug does not handled multiple monitors correctly.
  * @bug we probably need to attach listeners to the parents all the way up to

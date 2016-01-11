@@ -34,17 +34,17 @@ import org.commonreality.sensors.ISensor;
  * the set of possible percepts for the object. The {@link IObjectCreator} is
  * responsible for creating the {@link IObjectKey} which tracks the
  * percept-object linkage as well as the initial {@link ISimulationObject} (most
- * likely a {@link IAfferentObject}). <br/>
- * <br/>
- * The {@link ISimulationObject} and {@link IObjectKey} for that object is then
+ * likely a {@link IAfferentObject}).
+ * 
+ * <p>The {@link ISimulationObject} and {@link IObjectKey} for that object is then
  * passed through the set of {@link IObjectProcessor}s which can add additional
- * properties to the percept. <br/>
- * <br/>
- * Once all of this is done, the percept manager signals the {@link BaseSensor}
+ * properties to the percept. </p>
+ * 
+ * <p>Once all of this is done, the percept manager signals the {@link BaseSensor}
  * will all the additions and modifications( {@link BaseSensor#add(Collection)}
  * and {@link BaseSensor#update(Collection)}. Removals are handled by flagging
  * {@link #flagForRemoval(Object)} the object, which then delegates the actual
- * clean up to the {@link IObjectCreator} and the {@link BaseSensor}
+ * clean up to the {@link IObjectCreator} and the {@link BaseSensor}</p>
  * 
  * @author harrison
  */

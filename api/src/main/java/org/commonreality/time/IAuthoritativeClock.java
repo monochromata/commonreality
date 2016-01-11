@@ -11,12 +11,14 @@ import java.util.concurrent.CompletableFuture;
  * not the correct term, rather "requesting", as the behavior ultimately depends
  * upon the implementation and other interfacing agents. The idea is that a time
  * request is made to set the time to a value (or wait for a change) before the
- * wait futures are returned.<br/>
- * For instance, the shared clock instance (where multiple clocks move in
+ * wait futures are returned.
+ * 
+ * <p>For instance, the shared clock instance (where multiple clocks move in
  * lock-step based on the smallest time increment requested) uses the requested
- * values to determine the smallest time step. <br/>
- * The authority clock also has support for local timeshifting, permitting
- * consistent time across different systems.
+ * values to determine the smallest time step.</p>
+ * 
+ * <p>The authority clock also has support for local timeshifting, permitting
+ * consistent time across different systems.</p>
  * 
  * @author harrison
  */

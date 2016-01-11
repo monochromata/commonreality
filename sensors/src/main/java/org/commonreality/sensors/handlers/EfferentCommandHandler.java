@@ -31,20 +31,21 @@ import org.commonreality.sensors.ISensor;
 /**
  * general handler to deal with {@link IEfferentCommand}s. After instantiating a
  * sensor, this can be attached to the {@link IEfferentCommandManager} by using
- * the constructor and providing the appropriate {@link Executor}. <br/>
- * By default, all methods ignore all {@link IEfferentCommand}s. To change this
+ * the constructor and providing the appropriate {@link Executor}.
+ *
+ * <p>By default, all methods ignore all {@link IEfferentCommand}s. To change this
  * behavior override any of the shouldXXXX methods. If you overload the actual
  * state change methods, be sure to call the super method as well as it
  * invariably sets specific state variables in the {@link IEfferentCommand}. At
  * the termination of a command's run be sure to call the
  * {@link #completed(IEfferentCommand, Object)} or
- * {@link #aborted(IEfferentCommand, Object)} methods.<br>
- * <br>
- * The processing of efferent commands should usually be done on the thread that
+ * {@link #aborted(IEfferentCommand, Object)} methods.</p>
+ * 
+ * <p>The processing of efferent commands should usually be done on the thread that
  * received the event (the io executor). This is because most participants
  * expect that the state change requests will be processed immediately, as
  * opposed to queued up on a clock limited thread. The easiest way to do this is
- * to set the {@link Executor} to be {@link InlineExecutor#get()}.
+ * to set the {@link Executor} to be {@link InlineExecutor#get()}.</p>
  * 
  * @author harrison
  */

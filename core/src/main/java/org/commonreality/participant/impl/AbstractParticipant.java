@@ -60,10 +60,11 @@ import org.commonreality.reality.impl.StateAndConnectionManager;
  * afetr initializing, start will be signaled. suspend and resume may be called
  * while running The simulation will run for some amount of time, until stop
  * will be called. then either reset or shutdown may be called. shutdown should
- * then disconnect. <br/>
- * Exposes system property "participant.ioMaxThreads" (default 1) to permit
+ * then disconnect.
+ * 
+ * <p>Exposes system property "participant.ioMaxThreads" (default 1) to permit
  * tuning of threading behavior. Plus "participant.useSharedThreads" (default
- * false)
+ * false)</p>
  * 
  * @author developer
  */

@@ -47,15 +47,17 @@ import org.commonreality.time.impl.RealtimeClock;
  * percepts based on some other listening mechanism. It is up to the implementor
  * to configure the {@link PerceptManager}, by adding {@link IObjectCreator}s
  * and {@link IObjectProcessor}s. {@link BaseSensor#processPercepts()} calls
- * {@link PerceptManager#processDirtyObjects()}. <br/>
- * If you want to use a realtime clock, call
+ * {@link PerceptManager#processDirtyObjects()}.
+ * 
+ * <p>If you want to use a realtime clock, call
  * {@link #setRealtimeClockEnabled(boolean)} and the system will ensure that the
- * minimum cycle time is {@link #getTimeStep()} <br/>
- * If running using the standard clock cycle doesn't make sense for your system
+ * minimum cycle time is {@link #getTimeStep()}</p>
+ * 
+ * <p>If running using the standard clock cycle doesn't make sense for your system
  * (i.e. it is entirely event driven and fires infrequently), use immediate mode
  * ({@link #setImmediateModeEnabled(boolean)}) and call
  * {@link #processImmediately()} after your calls to
- * {@link PerceptManager#markAsDirty(Object)}, etc.
+ * {@link PerceptManager#markAsDirty(Object)}, etc.</p>
  * 
  * @author developer
  */
@@ -612,9 +614,10 @@ public abstract class BaseSensor extends AbstractSensor
    * called when the subclasses' percept managers need to be called. If during
    * the course of the perceptual processing, an estimate can be made as to when
    * new data may be available, it should be returned. this is used in event
-   * based models so that time can be controlled more effectively.<br/>
-   * If {@link #isRealtimeClockEnabled()} returns true, the return value is
-   * ignored
+   * based models so that time can be controlled more effectively.
+   * 
+   * <p>If {@link #isRealtimeClockEnabled()} returns true, the return value is
+   * ignored</p>
    * 
    * @return time when new data might be available, or {@link Double#isNaN()} if
    *         there is no estimate.
@@ -630,9 +633,10 @@ public abstract class BaseSensor extends AbstractSensor
    * process the available motor information. If during the course of the
    * perceptual processing, an estimate can be made as to when new data may be
    * available, it should be returned. this is used in event based models so
-   * that time can be controlled more effectively.<br/>
-   * If {@link #isRealtimeClockEnabled()} returns true, the return value is
-   * ignored
+   * that time can be controlled more effectively.
+   * 
+   * <p>If {@link #isRealtimeClockEnabled()} returns true, the return value is
+   * ignored</p>
    * 
    * @return time when new data might be available, or {@link Double#isNaN()} if
    *         there is no estimate.
