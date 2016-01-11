@@ -20,6 +20,7 @@
 		</site>
 	</distributionManagement>
 
+	<!-- Keep in sync with Require-Bundle attribute for tests in p2repo POM. -->
 	<dependencies>
 		<dependency>
 			<groupId>org.jmock</groupId>
@@ -35,11 +36,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.commonreality</groupId>
-			<artifactId>core</artifactId>
+			<artifactId>api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.commonreality</groupId>
-			<artifactId>api</artifactId>
+			<artifactId>core</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.commonreality</groupId>
