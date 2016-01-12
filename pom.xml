@@ -32,7 +32,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/monochromata/commonreality.git/</connection>
 		<developerConnection>scm:git:https://github.com/monochromata/commonreality.git/</developerConnection>
-		<url>https://github.com/monochromata/jactr/</url>
+		<url>https://github.com/monochromata/commonreality/</url>
 	</scm>
 
 	<modules>
