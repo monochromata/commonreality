@@ -66,7 +66,7 @@
 			the verification this plugin and the test plugin need to be completed before 
 			the reports are generated. If the tests are performed after this report is 
 			generated, the tests data file will be empty when this report is to be generated. -->
-		<jacoco.exec.to.be.used>../tests/target/jacoco.exec</jacoco.exec.to.be.used>
+		<jacoco.exec.to.be.used>tests/target/jacoco.exec</jacoco.exec.to.be.used>
 		<!-- TODO: Increase to 95% -->
 		<jacoco.check.minimum.covered.instructions.ratio>0.33</jacoco.check.minimum.covered.instructions.ratio>
 		<jacoco.check.minimum.covered.branches.ratio>0.19</jacoco.check.minimum.covered.branches.ratio>
