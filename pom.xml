@@ -5,7 +5,7 @@
 		<groupId>org.commonreality</groupId>
 		<artifactId>parent</artifactId>
 		<version>${newVersion}</version>
-		<relativePath>../parent/pom.xml</relativePath>
+		<relativePath>parent/pom.xml</relativePath>
 	</parent>
 	<groupId>org.commonreality</groupId>
 	<artifactId>aggregator</artifactId>
