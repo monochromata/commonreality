@@ -10,6 +10,7 @@
 	<groupId>org.commonreality</groupId>
 	<artifactId>p2repo</artifactId>
 	<version>${newVersion}</version>
+	<name>p2 Repo</name>
 	<description>Creates a P2 repository (a.k.a. update site) that provides the Maven artifacts in
 	the group org.commonreality and their dependencies as Eclipse plugins.</description>
 	<packaging>pom</packaging>

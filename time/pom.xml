@@ -10,6 +10,7 @@
 	<groupId>org.commonreality</groupId>
 	<artifactId>time</artifactId>
 	<version>${newVersion}</version>
+	<name>Time</name>
 	<description>CommonReality Time implementations.</description>
 	<packaging>jar</packaging>
 

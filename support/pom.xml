@@ -10,6 +10,7 @@
 	<groupId>org.commonreality</groupId>
 	<artifactId>support</artifactId>
 	<version>${newVersion}</version>
+	<name>Support</name>
 	<description>Supporting classes for CommonReality implementations.</description>
 
 	<distributionManagement>

@@ -9,6 +9,7 @@
   <groupId>org.commonreality</groupId>
   <artifactId>sensors.base</artifactId>
   <version>${newVersion}</version>
+  <name>Sensors.Base</name>
   <description>CommonReality sensors base implementation.</description>
   
 	<distributionManagement>

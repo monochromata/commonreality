@@ -10,6 +10,7 @@
 	<groupId>org.commonreality</groupId>
 	<artifactId>api</artifactId>
 	<version>${newVersion}</version>
+	<name>API</name>
 	<description>Defines the CommonReality API.</description>
 	<packaging>jar</packaging>
 

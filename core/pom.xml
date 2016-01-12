@@ -9,6 +9,7 @@
   <groupId>org.commonreality</groupId>
   <artifactId>core</artifactId>
   <version>${newVersion}</version>
+  <name>Core</name>
   <description>Common Reality Core</description>
   
 	<distributionManagement>

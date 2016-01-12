@@ -10,6 +10,7 @@
 	<groupId>org.commonreality</groupId>
 	<artifactId>sensors.swing</artifactId>
 	<version>${newVersion}</version>
+	<name>Sensors.Swing</name>
 	<description>CommonReality sensors for Swing GUIs.</description>
 
 	<distributionManagement>

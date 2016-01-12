@@ -9,6 +9,7 @@
   <groupId>org.commonreality</groupId>
   <artifactId>tests</artifactId>
   <version>${newVersion}</version>
+  <name>Tests</name>
   <description>Tests for CommonReality</description>
 
 

@@ -4,8 +4,9 @@
 	<groupId>org.commonreality</groupId>
 	<artifactId>parent</artifactId>
 	<version>${newVersion}</version>
-	<packaging>pom</packaging>
+	<name>Parent</name>
 	<description>A parent for artifacts in group org.commonreality.</description>
+	<packaging>pom</packaging>
 
 	<developers>
 		<developer>

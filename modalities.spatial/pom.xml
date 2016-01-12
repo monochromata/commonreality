@@ -10,6 +10,7 @@
 	<groupId>org.commonreality</groupId>
 	<artifactId>modalities.spatial</artifactId>
 	<version>${newVersion}</version>
+	<name>Modalities.Spatial</name>
 	<description>CommonReality spatial extension</description>
 
 	<distributionManagement>

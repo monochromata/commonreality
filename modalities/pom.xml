@@ -10,6 +10,7 @@
 	<groupId>org.commonreality</groupId>
 	<artifactId>modalities</artifactId>
 	<version>${newVersion}</version>
+	<name>Modalities</name>
 	<description>CommonReality modalities.</description>
 	<packaging>jar</packaging>
 

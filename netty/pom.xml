@@ -10,6 +10,7 @@
 	<groupId>org.commonreality</groupId>
 	<artifactId>netty</artifactId>
 	<version>${newVersion}</version>
+	<name>Netty</name>
 	<description>A CommonReality transport based on netty.io</description>
 
 	<distributionManagement>

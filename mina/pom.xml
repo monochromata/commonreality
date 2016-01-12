@@ -10,6 +10,7 @@
 	<groupId>org.commonreality</groupId>
 	<artifactId>mina</artifactId>
 	<version>${newVersion}</version>
+	<name>MINA</name>
 	<description>A CommonReality transport based on Apache MINA</description>
 
 	<distributionManagement>

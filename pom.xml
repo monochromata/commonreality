@@ -10,6 +10,8 @@
 	<groupId>org.commonreality</groupId>
 	<artifactId>aggregator</artifactId>
 	<version>${newVersion}</version>
+	<name>CommonReality</name>
+	<description>The CommonReality aggregator project</description>
 	<packaging>pom</packaging>
 
 	<developers>
@@ -57,6 +59,7 @@
 		<module>modalities.spatial</module>
 		<module>net</module>
 		<module>netty</module>
+		<module>parent</module>
 		<module>sensors</module>
 		<module>sensors.base</module>
 		<module>sensors.swing</module>

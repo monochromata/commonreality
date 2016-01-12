@@ -10,6 +10,7 @@
 	<groupId>org.commonreality</groupId>
 	<artifactId>net</artifactId>
 	<version>${newVersion}</version>
+	<name>Net</name>
 	<description>Basic networking capabilities for CommonReality.</description>
 	<packaging>jar</packaging>
 
