@@ -11,14 +11,6 @@
   <version>${newVersion}</version>
   <name>Sensors.Base</name>
   <description>CommonReality sensors base implementation.</description>
-  
-	<distributionManagement>
-		<!-- TODO: downloadUrl -->
-		<site>
-			<id>ftp.monochromata.de</id>
-			<url>sftp://ftp.monochromata.de/webseiten/maven/sites/${project.groupId}.${project.artifactId}/</url>
-		</site>
-	</distributionManagement>
 	
 	<!-- Keep in sync with RequireBundle and RegisterBuddy attributes for sensors.base in p2repo POM. -->
 	<dependencies>

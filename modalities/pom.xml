@@ -14,14 +14,6 @@
 	<description>CommonReality modalities.</description>
 	<packaging>jar</packaging>
 
-	<distributionManagement>
-		<!-- TODO: downloadUrl -->
-		<site>
-			<id>ftp.monochromata.de</id>
-			<url>sftp://ftp.monochromata.de/webseiten/maven/sites/${project.groupId}.${project.artifactId}/</url>
-		</site>
-	</distributionManagement>
-
 	<!-- Need to be kept in sync with RequireBundle and RegisterBuddy attributes of modalities/ in p2repo -->
 	<dependencies>
 		<dependency>

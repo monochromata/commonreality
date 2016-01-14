@@ -11,14 +11,6 @@
   <version>${newVersion}</version>
   <name>Core</name>
   <description>Common Reality Core</description>
-  
-	<distributionManagement>
-		<!-- TODO: downloadUrl -->
-		<site>
-			<id>ftp.monochromata.de</id>
-			<url>sftp://ftp.monochromata.de/webseiten/maven/sites/${project.groupId}.${project.artifactId}/</url>
-		</site>
-	</distributionManagement>
 		
 	<!-- Needs to be kept in sync with RequireBundle and RegisterBuddy attributes for core/ in p2repo -->
 	<dependencies>

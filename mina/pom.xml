@@ -13,14 +13,6 @@
 	<name>MINA</name>
 	<description>A CommonReality transport based on Apache MINA</description>
 
-	<distributionManagement>
-		<!-- TODO: downloadUrl -->
-		<site>
-			<id>ftp.monochromata.de</id>
-			<url>sftp://ftp.monochromata.de/webseiten/maven/sites/${project.groupId}.${project.artifactId}/</url>
-		</site>
-	</distributionManagement>
-
 	<!-- Need to be kepts in sync with RequireBundle and RegisterBuddy attributes for mina/ in p2repo -->
 	<dependencies>
 		<dependency>

@@ -36,6 +36,14 @@
 		<developerConnection>scm:git:https://github.com/monochromata/commonreality.git/</developerConnection>
 		<url>https://github.com/monochromata/jactr/</url>
 	</scm>
+	
+	<distributionManagement>
+		<!-- TODO: downloadUrl -->
+		<site>
+			<id>ftp.monochromata.de</id>
+			<url>sftp://ftp.monochromata.de/webseiten/maven/sites/${project.groupId}.${project.artifactId}/</url>
+		</site>
+	</distributionManagement>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

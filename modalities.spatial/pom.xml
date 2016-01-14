@@ -13,14 +13,6 @@
 	<name>Modalities.Spatial</name>
 	<description>CommonReality spatial extension</description>
 
-	<distributionManagement>
-		<!-- TODO: downloadUrl -->
-		<site>
-			<id>ftp.monochromata.de</id>
-			<url>sftp://ftp.monochromata.de/webseiten/maven/sites/${project.groupId}.${project.artifactId}/</url>
-		</site>
-	</distributionManagement>
-
 	<!-- Needs to be kept in sync with RequireBundle and RegisterBuddy attributes of modalities.spatial in p2repo -->
 	<dependencies>
 		<dependency>

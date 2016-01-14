@@ -13,14 +13,6 @@
 	<name>Sensors.XML</name>
 	<description>A CommonReality sensor for XML input</description>
 
-	<distributionManagement>
-		<!-- TODO: downloadUrl -->
-		<site>
-			<id>ftp.monochromata.de</id>
-			<url>sftp://ftp.monochromata.de/webseiten/maven/sites/${project.groupId}.${project.artifactId}/</url>
-		</site>
-	</distributionManagement>
-
 	<!-- Keep in sync with RequireBundle and RegisterBuddy attributes for sensors.xml in p2repo POM. -->
 	<dependencies>
 		<dependency>
