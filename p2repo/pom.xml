@@ -446,8 +446,8 @@
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in net POM -->
-										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${newVersion}"</Require-Bundle>
-										<Eclipse-RegisterBuddy>commons-logging,org.commonreality.api</Eclipse-RegisterBuddy>
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.support;bundle-version="${newVersion}"</Require-Bundle>
+										<Eclipse-RegisterBuddy>commons-logging,org.commonreality.api,org.commonreality.support</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
@@ -568,26 +568,6 @@
 										<!-- Keep in sync with dependencies in support POM. -->
 										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core-java;bundle-version="${javolution.core.java.version}"</Require-Bundle>
 										<Eclipse-RegisterBuddy>commons-logging,org.javolution,org.javolution.core-java</Eclipse-RegisterBuddy>
-										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
-										<Export-Package>*</Export-Package>
-										<Bundle-ClassPath>.</Bundle-ClassPath>
-										<Bundle-ActivationPolicy>lazy</Bundle-ActivationPolicy>
-									</instructions>
-								</artifact>
-								<artifact>
-									<id>org.commonreality:tests:${newVersion}</id>
-									<source>true</source>
-									<singleton>true</singleton>
-									<instructions>
-										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
-										<Bundle-Name>CommonReality tests</Bundle-Name>
-										<Bundle-SymbolicName>org.commonreality.tests</Bundle-SymbolicName>
-										<Bundle-Version>${newVersion</Bundle-Version>
-										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
-										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
-										<!-- Keep in sync with dependencies in tests POM. -->
-										<Require-Bundle>org.jmock.junit4;bundle-version="${jmock.version}",org.jqno.equalsverifier;bundle-version="${equalsverifier.version}",commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${newVersion}",org.commonreality.core;bundle-version="${newVersion}",org.commonreality.mina;bundle-version="${newVersion}",org.commonreality.net;bundle-version="${newVersion}",org.commonreality.netty;bundle-version="${newVersion}",org.commonreality.time;bundle-version="${newVersion}"</Require-Bundle>
-										<Eclipse-RegisterBuddy>org.jmock.junit4,org.jqno.equalsverifier,commons-logging,org.commonreality.api,org.commonreality.core,org.commonreality.mina,org.commonreality.net,org.commonreality.netty,org.commonreality.time</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
