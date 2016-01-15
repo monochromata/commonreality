@@ -91,10 +91,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.commonreality</groupId>
-			<artifactId>tests</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.commonreality</groupId>
 			<artifactId>time</artifactId>
 		</dependency>
 	</dependencies>

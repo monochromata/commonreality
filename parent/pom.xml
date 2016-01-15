@@ -303,11 +303,6 @@
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
-				<artifactId>tests</artifactId>
-				<version>${newVersion}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.commonreality</groupId>
 				<artifactId>time</artifactId>
 				<version>${newVersion}</version>
 			</dependency>
