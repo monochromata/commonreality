@@ -79,8 +79,8 @@
 		<bundle.vendor>commonreality.org</bundle.vendor>
 		<bundle.required.execution.environment>JavaSE-1.8</bundle.required.execution.environment>
 		<!-- TODO: Increase Jacoco thresholds to 95% -->
-		<jacoco.check.minimum.covered.instructions.ratio>0.33</jacoco.check.minimum.covered.instructions.ratio>
-		<jacoco.check.minimum.covered.branches.ratio>0.19</jacoco.check.minimum.covered.branches.ratio>
+		<jacoco.check.minimum.covered.instructions.ratio>0.0</jacoco.check.minimum.covered.instructions.ratio>
+		<jacoco.check.minimum.covered.branches.ratio>0.0</jacoco.check.minimum.covered.branches.ratio>
 	</properties>
 
 	<!-- The repository contents constitute an implicit target platform definition. -->
