@@ -11,7 +11,7 @@
  * library; if not, write to the Free Software Foundation, Inc., 59 Temple
  * Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package org.commonreality.reality;
+package org.commonreality.mina;
 
 import java.net.SocketAddress;
 import java.util.TreeMap;
@@ -32,19 +32,20 @@ import org.commonreality.net.service.IClientService;
 import org.commonreality.net.service.IServerService;
 import org.commonreality.net.transport.ITransportProvider;
 import org.commonreality.participant.IParticipant.State;
+import org.commonreality.reality.IReality;
 import org.commonreality.reality.impl.DefaultReality;
 import org.commonreality.sensors.AbstractSensor;
 import org.commonreality.sensors.ISensor;
 
 /**
- * @author developer
+ * An integration test case using MINA.
  */
-public class RealityTest extends TestCase
+public class RealityITCase extends TestCase
 {
   /**
    * logger definition
    */
-  static private final Log LOGGER = LogFactory.getLog(RealityTest.class);
+  static private final Log LOGGER = LogFactory.getLog(RealityITCase.class);
 
   IReality                 _reality;
 

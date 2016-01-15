@@ -65,7 +65,6 @@
 		<module>sensors.swing</module>
 		<module>sensors.xml</module>
 		<module>support</module>
-		<module>tests</module>
 		<module>time</module>
 		<module>p2repo</module>
 	</modules>

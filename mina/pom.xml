@@ -21,7 +21,17 @@
 		</dependency>
 		<dependency>
 			<groupId>org.commonreality</groupId>
+			<artifactId>core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
 			<artifactId>net</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.commonreality</groupId>
+			<artifactId>net</artifactId>
+			<type>test-jar</type>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.jcraft</groupId>
