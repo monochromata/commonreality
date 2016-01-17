@@ -305,6 +305,7 @@
 									<id>org.apache.mina:mina-transport-apr:${mina.version}</id>
 									<source>true</source>
 									<!-- Is already a bundle, hence no instructions are specified. -->
+									<!-- NOTE: The bundle symbolic name is org.apache.mina.transport.SOCKET.apr (all lower-case)! -->
 								</artifact>
 								<artifact>
 									<id>io.netty:netty-buffer:${netty.version}</id>
@@ -384,8 +385,9 @@
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Needs to be kept in sync with dependencies in mina POM -->
-										<Require-Bundle>org.commonreality.net;bundle-version="${newVersion}",commons-logging;bundle-version="${commons.logging.version}",com.jcraft.jzlib;bundle-version="${jzlib.version}",slf4j.api;bundle-version="${slf4j.version}",slf4j.nop;bundle-version="${slf4j.version}",org.apache.mina.core;bundle-version="${mina.version}",org.apache.mina.filter.compression;bundle-version="${mina.version}",org.apache.mina.statemachine;bundle-version="${mina.version}",org.apache.mina.transport.apr;bundle-version="${mina.version}"</Require-Bundle>
-										<Eclipse-RegisterBuddy>org.commonreality.net,commons-logging,com.jcraft.jzlib,slf4j.api,slf4j.nop,org.apache.mina.core,org.apache.mina.filter.compression,org.apache.mina.statemachine,org.apache.mina.transport.apr</Eclipse-RegisterBuddy>
+										<!-- NOTE: The bundle symbolic name of org.apache.mina:mina-transport-apr is org.apache.mina.transport.SOCKET.apr (all lower-case)! -->
+										<Require-Bundle>org.commonreality.net;bundle-version="${newVersion}",commons-logging;bundle-version="${commons.logging.version}",com.jcraft.jzlib;bundle-version="${jzlib.version}",slf4j.api;bundle-version="${slf4j.version}",slf4j.nop;bundle-version="${slf4j.version}",org.apache.mina.core;bundle-version="${mina.version}",org.apache.mina.filter.compression;bundle-version="${mina.version}",org.apache.mina.statemachine;bundle-version="${mina.version}",org.apache.mina.transport.socket.apr;bundle-version="${mina.version}"</Require-Bundle>
+										<Eclipse-RegisterBuddy>org.commonreality.net,commons-logging,com.jcraft.jzlib,slf4j.api,slf4j.nop,org.apache.mina.core,org.apache.mina.filter.compression,org.apache.mina.statemachine,org.apache.mina.transport.socket.apr</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
