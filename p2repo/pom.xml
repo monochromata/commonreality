@@ -19,6 +19,7 @@
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<maven.site.deploy.skip>true</maven.site.deploy.skip>
 		<apache_license_20_file>${basedir}/Apache_License_2.0.txt</apache_license_20_file>
+		<jarsigner.keystore.path>${basedir}/self-signing.keystore</jarsigner.keystore.path>
 	</properties>
 
 	<licenses>
@@ -418,7 +419,7 @@
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality spatial modality</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.modalities.spatial</Bundle-SymbolicName>
-										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Needs to be kept in sync with dependencies in modalities.spatial POM -->
@@ -438,7 +439,7 @@
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality networking base</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.net</Bundle-SymbolicName>
-										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in net POM -->
@@ -458,7 +459,7 @@
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality networking based on netty.io</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.netty</Bundle-SymbolicName>
-										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in netty POM. -->
@@ -478,7 +479,7 @@
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality common sensors</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.sensors</Bundle-SymbolicName>
-										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in sensors POM. -->
@@ -498,7 +499,7 @@
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality sensor base classes</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.sensors.base</Bundle-SymbolicName>
-										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in sensors.base POM. -->
@@ -518,7 +519,7 @@
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality Swing sensor</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.sensors.swing</Bundle-SymbolicName>
-										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in sensors.swing POM. -->
@@ -538,7 +539,7 @@
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality XML sensor</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.sensors.xml</Bundle-SymbolicName>
-										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in sensors.xml POM. -->
@@ -558,7 +559,7 @@
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality classes supporting the implementation</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.support</Bundle-SymbolicName>
-										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in support POM. -->
@@ -578,7 +579,7 @@
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality time implementations</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.time</Bundle-SymbolicName>
-										<Bundle-Version>${newVersion</Bundle-Version>
+										<Bundle-Version>${newVersion}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in time POM. -->
@@ -646,7 +647,38 @@
 					</execution>
 				</executions>
 			</plugin>
-
+			<!-- Sign the bundles / plugins -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jarsigner-plugin</artifactId>
+				<version>1.4</version>
+				<configuration>
+					<keystore>${jarsigner.keystore.path}</keystore>
+					<!-- Remaining configuration loaded from settings.xml -->
+					<storepass>${jarsigner.keystore.password}</storepass>
+					<alias>${jarsigner.key.alias}</alias>
+					<keypass>${jarsigner.key.password}</keypass>
+					<!-- Only commonreality JARs will be signed, dependencies will not be signed. -->
+					<archiveDirectory>${project.build.directory}/repository/plugins</archiveDirectory>
+					<includes>
+						<include>**/org.commonreality.*ar</include>
+					</includes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>sign</id>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>verify</id>
+						<goals>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<!-- Upload the P2 repository -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>

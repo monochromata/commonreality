@@ -7,6 +7,9 @@
 <stringAttribute key="M2_PROFILES" value=""/>
 <listAttribute key="M2_PROPERTIES">
 <listEntry value="newVersion=2.1.0"/>
+<listEntry value="jarsigner.keystore.password=123456"/>
+<listEntry value="jarsigner.key.alias=selfsigned"/>
+<listEntry value="jarsigner.key.password=abcdef"/>
 </listAttribute>
 <stringAttribute key="M2_RUNTIME" value="EMBEDDED"/>
 <booleanAttribute key="M2_SKIP_TESTS" value="false"/>
