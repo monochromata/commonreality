@@ -20,7 +20,7 @@
 		</query>
 	</iu>
 	<iu>
-		<category name="org.commonreality.depedencies.category" />
+		<category name="org.commonreality.dependencies.category" />
 		<query>
 			<expression type="match"><![CDATA[!properties.exists(p | p.key =='org.eclipse.equinox.p2.provider' && p.value=='commonreality.org')]]></expression>
 		</query>
