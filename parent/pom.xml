@@ -32,8 +32,8 @@
 
 	<!-- TODO: Switch to Anthony's/JactrTeam's repository -->
 	<scm>
-		<connection>scm:git:https://github.com/monochromata/commonreality.git/</connection>
-		<developerConnection>scm:git:https://github.com/monochromata/commonreality.git/</developerConnection>
+		<connection>scm:git:https://github.com/monochromata/commonreality.git</connection>
+		<developerConnection>scm:git:https://github.com/monochromata/commonreality.git</developerConnection>
 		<url>https://github.com/monochromata/jactr/</url>
 	</scm>
 
@@ -72,7 +72,7 @@
 		<commonreality.p2repo.url>${commonreality.download.prefix}/${commonreality.p2repo.path}</commonreality.p2repo.url>
 		<commonreality.p2repo.upload.url>${commonreality.upload.prefix}/${commonreality.p2repo.path}</commonreality.p2repo.upload.url>
 		<commonreality.repo.path>maven/releases/${project.groupId}</commonreality.repo.path>
-		<commonreality.repo.url>${commonreality.download.prefix}/${commonreality.repo.path}</commonreality.repo.url>
+		<commonreality.repo.url>${commonreality.download.prefix}/${commonreality.repo.path}/</commonreality.repo.url>
 		<commonreality.repo.upload.url>${commonreality.upload.prefix}/${commonreality.repo.path}</commonreality.repo.upload.url>
 		<!-- Bundle properties -->
 		<bundle.manifest.version>2</bundle.manifest.version>
