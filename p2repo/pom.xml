@@ -659,9 +659,11 @@
 					<alias>${jarsigner.key.alias}</alias>
 					<keypass>${jarsigner.key.password}</keypass>
 					<!-- Only commonreality JARs will be signed, dependencies will not be signed. -->
-					<archiveDirectory>${project.build.directory}/repository/plugins</archiveDirectory>
+					<archiveDirectory>${project.build.directory}/repository</archiveDirectory>
 					<includes>
-						<include>**/org.commonreality.*ar</include>
+						<include>plugins/org.commonreality.*ar</include>
+						<include>artifacts.jar</include>
+						<include>content.jar</include>
 					</includes>
 				</configuration>
 				<executions>
