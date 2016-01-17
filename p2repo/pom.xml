@@ -133,6 +133,7 @@
 						</goals>
 						<configuration>
 							<pedantic>true</pedantic>
+							<categoryFileURL>${basedir}/category.xml</categoryFileURL>
 							<artifacts>
 								<!-- Duplicates the dependencies from the dependenciesManagement 
 									section of the parent POM -->
