@@ -12,6 +12,7 @@
 	<version>${newVersion}</version>
 	<name>MINA</name>
 	<description>A CommonReality transport based on Apache MINA</description>
+	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
 
 	<!-- Need to be kepts in sync with RequireBundle and RegisterBuddy attributes for mina/ in p2repo -->
 	<dependencies>

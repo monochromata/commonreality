@@ -12,6 +12,7 @@
 	<version>${newVersion}</version>
 	<name>Sensors.XML</name>
 	<description>A CommonReality sensor for XML input</description>
+	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
 
 	<!-- Keep in sync with RequireBundle and RegisterBuddy attributes for sensors.xml in p2repo POM. -->
 	<dependencies>

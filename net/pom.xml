@@ -12,6 +12,7 @@
 	<version>${newVersion}</version>
 	<name>Net</name>
 	<description>Basic networking capabilities for CommonReality.</description>
+	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
 	<packaging>jar</packaging>
 
 	<!-- Keep in sync with RequireBundle and RegisterBuddy attributes for net in p2repo POM -->

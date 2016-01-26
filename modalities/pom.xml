@@ -12,6 +12,7 @@
 	<version>${newVersion}</version>
 	<name>Modalities</name>
 	<description>CommonReality modalities.</description>
+	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
 	<packaging>jar</packaging>
 
 	<!-- Need to be kept in sync with RequireBundle and RegisterBuddy attributes of modalities/ in p2repo -->

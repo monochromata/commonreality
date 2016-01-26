@@ -1,18 +1,21 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.commonreality</groupId>
 		<artifactId>parent</artifactId>
 		<version>${newVersion}</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
-  <groupId>org.commonreality</groupId>
-  <artifactId>sensors.base</artifactId>
-  <version>${newVersion}</version>
-  <name>Sensors.Base</name>
-  <description>CommonReality sensors base implementation.</description>
-	
-	<!-- Keep in sync with RequireBundle and RegisterBuddy attributes for sensors.base in p2repo POM. -->
+	<groupId>org.commonreality</groupId>
+	<artifactId>sensors.base</artifactId>
+	<version>${newVersion}</version>
+	<name>Sensors.Base</name>
+	<description>CommonReality sensors base implementation.</description>
+	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
+
+	<!-- Keep in sync with RequireBundle and RegisterBuddy attributes for sensors.base 
+		in p2repo POM. -->
 	<dependencies>
 		<dependency>
 			<groupId>commons-logging</groupId>
@@ -43,5 +46,5 @@
 			<artifactId>time</artifactId>
 		</dependency>
 	</dependencies>
-  
+
 </project>

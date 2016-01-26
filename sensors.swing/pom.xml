@@ -12,6 +12,7 @@
 	<version>${newVersion}</version>
 	<name>Sensors.Swing</name>
 	<description>CommonReality sensors for Swing GUIs.</description>
+	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
 
 	<!-- Keep in sync with RequireBundle and RegisterBuddy attributes for sensors.swing in p2repo POM. -->
 	<dependencies>

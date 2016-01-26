@@ -6,7 +6,7 @@
 	<version>${newVersion}</version>
 	<name>Parent</name>
 	<description>A parent for artifacts in group org.commonreality.</description>
-	<url>http://${commonreality.server}/maven/sites/org.commonreality/</url>
+	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
 	<packaging>pom</packaging>
 
 	<developers>

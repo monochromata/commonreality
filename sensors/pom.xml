@@ -12,6 +12,7 @@
 	<version>${newVersion}</version>
 	<name>Sensors</name>
 	<description>CommonReality common sensors.</description>
+	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
 	<packaging>jar</packaging>
 
 	<!-- Keep in sync with RequireBundle and RegisterBuddy attributes of sensors in p2repo POM. -->

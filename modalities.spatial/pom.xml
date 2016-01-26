@@ -12,6 +12,7 @@
 	<version>${newVersion}</version>
 	<name>Modalities.Spatial</name>
 	<description>CommonReality spatial extension</description>
+	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
 
 	<!-- Needs to be kept in sync with RequireBundle and RegisterBuddy attributes of modalities.spatial in p2repo -->
 	<dependencies>

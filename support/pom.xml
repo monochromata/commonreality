@@ -12,6 +12,7 @@
 	<version>${newVersion}</version>
 	<name>Support</name>
 	<description>Supporting classes for CommonReality implementations.</description>
+	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
 
 	<!-- Keep in sync with RequireBundle and RegisterBuddy attributes for support in p2repo POM. -->
 	<dependencies>

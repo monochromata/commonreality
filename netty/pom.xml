@@ -12,6 +12,7 @@
 	<version>${newVersion}</version>
 	<name>Netty</name>
 	<description>A CommonReality transport based on netty.io</description>
+	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
 
 	<!-- Keep in sync with RequireBundle and RegisterBuddy attributes for netty in p2repo POM. -->
 	<dependencies>

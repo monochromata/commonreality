@@ -12,6 +12,7 @@
 	<version>${newVersion}</version>
 	<name>API</name>
 	<description>Defines the CommonReality API.</description>
+	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
 	<packaging>jar</packaging>
 
 </project>

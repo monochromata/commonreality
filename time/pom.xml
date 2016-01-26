@@ -12,6 +12,7 @@
 	<version>${newVersion}</version>
 	<name>Time</name>
 	<description>CommonReality Time implementations.</description>
+	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
 	<packaging>jar</packaging>
 
 	<!-- Keep in sync with RequireBundle and RegisterBuddy attributes for time in p2repo POM. -->

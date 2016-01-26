@@ -12,6 +12,7 @@
 	<version>${newVersion}</version>
 	<name>CommonReality</name>
 	<description>The CommonReality aggregator project</description>
+	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
 	<packaging>pom</packaging>
 
 	<developers>
