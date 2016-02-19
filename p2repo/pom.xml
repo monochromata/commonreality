@@ -21,7 +21,6 @@
 		<maven.site.deploy.skip>true</maven.site.deploy.skip>
 		<apache_license_20_file>${basedir}/Apache_License_2.0.txt</apache_license_20_file>
 		<jarsigner.keystore.path>${basedir}/self-signing.keystore</jarsigner.keystore.path>
-		<commonreality.version>${newVersion}</commonreality.version>
 	</properties>
 
 	<licenses>
