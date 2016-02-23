@@ -22,8 +22,6 @@
 		</developer>
 	</developers>
 
-	<!-- TODO: GPG key/signing -->
-
 	<licenses>
 		<license>
 			<name>GNU Lesser General Public License</name>
