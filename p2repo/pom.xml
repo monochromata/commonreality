@@ -506,8 +506,8 @@
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in sensors.base POM. -->
-										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core.java;bundle-version="${javolution.core.java.version}",org.commonreality.api;bundle-version="${commonreality.version}",org.commonreality.core;bundle-version="${commonreality.version}",org.commonreality.net;bundle-version="${commonreality.version}",org.commonreality.time;bundle-version="${commonreality.version}"</Require-Bundle>
-										<Eclipse-RegisterBuddy>commons-logging,org.javolution,org.javolution.core.java,org.commonreality.api,org.commonreality.core,org.commonreality.net,org.commonreality.time</Eclipse-RegisterBuddy> 
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core-java;bundle-version="${javolution.core.java.version}",org.commonreality.api;bundle-version="${commonreality.version}",org.commonreality.core;bundle-version="${commonreality.version}",org.commonreality.net;bundle-version="${commonreality.version}",org.commonreality.time;bundle-version="${commonreality.version}"</Require-Bundle>
+										<Eclipse-RegisterBuddy>commons-logging,org.javolution,org.javolution.core-java,org.commonreality.api,org.commonreality.core,org.commonreality.net,org.commonreality.time</Eclipse-RegisterBuddy> 
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
 										<Bundle-ClassPath>.</Bundle-ClassPath>
