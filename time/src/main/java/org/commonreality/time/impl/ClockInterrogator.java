@@ -21,16 +21,16 @@ public class ClockInterrogator
   static private final transient Log LOGGER = LogFactory
                                                 .getLog(ClockInterrogator.class);
 
-  static public String getAllClockDetails()
+  static public String getAllClockDetails(CommonReality cr)
   {
     StringBuilder sb = new StringBuilder();
 
-    IReality reality = CommonReality.getReality();
+    IReality reality = cr.getReality();
     if (reality != null) sb.append(getClockDetails(reality)).append("\n");
 
-    for (ISensor sensor : CommonReality.getSensors())
+    for (ISensor sensor : cr.getSensors())
       sb.append(getClockDetails(sensor)).append("\n");
-    for (IAgent agent : CommonReality.getAgents())
+    for (IAgent agent : cr.getAgents())
       sb.append(getClockDetails(agent)).append("\n");
 
     return sb.toString();

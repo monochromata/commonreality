@@ -12,11 +12,12 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
-import javolution.util.FastList;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.time.IAuthoritativeClock;
+
+import javolution.util.FastList;
 
 /**
  * a clock that can have one or more owners, as determined by an owner object
@@ -35,15 +36,15 @@ public class OwnedClock extends BasicClock
 
   final private BiConsumer<Double, OwnedClock> _changeNotifier;
 
-  public OwnedClock(double minimumTimeIncrement)
+  public OwnedClock(CommonReality cr, double minimumTimeIncrement)
   {
-    this(minimumTimeIncrement, null);
+    this(cr, minimumTimeIncrement, null);
   }
 
-  public OwnedClock(double minimumTimeIncrement,
+  public OwnedClock(CommonReality cr, double minimumTimeIncrement,
       BiConsumer<Double, OwnedClock> universalNotifier)
   {
-    super(true, minimumTimeIncrement);
+    super(cr, true, minimumTimeIncrement);
     _changeNotifier = universalNotifier;
   }
 
@@ -83,21 +84,21 @@ public class OwnedClock extends BasicClock
 
     public void getOwners(final Collection<Object> owners)
     {
-      BasicClock.runLocked(getDelegate().getLock(), () -> {
+      BasicClock.runLocked(getDelegate().getCommonReality(), getDelegate().getLock(), () -> {
         owners.addAll(_ownerKeys);
       });
     }
 
     public void addOwner(final Object ownerKey)
     {
-      BasicClock.runLocked(getDelegate().getLock(), () -> {
+      BasicClock.runLocked(getDelegate().getCommonReality(), getDelegate().getLock(), () -> {
         _ownerKeys.add(ownerKey);
       });
     }
 
     public boolean hasOwner(final Object ownerKey)
     {
-      return BasicClock.runLocked(getDelegate().getLock(), () -> {
+      return BasicClock.runLocked(getDelegate().getCommonReality(), getDelegate().getLock(), () -> {
         return _ownerKeys.contains(ownerKey);
       });
     }
@@ -107,7 +108,7 @@ public class OwnedClock extends BasicClock
       OwnedClock delegate = getDelegate();
       boolean wasRemoved = hasOwner(ownerKey);
       boolean mustUpdate = BasicClock
-          .runLocked(
+          .runLocked(delegate.getCommonReality(),
               delegate.getLock(),
               () -> {
                 boolean wasOwner = _ownerKeys.size() == 0;
@@ -127,7 +128,7 @@ public class OwnedClock extends BasicClock
       {
         if (LOGGER.isDebugEnabled())
           LOGGER.debug(String.format("Forcing update of time", ownerKey));
-        BasicClock.runLocked(delegate.getLock(), () -> updateTime());
+        BasicClock.runLocked(delegate.getCommonReality(), delegate.getLock(), () -> updateTime());
 
         if (delegate._changeNotifier != null)
         {
@@ -145,7 +146,7 @@ public class OwnedClock extends BasicClock
     public Collection<Object> getUnaccountedForOwners()
     {
       Collection<Object> container = FastList.newInstance();
-      BasicClock.runLocked(getDelegate().getLock(), () -> {
+      BasicClock.runLocked(getDelegate().getCommonReality(), getDelegate().getLock(), () -> {
         container.addAll(_ownerKeys);
         container.removeAll(_ownersAccountedFor);
       });
@@ -155,7 +156,7 @@ public class OwnedClock extends BasicClock
     public Map<Object, Long> getLastAccessTimes()
     {
       HashMap<Object, Long> container = new HashMap<Object, Long>();
-      BasicClock.runLocked(getDelegate().getLock(), () -> {
+      BasicClock.runLocked(getDelegate().getCommonReality(), getDelegate().getLock(), () -> {
         container.putAll(_lastKnownAccess);
       });
       return container;
@@ -192,7 +193,7 @@ public class OwnedClock extends BasicClock
       if (LOGGER.isDebugEnabled())
         LOGGER.debug(String.format("Acquiring lock [%s]", bc.getLock()));
 
-      boolean fireNotifier = BasicClock.runLocked(bc.getLock(), () -> {
+      boolean fireNotifier = BasicClock.runLocked(bc.getCommonReality(), bc.getLock(), () -> {
             if (LOGGER.isDebugEnabled())
               LOGGER.debug(String.format("Acquired lock [%s]", bc.getLock()));
         if (requestTimeChange(fTargetTime, key))
@@ -234,7 +235,7 @@ public class OwnedClock extends BasicClock
       CompletableFuture<Double> rtn = bc.newFuture(Double.NaN, bc.getTime());
       if (LOGGER.isDebugEnabled())
         LOGGER.debug(String.format("Acquiring lock [%s]", bc.getLock()));
-      boolean fireNotifier = BasicClock.runLocked(bc.getLock(), () -> {
+      boolean fireNotifier = BasicClock.runLocked(bc.getCommonReality(), bc.getLock(), () -> {
             if (LOGGER.isDebugEnabled())
               LOGGER.debug(String.format("Acquired lock [%s]", bc.getLock()));
         if (requestTimeChange(Double.NaN, key))

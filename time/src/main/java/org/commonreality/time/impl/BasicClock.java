@@ -13,13 +13,14 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import javolution.util.FastList;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.time.IAuthoritativeClock;
 import org.commonreality.time.IClock;
 import org.commonreality.util.LockUtilities;
+
+import javolution.util.FastList;
 
 public class BasicClock implements IClock
 {
@@ -73,6 +74,8 @@ public class BasicClock implements IClock
 
   private double                                 _timeShift;                                 // time
                                                                                               // correction.
+  
+  private final CommonReality 					 cr;
 
   private Lock                                   _lock                 = new ReentrantLock();
 
@@ -95,13 +98,14 @@ public class BasicClock implements IClock
 
   private volatile Thread                        _lastRequestingThread;
 
-  public BasicClock()
+  public BasicClock(CommonReality cr)
   {
-    this(false, 0.05);
+    this(cr, false, 0.05);
   }
 
-  public BasicClock(boolean provideAuthority, final double minimumTimeIncrement)
+  public BasicClock(CommonReality cr, boolean provideAuthority, final double minimumTimeIncrement)
   {
+	  this.cr = cr;
     _minimumTimeIncrement = minimumTimeIncrement;
     _pendingCompletables = new HashMap<CompletableFuture<Double>, Double>();
     if (provideAuthority) _authoritative = createAuthoritativeClock(this);
@@ -123,6 +127,10 @@ public class BasicClock implements IClock
     return new BasicAuthoritativeClock(this);
   }
 
+  protected CommonReality getCommonReality() {
+	  return cr;
+  }
+  
   /**
    * exposed for diagnostic support
    * 
@@ -158,7 +166,7 @@ public class BasicClock implements IClock
     return _lastRequestingThread;
   }
 
-  static protected void runLocked(Lock lock, Runnable r)
+  static protected void runLocked(CommonReality cr, Lock lock, Runnable r)
   {
     try
     {
@@ -169,12 +177,12 @@ public class BasicClock implements IClock
       LOGGER.error(String.format("%s lock[%d] threw exception %s ", r,
           lock.hashCode(), e.getMessage()), e);
       LOGGER.error("Available clock information : "
-          + ClockInterrogator.getAllClockDetails());
+          + ClockInterrogator.getAllClockDetails(cr));
       throw new RuntimeException(e);
     }
   }
 
-  static protected <T> T runLocked(Lock lock, Callable<T> c)
+  static protected <T> T runLocked(CommonReality cr, Lock lock, Callable<T> c)
   {
     try
     {
@@ -187,7 +195,7 @@ public class BasicClock implements IClock
       LOGGER.error(String.format("%s lock[%d] threw exception %s ", c,
           lock.hashCode(), e.getMessage()), e);
       LOGGER.error("Available clock information : "
-          + ClockInterrogator.getAllClockDetails());
+          + ClockInterrogator.getAllClockDetails(cr));
       throw new RuntimeException(e);
     }
 
@@ -215,7 +223,7 @@ public class BasicClock implements IClock
   {
     try
     {
-      return runLocked(_lock, () -> {
+      return runLocked(getCommonReality(), _lock, () -> {
         return getLocalTime();
       });
     }
@@ -362,7 +370,7 @@ public class BasicClock implements IClock
       }
     };
 
-    runLocked(
+    runLocked(getCommonReality(),
         _lock,
         () -> {
           if (LOGGER.isDebugEnabled())
@@ -387,7 +395,7 @@ public class BasicClock implements IClock
     double localTime = 0;
     try
     {
-      localTime = runLocked(
+      localTime = runLocked(getCommonReality(),
           _lock,
           () -> {
             _lastUpdateSystemTime = System.nanoTime();
@@ -419,7 +427,7 @@ public class BasicClock implements IClock
     double localTime = 0;
     try
     {
-      localTime = runLocked(
+      localTime = runLocked(getCommonReality(),
           _lock,
           () -> {
             _lastUpdateSystemTime = System.nanoTime();
@@ -458,7 +466,7 @@ public class BasicClock implements IClock
 
     // grab the pending from the lock.. we must do the processing outside of the
     // lock.
-    runLocked(_lock, () -> {
+    runLocked(getCommonReality(), _lock, () -> {
       pending.addAll(_pendingCompletables.entrySet());
     });
 
@@ -517,7 +525,7 @@ public class BasicClock implements IClock
     /*
      * and remove those that completed.
      */
-    runLocked(_lock, () -> {
+    runLocked(getCommonReality(), _lock, () -> {
       pending.forEach((e) -> _pendingCompletables.remove(e.getKey()));
     });
 
@@ -575,7 +583,7 @@ public class BasicClock implements IClock
     public void setLocalTimeShift(final double timeShift)
     {
       BasicClock bc = getDelegate();
-      BasicClock.runLocked(bc._lock, () -> {
+      BasicClock.runLocked(bc.getCommonReality(), bc._lock, () -> {
         bc.setTimeShift(timeShift);
       });
     }
@@ -603,7 +611,7 @@ public class BasicClock implements IClock
       final double fTargetTime = BasicClock.constrainPrecision(targetTime);
       BasicClock bc = getDelegate();
       CompletableFuture<Double> rtn = bc.newFuture(targetTime, bc.getTime());
-      BasicClock.runLocked(bc.getLock(), () -> {
+      BasicClock.runLocked(bc.getCommonReality(), bc.getLock(), () -> {
         if (requestTimeChange(fTargetTime, key)) bc.setLocalTime(fTargetTime);
       });
       return rtn.thenApply((now) -> getTime());
@@ -614,7 +622,7 @@ public class BasicClock implements IClock
     {
       BasicClock bc = getDelegate();
       CompletableFuture<Double> rtn = bc.newFuture(Double.NaN, bc.getTime());
-      BasicClock.runLocked(
+      BasicClock.runLocked(bc.getCommonReality(),
           bc.getLock(),
           () -> {
             if (requestTimeChange(Double.NaN, key))
@@ -627,7 +635,7 @@ public class BasicClock implements IClock
     public double getLocalTimeShift()
     {
       final BasicClock bc = getDelegate();
-      return BasicClock.runLocked(bc._lock, () -> {
+      return BasicClock.runLocked(bc.cr, bc._lock, () -> {
         return bc.getTimeShift();
       });
     }

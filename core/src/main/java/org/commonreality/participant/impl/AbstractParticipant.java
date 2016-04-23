@@ -50,6 +50,7 @@ import org.commonreality.participant.addressing.impl.BasicAddressingInformation;
 import org.commonreality.participant.impl.ack.SessionAcknowledgements;
 import org.commonreality.participant.impl.handlers.DefaultHandlers;
 import org.commonreality.participant.impl.handlers.GeneralObjectHandler;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.reality.impl.StateAndConnectionManager;
 
 /**
@@ -112,9 +113,9 @@ public abstract class AbstractParticipant extends ThinParticipant implements
 
   private GeneralObjectHandler                _generalObjectHandler;
 
-  public AbstractParticipant(IIdentifier.Type type)
+  public AbstractParticipant(CommonReality cr, IIdentifier.Type type)
   {
-    super(type);
+    super(cr, type);
     _services = new HashMap<INetworkService, SocketAddress>();
 
     _generalObjectHandler = new GeneralObjectHandler(this);

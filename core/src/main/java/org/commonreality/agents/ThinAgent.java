@@ -29,9 +29,9 @@ public class ThinAgent extends ThinParticipant implements IAgent
 
   private String                     _uniqueName;
 
-  public ThinAgent(String name, IClock clock)
+  public ThinAgent(CommonReality cr, String name, IClock clock)
   {
-    super(Type.AGENT);
+    super(cr, Type.AGENT);
     _uniqueName = name;
     setIdentifier(new BasicIdentifier(_uniqueName, Type.AGENT, null));
     setClock(clock);
@@ -96,13 +96,13 @@ public class ThinAgent extends ThinParticipant implements IAgent
 
     super.connect();
 
-    CommonReality.addAgent(this);
+    getCommonReality().addAgent(this);
   }
 
   @Override
   public void disconnect(boolean force) throws Exception
   {
-    CommonReality.removeAgent(this);
+    getCommonReality().removeAgent(this);
     setClock(null);
     super.disconnect(force);
   }

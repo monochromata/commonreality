@@ -88,7 +88,7 @@ public class InterpolatedMotorInterface
      * be notified of interpolation events. This is where the magic happens
      */
 
-    SwingActuator actuator = new SwingActuator(_commandHandler, _deviceMap);
+    SwingActuator actuator = new SwingActuator(_sensor.getCommonReality(), _commandHandler, _deviceMap);
     _actuator = actuator;
     _completion = actuator;
 

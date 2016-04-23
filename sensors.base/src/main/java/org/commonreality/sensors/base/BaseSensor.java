@@ -23,8 +23,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
 
-import javolution.util.FastList;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.commonreality.identifier.IIdentifier;
@@ -39,8 +37,11 @@ import org.commonreality.object.ISimulationObject;
 import org.commonreality.object.delta.FullObjectDelta;
 import org.commonreality.object.delta.IObjectDelta;
 import org.commonreality.object.identifier.ISensoryIdentifier;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.sensors.AbstractSensor;
 import org.commonreality.time.impl.RealtimeClock;
+
+import javolution.util.FastList;
 
 /**
  * skeletal sensor that utilizes a {@link PerceptManager} to create and process
@@ -94,9 +95,9 @@ public abstract class BaseSensor extends AbstractSensor
 
   private boolean                                         _useImmediateMode = false;
 
-  public BaseSensor()
+  public BaseSensor(CommonReality cr)
   {
-    super();
+    super(cr);
     _toBeAdded = Collections
         .synchronizedMap(new HashMap<IIdentifier, Collection<ISimulationObject>>());
     _toBeRemoved = Collections
@@ -222,7 +223,7 @@ public abstract class BaseSensor extends AbstractSensor
   {
     try
     {
-      _realtimeClock = new RealtimeClock(Executors.newScheduledThreadPool(1));
+      _realtimeClock = new RealtimeClock(getCommonReality(), Executors.newScheduledThreadPool(1));
       super.start();
       if (LOGGER.isDebugEnabled()) LOGGER.debug("Executing committer");
       execute(_committer);

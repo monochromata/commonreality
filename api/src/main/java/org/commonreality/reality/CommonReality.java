@@ -15,77 +15,75 @@ package org.commonreality.reality;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import org.commonreality.agents.IAgent;
 import org.commonreality.sensors.ISensor;
 
-/**
- * @author developer
- */
-public final class CommonReality
+public class CommonReality
 {
 
-  static private IReality            _reality;
+	private final IReality reality;
 
-  static private Collection<ISensor> _connectedSensors = new ArrayList<ISensor>();
+	private final List<ISensor> connectedSensors = new ArrayList<>();
+	
+	private final List<IAgent> connectedAgents = new ArrayList<>();
+	
+	public CommonReality(IReality reality) {
+		this.reality = reality;
+	}
 
-  static private Collection<IAgent>  _connectedAgents  = new ArrayList<IAgent>();
-
-  static public void setReality(IReality reality)
+  public IReality getReality()
   {
-    _reality = reality;
+    return reality;
   }
 
-  static public IReality getReality()
+  public void addSensor(ISensor sensor)
   {
-    return _reality;
-  }
-
-  static public void addSensor(ISensor sensor)
-  {
-    synchronized (_connectedSensors)
+    synchronized (connectedSensors)
     {
-      _connectedSensors.add(sensor);
+      connectedSensors.add(sensor);
     }
   }
 
-  static public void removeSensor(ISensor sensor)
+  public void removeSensor(ISensor sensor)
   {
-    synchronized (_connectedSensors)
+    synchronized (connectedSensors)
     {
-      _connectedSensors.remove(sensor);
+      connectedSensors.remove(sensor);
+    }
+  }
+	
+  public void addAgent(IAgent agent)
+  {
+    synchronized (connectedAgents)
+    {
+      connectedAgents.add(agent);
     }
   }
 
-  static public void addAgent(IAgent agent)
+  public void removeAgent(IAgent agent)
   {
-    synchronized (_connectedAgents)
+    synchronized (connectedAgents)
     {
-      _connectedAgents.add(agent);
+      connectedAgents.remove(agent);
     }
   }
-
-  static public void removeAgent(IAgent agent)
+	
+  /**
+   * @return An unmodifiable list of the sensors connected to this common reality.
+   */
+  public Collection<IAgent> getAgents()
   {
-    synchronized (_connectedAgents)
-    {
-      _connectedAgents.remove(agent);
-    }
+      return Collections.unmodifiableList(connectedAgents);
   }
-
-  static public Collection<IAgent> getAgents()
+  
+	/**
+	 * @return An unmodifiable list of the sensors connected to this common reality.
+	 */
+  public Collection<ISensor> getSensors()
   {
-    synchronized (_connectedAgents)
-    {
-      return new ArrayList<IAgent>(_connectedAgents);
-    }
-  }
-
-  static public Collection<ISensor> getSensors()
-  {
-    synchronized (_connectedSensors)
-    {
-      return new ArrayList<ISensor>(_connectedSensors);
-    }
+		return Collections.unmodifiableList(connectedSensors);
   }
 }

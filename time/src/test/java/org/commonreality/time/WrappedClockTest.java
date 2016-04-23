@@ -8,10 +8,14 @@ import java.util.concurrent.CompletableFuture;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.commonreality.reality.CommonReality;
+import org.commonreality.reality.IReality;
 import org.commonreality.time.impl.OwnedClock;
 import org.commonreality.time.impl.OwnedClock.OwnedAuthoritativeClock;
 import org.commonreality.time.impl.WrappedClock;
+import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
 
 public class WrappedClockTest
@@ -22,6 +26,9 @@ public class WrappedClockTest
   static private final transient Log LOGGER = LogFactory
                                                 .getLog(WrappedClockTest.class);
 
+  @Rule
+  public final JUnitRuleMockery context = new JUnitRuleMockery();
+  
   /**
    * create three clocks (owned ("a","b"), and two wrapped clocks
    * 
@@ -29,7 +36,8 @@ public class WrappedClockTest
    */
   protected IClock[] createNewClocks()
   {
-    OwnedClock master = new OwnedClock(0.05);
+	  IReality reality = context.mock(IReality.class);
+    OwnedClock master = new OwnedClock(new CommonReality(reality), 0.05);
     ((OwnedAuthoritativeClock) master.getAuthority().get()).addOwner("a");
     ((OwnedAuthoritativeClock) master.getAuthority().get()).addOwner("b");
     WrappedClock one = new WrappedClock(master);

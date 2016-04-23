@@ -26,6 +26,7 @@ import org.commonreality.object.manager.IAgentObjectManager;
 import org.commonreality.object.manager.IEfferentObjectManager;
 import org.commonreality.object.manager.IRealObjectManager;
 import org.commonreality.object.manager.ISensorObjectManager;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.time.IClock;
 
 /**
@@ -53,6 +54,8 @@ public interface IParticipant extends IIdentifiable
     UNKNOWN, CONNECTED, INITIALIZED, STARTED, SUSPENDED, STOPPED
   };
 
+  public CommonReality getCommonReality();
+  
   /**
    * return the current state of the participant, and, if initialized, the state
    * of the simulation

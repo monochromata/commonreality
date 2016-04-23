@@ -8,9 +8,13 @@ import java.util.concurrent.CompletableFuture;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.commonreality.reality.CommonReality;
+import org.commonreality.reality.IReality;
 import org.commonreality.time.impl.OwnedClock;
 import org.commonreality.time.impl.OwnedClock.OwnedAuthoritativeClock;
+import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
 
 public class OwnedClockTest
@@ -21,10 +25,13 @@ public class OwnedClockTest
   static private final transient Log LOGGER = LogFactory
                                                 .getLog(OwnedClockTest.class);
 
-
+  @Rule
+  public final JUnitRuleMockery context = new JUnitRuleMockery();
+  
   protected IClock createNewClock()
   {
-    return new OwnedClock(0.05);
+	  IReality reality = context.mock(IReality.class);
+    return new OwnedClock(new CommonReality(reality), 0.05);
   }
 
 

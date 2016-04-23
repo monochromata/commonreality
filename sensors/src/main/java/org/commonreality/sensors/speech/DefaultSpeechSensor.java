@@ -32,6 +32,7 @@ import org.commonreality.object.IRealObject;
 import org.commonreality.object.delta.FullObjectDelta;
 import org.commonreality.object.manager.IRequestableEfferentObjectManager;
 import org.commonreality.object.manager.impl.EfferentObject;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.sensors.AbstractSensor;
 import org.commonreality.sensors.aural.AuralUtilities;
 import org.commonreality.sensors.handlers.EfferentCommandHandler;
@@ -89,8 +90,9 @@ public class DefaultSpeechSensor extends AbstractSensor implements ISpeaker
   private ISpeaker                             _actualSpeaker;
 
   @SuppressWarnings("unchecked")
-  public DefaultSpeechSensor()
+  public DefaultSpeechSensor(CommonReality cr)
   {
+	  super(cr);
     IEfferentCommandTemplate template = new VocalizationCommandTemplate(
         "Vocalize", "Creates a vocalization command");
     _vocalizationTemplate = Collections.unmodifiableCollection(Collections

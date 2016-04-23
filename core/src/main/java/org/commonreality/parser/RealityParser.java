@@ -40,6 +40,7 @@ import org.commonreality.reality.CommonReality;
 import org.commonreality.reality.IReality;
 import org.commonreality.reality.control.RealitySetup;
 import org.commonreality.reality.control.RealityShutdown;
+import org.commonreality.reality.impl.DefaultReality;
 import org.commonreality.sensors.ISensor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -71,49 +72,45 @@ public class RealityParser
    */
   static public final Log LOGGER = LogFactory.getLog(RealityParser.class);
 
-  public void parse(InputSource source) throws IOException, SAXException,
-      ParserConfigurationException
-  {
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    DocumentBuilder parser = factory.newDocumentBuilder();
-    Document doc = parser.parse(source);
+	public CommonReality parse(InputSource source)
+			throws IOException, SAXException, ParserConfigurationException {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder parser = factory.newDocumentBuilder();
+		Document doc = parser.parse(source);
 
-    parse(doc.getDocumentElement());
-  }
+		return parse(doc.getDocumentElement());
+	}
 
-  public void parse(Element documentRoot)
-  {
-    IReality reality = CommonReality.getReality();
+	public CommonReality parse(Element documentRoot) {
+		CommonReality cr = null;
 
-    NodeList nl = documentRoot.getElementsByTagName("reality");
-    if (nl.getLength() > 1)
-      throw new RuntimeException("Must only at most one reality "
-          + nl.getLength());
-    if (nl.getLength() == 1)
-    {
-      /*
-       * clean up the previous reality if it exists
-       */
-      if (reality != null) new RealityShutdown(reality, false).run();
+		NodeList nl = documentRoot.getElementsByTagName("reality");
+		if (nl.getLength() > 1)
+			throw new RuntimeException("Must only at most one reality " + nl.getLength());
+		if (nl.getLength() == 1) {
+			cr = new CommonReality((IReality) create((Element) nl.item(0), "reality"));
+		} else {
+			DefaultReality reality = DefaultReality.newInstanceThatNeedsToBePreparedWithACommonReality();
+			cr = new CommonReality(reality);
+			reality.prepare(cr);
+		}
 
-      reality = (IReality) create((Element) nl.item(0), "reality");
-    }
+		nl = documentRoot.getElementsByTagName("sensor");
+		Collection<ISensor> sensors = new ArrayList<ISensor>();
+		for (int i = 0; i < nl.getLength(); i++)
+			sensors.add((ISensor) create((Element) nl.item(i), "sensor"));
 
-    nl = documentRoot.getElementsByTagName("sensor");
-    Collection<ISensor> sensors = new ArrayList<ISensor>();
-    for (int i = 0; i < nl.getLength(); i++)
-      sensors.add((ISensor) create((Element) nl.item(i), "sensor"));
+		nl = documentRoot.getElementsByTagName("agent");
+		Collection<IAgent> agents = new ArrayList<IAgent>();
+		for (int i = 0; i < nl.getLength(); i++)
+			agents.add((IAgent) create((Element) nl.item(i), "agent"));
 
-    nl = documentRoot.getElementsByTagName("agent");
-    Collection<IAgent> agents = new ArrayList<IAgent>();
-    for (int i = 0; i < nl.getLength(); i++)
-      agents.add((IAgent) create((Element) nl.item(i), "agent"));
-
-    /*
-     * configure and initialize the participants
-     */
-    new RealitySetup(reality, sensors, agents).run();
-  }
+		/*
+		 * configure and initialize the participants
+		 */
+		new RealitySetup(cr, sensors, agents).run();
+		return cr;
+	}
 
   protected IParticipant create(Element element, String participantType)
   {

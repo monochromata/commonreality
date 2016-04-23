@@ -16,8 +16,6 @@ package org.commonreality.mina;
 import java.net.SocketAddress;
 import java.util.TreeMap;
 
-import junit.framework.TestCase;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.commonreality.agents.AbstractAgent;
@@ -32,10 +30,13 @@ import org.commonreality.net.service.IClientService;
 import org.commonreality.net.service.IServerService;
 import org.commonreality.net.transport.ITransportProvider;
 import org.commonreality.participant.IParticipant.State;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.reality.IReality;
 import org.commonreality.reality.impl.DefaultReality;
 import org.commonreality.sensors.AbstractSensor;
 import org.commonreality.sensors.ISensor;
+
+import junit.framework.TestCase;
 
 /**
  * An integration test case using MINA.
@@ -47,18 +48,20 @@ public class RealityITCase extends TestCase
    */
   static private final Log LOGGER = LogFactory.getLog(RealityITCase.class);
 
-  IReality                 _reality;
+  CommonReality cr;
 
   @Override
   protected void setUp() throws Exception
   {
-    _reality = new DefaultReality();
-    assertFalse(_reality.stateMatches(State.INITIALIZED));
-    assertFalse(_reality.stateMatches(State.STARTED));
-    setupConnection(_reality);
+	  DefaultReality reality = DefaultReality.newInstanceThatNeedsToBePreparedWithACommonReality();
+    cr = new CommonReality(reality);
+    reality.prepare(cr);
+    assertFalse(cr.getReality().stateMatches(State.INITIALIZED));
+    assertFalse(cr.getReality().stateMatches(State.STARTED));
+    setupConnection(cr.getReality());
 
-    _reality.initialize();
-    assertTrue(_reality.stateMatches(State.INITIALIZED));
+    cr.getReality().initialize();
+    assertTrue(cr.getReality().stateMatches(State.INITIALIZED));
   }
 
   protected void setupConnection(IReality reality) throws Exception
@@ -77,32 +80,32 @@ public class RealityITCase extends TestCase
   @Override
   protected void tearDown() throws Exception
   {
-    _reality.shutdown();
-    assertFalse(_reality.stateMatches(State.INITIALIZED));
+    cr.getReality().shutdown();
+    assertFalse(cr.getReality().stateMatches(State.INITIALIZED));
   }
 
   public void testStartUp() throws Exception
   {
 
-    _reality.start();
-    assertTrue(_reality.stateMatches(State.STARTED));
+    cr.getReality().start();
+    assertTrue(cr.getReality().stateMatches(State.STARTED));
 
-    _reality.stop();
-    assertTrue(_reality.stateMatches(State.STOPPED));
+    cr.getReality().stop();
+    assertTrue(cr.getReality().stateMatches(State.STOPPED));
 
-    _reality.reset(false);
-    assertTrue(!_reality.stateMatches(State.STARTED));
+    cr.getReality().reset(false);
+    assertTrue(!cr.getReality().stateMatches(State.STARTED));
 
-//    _reality.shutdown();
-    assertTrue(_reality.stateMatches(State.INITIALIZED));
+//    cr.getReality().shutdown();
+    assertTrue(cr.getReality().stateMatches(State.INITIALIZED));
   }
 
-  protected ISensor createSensor() throws Exception
+  protected ISensor createSensor(CommonReality cr) throws Exception
   {
     /*
      * mock participant
      */
-    AbstractSensor participant = new AbstractSensor() {
+    AbstractSensor participant = new AbstractSensor(cr) {
 
       @Override
       public String getName()
@@ -113,7 +116,7 @@ public class RealityITCase extends TestCase
 
     participant.setCredentials(new PlainTextCredentials("sensor", "pass"));
 
-    SocketAddress address = ((DefaultReality) _reality)
+    SocketAddress address = ((DefaultReality) cr.getReality())
         .getAddressingInformation().getSocketAddress();
 
     /*
@@ -131,12 +134,12 @@ public class RealityITCase extends TestCase
     return participant;
   }
 
-  protected IAgent createAgent() throws Exception
+  protected IAgent createAgent(CommonReality cr) throws Exception
   {
     /*
      * mock participant
      */
-    AbstractAgent participant = new AbstractAgent() {
+    AbstractAgent participant = new AbstractAgent(cr) {
 
       @Override
       public String getName()
@@ -147,7 +150,7 @@ public class RealityITCase extends TestCase
 
     participant.setCredentials(new PlainTextCredentials("agent", "pass"));
 
-    SocketAddress address = ((DefaultReality) _reality)
+    SocketAddress address = ((DefaultReality) cr.getReality())
         .getAddressingInformation().getSocketAddress();
 
     /*
@@ -167,10 +170,10 @@ public class RealityITCase extends TestCase
 
   public void testMockSensor() throws Exception
   {
-    AbstractSensor sensor = (AbstractSensor) createSensor();
-    AbstractAgent agent = (AbstractAgent) createAgent();
+    AbstractSensor sensor = (AbstractSensor) createSensor(cr);
+    AbstractAgent agent = (AbstractAgent) createAgent(cr);
 
-    _reality.configure(new TreeMap<String, String>());
+    cr.getReality().configure(new TreeMap<String, String>());
 
     sensor.connect();
     sensor.waitForState(State.INITIALIZED);
@@ -182,8 +185,8 @@ public class RealityITCase extends TestCase
     assertTrue(agent.stateMatches(State.INITIALIZED));
     assertNotNull(agent.getIdentifier());
 
-    _reality.start();
-    assertTrue(_reality.stateMatches(State.STARTED));
+    cr.getReality().start();
+    assertTrue(cr.getReality().stateMatches(State.STARTED));
 
     
 
@@ -195,18 +198,18 @@ public class RealityITCase extends TestCase
 
     // now with two kids playing, we can't test the clock..
     // IClock pClock = sensor.getClock();
-    // IClock rClock = _reality.getClock();
+    // IClock rClock = cr.getReality().getClock();
     //
     // assertEquals(1.0, pClock.waitForTime(1));
     // assertEquals(1.0, rClock.getTime());
     // assertEquals(1.5, pClock.waitForTime(1.5));
     // assertEquals(1.5, rClock.waitForTime(1.5));
 
-    _reality.stop();
+    cr.getReality().stop();
 
 
 
-    _reality.reset(true);
+    cr.getReality().reset(true);
     //
     // assertEquals(0.0, rClock.getTime());
     // assertEquals(0.0, pClock.waitForTime(0));

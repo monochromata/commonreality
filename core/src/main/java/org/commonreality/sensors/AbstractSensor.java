@@ -70,9 +70,9 @@ public abstract class AbstractSensor extends AbstractParticipant implements
 
   private Set<IIdentifier>           _relevantAgents;
 
-  public AbstractSensor()
+  public AbstractSensor(CommonReality cr)
   {
-    super(IIdentifier.Type.SENSOR);
+    super(cr, IIdentifier.Type.SENSOR);
     _relevantAgents = new HashSet<IIdentifier>();
   }
 
@@ -309,18 +309,18 @@ public abstract class AbstractSensor extends AbstractParticipant implements
   public void connect() throws Exception
   {
     super.connect();
-    IClock clock = new NetworkedClock(0.05, (globalTime, netClock) -> {
+    IClock clock = new NetworkedClock(getCommonReality(), 0.05, (globalTime, netClock) -> {
       // timeshift is taken care of by the clock
         send(new RequestTime(getIdentifier(), globalTime));
       });
     setClock(clock);
-    CommonReality.addSensor(this);
+    getCommonReality().addSensor(this);
   }
 
   @Override
   public void disconnect(boolean force) throws Exception
   {
-    CommonReality.removeSensor(this);
+    getCommonReality().removeSensor(this);
     setClock(null);
     super.disconnect(force);
   }

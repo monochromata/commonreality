@@ -10,7 +10,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.commonreality.agents.IAgent;
 import org.commonreality.participant.IParticipant.State;
-import org.commonreality.reality.IReality;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.sensors.ISensor;
 
 public class RealitySetup implements Runnable
@@ -21,16 +21,16 @@ public class RealitySetup implements Runnable
   static private final transient Log LOGGER = LogFactory
                                                 .getLog(RealitySetup.class);
 
-  private final IReality             _reality;
+  private final CommonReality             cr;
 
   private Collection<ISensor>        _sensors;
 
   private Collection<IAgent>         _agents;
 
-  public RealitySetup(IReality reality, Collection<ISensor> sensors,
+  public RealitySetup(CommonReality cr, Collection<ISensor> sensors,
       Collection<IAgent> agents)
   {
-    _reality = reality;
+    this.cr = cr;
     _sensors = new ArrayList<ISensor>(sensors);
     _agents = new ArrayList<IAgent>(agents);
   }
@@ -40,10 +40,10 @@ public class RealitySetup implements Runnable
     /*
      * initialize CR
      */
-    if (_reality != null) try
+    if (cr != null) try
     {
-      _reality.initialize();
-      _reality.waitForState(State.INITIALIZED);
+      cr.getReality().initialize();
+      cr.getReality().waitForState(State.INITIALIZED);
     }
     catch (Exception e)
     {
@@ -56,6 +56,8 @@ public class RealitySetup implements Runnable
     for (ISensor sensor : _sensors)
       try
       {
+    	  if(cr != sensor.getCommonReality())
+    		  throw new IllegalStateException("Sensor was not constructed for the CommonReality being set-up");
         sensor.connect();
         /*
          * we could wait for initialized, but by doing this we allow the
@@ -74,6 +76,8 @@ public class RealitySetup implements Runnable
     for (IAgent agent : _agents)
       try
       {
+    	  if(cr != agent.getCommonReality())
+    		  throw new IllegalStateException("Agent was not constructed for the CommonReality being set-up");
         agent.connect();
         agent.waitForState(State.CONNECTED, State.INITIALIZED);
         // agent.waitForState(State.INITIALIZED);

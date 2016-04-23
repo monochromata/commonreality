@@ -12,6 +12,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.commonreality.executor.InlineExecutor;
 import org.commonreality.object.IAgentObject;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.sensors.AbstractSensor;
 import org.commonreality.sensors.ISensor;
 import org.commonreality.sensors.handlers.EfferentCommandHandler;
@@ -62,7 +63,11 @@ public class DefaultKeyboardSensor extends AbstractSensor
 
   private volatile boolean           _shouldSuspend    = false;
 
-  @Override
+  public DefaultKeyboardSensor(CommonReality cr) {
+	super(cr);
+}
+
+@Override
   public String getName()
   {
     return "keyboard";

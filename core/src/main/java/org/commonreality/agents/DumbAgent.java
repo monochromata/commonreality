@@ -5,6 +5,7 @@ package org.commonreality.agents;
  */
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.commonreality.reality.CommonReality;
 
 public class DumbAgent extends AbstractAgent
 {
@@ -16,8 +17,9 @@ public class DumbAgent extends AbstractAgent
 
   private boolean                    _participatesInTime = true;
 
-  public DumbAgent()
+  public DumbAgent(CommonReality cr)
   {
+	  super(cr);
   }
 
   @Override

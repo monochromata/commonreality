@@ -8,10 +8,14 @@ import java.util.concurrent.CompletableFuture;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.commonreality.reality.CommonReality;
+import org.commonreality.reality.IReality;
 import org.commonreality.time.impl.BasicClock;
+import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 public class BasicClockTest
@@ -23,10 +27,18 @@ public class BasicClockTest
                                                 .getLog(BasicClockTest.class);
 
   
+  @Rule
+  public final JUnitRuleMockery context = new JUnitRuleMockery();
+  
   
   protected IClock createNewClock(boolean withAuth)
   {
-    return new BasicClock(withAuth, 0.05);
+	  return createNewClock(withAuth, "iReality");
+  }
+  
+  protected IClock createNewClock(boolean withAuth, String mockName) {
+	  IReality reality = context.mock(IReality.class, mockName);
+    return new BasicClock(new CommonReality(reality), withAuth, 0.05);
   }
   
   @Before
@@ -60,13 +72,13 @@ public class BasicClockTest
   @Test
   public void testGetAuthority()
   {
-    IClock clock = createNewClock(false);
+    IClock clock = createNewClock(false, "mock1");
     Optional<IAuthoritativeClock> auth = clock.getAuthority();
     
     Assert.assertNotNull(auth);
     Assert.assertTrue(!auth.isPresent());
     
-    clock = createNewClock(true);
+    clock = createNewClock(true, "mock2");
     auth = clock.getAuthority();
     
     Assert.assertNotNull(auth);

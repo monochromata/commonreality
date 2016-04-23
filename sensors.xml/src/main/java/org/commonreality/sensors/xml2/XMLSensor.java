@@ -24,6 +24,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.commonreality.identifier.IIdentifier;
 import org.commonreality.net.message.IMessage;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.sensors.AbstractSensor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -58,7 +59,11 @@ public class XMLSensor extends AbstractSensor
 
   private volatile double                                     _nextTimeGuess    = 0;
 
-  @Override
+  public XMLSensor(CommonReality cr) {
+	super(cr);
+}
+
+@Override
   public String getName()
   {
     return "XMLSensor";

@@ -5,30 +5,16 @@ package org.commonreality.sensors.swing;
  */
 import java.net.URI;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.commonreality.object.manager.IObjectManager;
-import org.commonreality.sensors.ISensor;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.sensors.base.BaseSensor;
 import org.commonreality.sensors.base.IObjectCreator;
 import org.commonreality.sensors.base.IObjectProcessor;
 import org.commonreality.sensors.base.PerceptManager;
-import org.commonreality.sensors.swing.creators.ButtonCreator;
-import org.commonreality.sensors.swing.creators.LabelCreator;
-import org.commonreality.sensors.swing.creators.TextFieldCreator;
-import org.commonreality.sensors.swing.processors.ColorProcessor;
 import org.commonreality.sensors.swing.processors.SizeAndLocationProcessor;
-import org.commonreality.sensors.swing.processors.VisibilityProcessor;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 
 /**
  * bare bones swing sensor that uses {@link BaseSensor}, {@link PerceptManager},
@@ -52,8 +38,9 @@ public class DefaultSwingSensor extends BaseSensor
   private VisualInterface            _visualInterface;
   private InterpolatedMotorInterface _motorInterface;
 
-  public DefaultSwingSensor()
+  public DefaultSwingSensor(CommonReality cr)
   {
+	  super(cr);
     _visualInterface = new VisualInterface(this);
     _motorInterface = new InterpolatedMotorInterface(this);
   }

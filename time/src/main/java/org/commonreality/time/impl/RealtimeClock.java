@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.commonreality.reality.CommonReality;
 
 /**
  * realtime clock that provides no authority. The #
@@ -33,9 +34,9 @@ public class RealtimeClock extends BasicClock
    *          {@link #waitForTime(double)} are never called. (or their
    *          authorative versions)
    */
-  public RealtimeClock(ScheduledExecutorService executor)
+  public RealtimeClock(CommonReality cr, ScheduledExecutorService executor)
   {
-    super(false, 0.05);
+    super(cr, false, 0.05);
     _executor = executor;
   }
 
@@ -68,7 +69,7 @@ public class RealtimeClock extends BasicClock
     /*
      * get both the global time and the time shift from within lock
      */
-    double[] timeVars = BasicClock.runLocked(
+    double[] timeVars = BasicClock.runLocked(getCommonReality(),
         getLock(),
         () -> {
           if (_clockStartTime < 0)

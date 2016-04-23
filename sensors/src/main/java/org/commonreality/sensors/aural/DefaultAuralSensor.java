@@ -15,6 +15,7 @@ import org.commonreality.agents.IAgent;
 import org.commonreality.identifier.IIdentifier;
 import org.commonreality.object.IAfferentObject;
 import org.commonreality.object.IRealObject;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.sensors.AbstractSensor;
 import org.commonreality.sensors.aural.GeneralAuralProcessor.IAuralMutator;
 import org.commonreality.time.IAuthoritativeClock;
@@ -58,8 +59,9 @@ public class DefaultAuralSensor extends AbstractSensor
 
   private Runnable                   _cycle;
 
-  public DefaultAuralSensor()
+  public DefaultAuralSensor(CommonReality cr)
   {
+	  super(cr);
     _auralUtilities = new AuralUtilities(this);
     _auralProcessor = new GeneralAuralProcessor(this);
 

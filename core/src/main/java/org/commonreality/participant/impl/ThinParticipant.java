@@ -34,6 +34,7 @@ import org.commonreality.object.manager.impl.EfferentObjectManager;
 import org.commonreality.object.manager.impl.RealObjectManager;
 import org.commonreality.object.manager.impl.SensorObjectManager;
 import org.commonreality.participant.IParticipant;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.time.IAuthoritativeClock;
 import org.commonreality.time.IClock;
 
@@ -54,6 +55,8 @@ public class ThinParticipant implements IParticipant
     EMPTY_ACK.complete(null);
   }
 
+  private final CommonReality								_cr;
+  
   private IIdentifier                               _identifier;
 
   protected volatile State                          _state;
@@ -83,8 +86,9 @@ public class ThinParticipant implements IParticipant
 
   private ICredentials                              _credentials;
 
-  public ThinParticipant(IIdentifier.Type type)
+  public ThinParticipant(CommonReality cr, IIdentifier.Type type)
   {
+	_cr = cr;
     _type = type;
     _sensorManager = createSensorObjectManager();
     _agentManager = createAgentObjectManager();
@@ -95,8 +99,13 @@ public class ThinParticipant implements IParticipant
     _notificationManager = createNotificationManager();
     _state = State.UNKNOWN;
   }
+  
+  @Override
+	public CommonReality getCommonReality() {
+		return _cr;
+	}
 
-  public void setCredentials(ICredentials credentials)
+public void setCredentials(ICredentials credentials)
   {
     _credentials = credentials;
   }
@@ -377,9 +386,7 @@ public class ThinParticipant implements IParticipant
 
   }
 
-  /**
-   * 
-   */
+  @Override
   public void shutdown() throws Exception
   {
     shutdown(false);

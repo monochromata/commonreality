@@ -57,9 +57,9 @@ public abstract class AbstractAgent extends AbstractParticipant implements
 
   private ICredentials     _credentials;
 
-  public AbstractAgent()
+  public AbstractAgent(CommonReality cr)
   {
-    super(IIdentifier.Type.AGENT);
+    super(cr, IIdentifier.Type.AGENT);
   }
 
   /**
@@ -246,18 +246,18 @@ public abstract class AbstractAgent extends AbstractParticipant implements
   public void connect() throws Exception
   {
     super.connect();
-    IClock clock = new NetworkedClock(0.05, (globalTime, netClock) -> {
+    IClock clock = new NetworkedClock(getCommonReality(), 0.05, (globalTime, netClock) -> {
       // timeshift is taken care of by the clock
         send(new RequestTime(getIdentifier(), globalTime));
       });
     setClock(clock);
-    CommonReality.addAgent(this);
+    getCommonReality().addAgent(this);
   }
 
   @Override
   public void disconnect() throws Exception
   {
-    CommonReality.removeAgent(this);
+    getCommonReality().removeAgent(this);
     setClock(null);
     super.disconnect();
   }

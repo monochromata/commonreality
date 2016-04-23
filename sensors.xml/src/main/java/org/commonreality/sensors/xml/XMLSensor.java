@@ -31,6 +31,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.commonreality.identifier.IIdentifier;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.sensors.AbstractSensor;
 import org.commonreality.sensors.xml.tasks.NoOp;
 import org.commonreality.sensors.xml.tasks.ProcessTimeFrame;
@@ -64,9 +65,9 @@ public class XMLSensor extends AbstractSensor
 
   private volatile boolean   _isStopping = false;
 
-  public XMLSensor()
+  public XMLSensor(CommonReality cr)
   {
-    super();
+    super(cr);
     _pendingTimeFrames = new ArrayList<Element>();
     _processor = new XMLProcessor(this);
     _noOp = new NoOp(this);

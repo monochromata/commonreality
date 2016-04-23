@@ -22,9 +22,6 @@ import org.commonreality.net.message.credentials.ICredentials;
 import org.commonreality.participant.IParticipant;
 import org.commonreality.time.IClock;
 
-/**
- * @author developer
- */
 public interface IReality extends IParticipant
 {
 

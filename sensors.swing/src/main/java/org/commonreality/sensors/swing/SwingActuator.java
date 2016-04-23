@@ -38,13 +38,16 @@ public class SwingActuator extends DefaultActuator
   static private final transient Log LOGGER = LogFactory
                                                 .getLog(SwingActuator.class);
 
+  private CommonReality 				 _cr;
+  
   private Robot                      _robot;
 
   private SizeAndLocationProcessor   _sizeAndLocationProcessor;
 
-  public SwingActuator(EfferentCommandHandler handler, IDeviceMap deviceMap)
+  public SwingActuator(CommonReality cr, EfferentCommandHandler handler, IDeviceMap deviceMap)
   {
     super(handler, deviceMap);
+    _cr = cr;
     try
     {
       _robot = new Robot();
@@ -106,7 +109,7 @@ public class SwingActuator extends DefaultActuator
     /*
      * find the sensor and processor
      */
-    for (ISensor sensor : CommonReality.getSensors())
+    for (ISensor sensor : _cr.getSensors())
       if (sensor instanceof DefaultSwingSensor)
       {
         _sizeAndLocationProcessor = ((DefaultSwingSensor) sensor)

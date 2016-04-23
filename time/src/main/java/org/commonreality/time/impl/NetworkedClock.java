@@ -9,6 +9,7 @@ import java.util.function.Consumer;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.commonreality.reality.CommonReality;
 import org.commonreality.time.IAuthoritativeClock;
 
 /**
@@ -41,10 +42,10 @@ public class NetworkedClock extends BasicClock
    * @param networkSendCommand
    *          accepts the global (timeshift corrected) target time
    */
-  public NetworkedClock(double minimumTimeIncrement,
+  public NetworkedClock(CommonReality cr, double minimumTimeIncrement,
       BiConsumer<Double, NetworkedClock> networkSendCommand)
   {
-    super(true, minimumTimeIncrement);
+    super(cr, true, minimumTimeIncrement);
     _networkSendCommand = networkSendCommand;
     /*
      * if the authority request time be set to trigger, an update comes in, but

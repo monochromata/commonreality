@@ -45,9 +45,6 @@ import org.commonreality.reality.impl.handler.DefaultHandlers;
 import org.commonreality.time.IClock;
 import org.commonreality.time.impl.OwnedClock;
 
-/**
- * @author developer
- */
 /*
  * No longer Exposes system property "defaultReality.ioMaxThreads" (default max)
  * to permit tuning of threading behavior. Also exposes
@@ -69,6 +66,8 @@ public class DefaultReality extends AbstractParticipant implements IReality
   static private final Log                LOGGER                      = LogFactory
                                                                           .getLog(DefaultReality.class);
 
+  private CommonReality 				  _cr;
+  
   private OwnedClock                      _masterClock;
 
   private long                            _timeout                    = 10000;
@@ -77,25 +76,40 @@ public class DefaultReality extends AbstractParticipant implements IReality
 
   private boolean                         _disconnectAllOnMissedState = false;
 
-  final private StateAndConnectionManager _manager;
+  private StateAndConnectionManager _manager;
 
-  public DefaultReality()
+  private DefaultReality()
   {
-    super(IIdentifier.Type.REALITY);
+    super(null, IIdentifier.Type.REALITY);
+  }
+  
+  /**
+   * @see #prepare(CommonReality)
+   * @return
+   */
+  public static DefaultReality newInstanceThatNeedsToBePreparedWithACommonReality() {
+	  return new DefaultReality();
+  }
+  
+  public void prepare(CommonReality cr) {
+	  _cr = cr;
+	    _masterClock = new OwnedClock(cr, 0.05, (newTime, ownedClock) -> {
+	        // send the time update whenever the clock is updated
+	          double timeShift = ownedClock.getAuthority().get().getLocalTimeShift();
+	          send(new TimeCommand(getIdentifier(), newTime - timeShift));
+	        });
 
-    _masterClock = new OwnedClock(0.05, (newTime, ownedClock) -> {
-      // send the time update whenever the clock is updated
-        double timeShift = ownedClock.getAuthority().get().getLocalTimeShift();
-        send(new TimeCommand(getIdentifier(), newTime - timeShift));
-      });
-
-    _manager = new StateAndConnectionManager(this, getCentralExector());
-    _manager.setAcknowledgementTimeout(getTimeout());
-    _manager.setPromiscuous(true); // for now, this should ultimately be removed
-    CommonReality.setReality(this);
+	      _manager = new StateAndConnectionManager(this, getCentralExector());
+	      _manager.setAcknowledgementTimeout(getTimeout());
+	      _manager.setPromiscuous(true); // for now, this should ultimately be removed
   }
 
-  public StateAndConnectionManager getStateAndConnectionManager()
+  	@Override
+	public CommonReality getCommonReality() {
+		return _cr;
+	}
+
+public StateAndConnectionManager getStateAndConnectionManager()
   {
     return _manager;
   }
@@ -562,8 +576,6 @@ public class DefaultReality extends AbstractParticipant implements IReality
   public void shutdown() throws Exception
   {
     checkState(State.STOPPED, State.CONNECTED, State.INITIALIZED);
-
-    CommonReality.setReality(null);
 
     if (LOGGER.isDebugEnabled()) LOGGER.debug("Shutting down");
 
