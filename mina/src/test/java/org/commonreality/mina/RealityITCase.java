@@ -13,6 +13,11 @@
  */
 package org.commonreality.mina;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.net.SocketAddress;
 import java.util.TreeMap;
 
@@ -35,13 +40,14 @@ import org.commonreality.reality.IReality;
 import org.commonreality.reality.impl.DefaultReality;
 import org.commonreality.sensors.AbstractSensor;
 import org.commonreality.sensors.ISensor;
-
-import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * An integration test case using MINA.
  */
-public class RealityITCase extends TestCase
+public class RealityITCase
 {
   /**
    * logger definition
@@ -50,8 +56,8 @@ public class RealityITCase extends TestCase
 
   CommonReality cr;
 
-  @Override
-  protected void setUp() throws Exception
+  @Before
+  public void setUp() throws Exception
   {
 	  DefaultReality reality = DefaultReality.newInstanceThatNeedsToBePreparedWithACommonReality();
     cr = new CommonReality(reality);
@@ -77,13 +83,14 @@ public class RealityITCase extends TestCase
         .createAddress(1));
   }
 
-  @Override
-  protected void tearDown() throws Exception
+  @After
+  public void tearDown() throws Exception
   {
     cr.getReality().shutdown();
     assertFalse(cr.getReality().stateMatches(State.INITIALIZED));
   }
 
+  @Test
   public void testStartUp() throws Exception
   {
 
@@ -168,6 +175,7 @@ public class RealityITCase extends TestCase
     return participant;
   }
 
+  @Test
   public void testMockSensor() throws Exception
   {
     AbstractSensor sensor = (AbstractSensor) createSensor(cr);
