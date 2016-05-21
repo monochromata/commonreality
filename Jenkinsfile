@@ -18,8 +18,9 @@ node {
              --settings $PATH_TO_SETTINGS_XML \
              -DnewVersion='''+newVersion+''' \
              clean verify'''
-             
-       stage "Tag"
+       
+       stage name: "Tag", concurrency: 1
+       // TODO: Does tagging make sense still, if every push triggers a release?
        // TODO: Maybe configure the admin e-mail address as a Jenkins credential
        sh '''git config user.email "sl@monochromata.de" \
   			 && git config user.name "Jenkins" \
@@ -31,14 +32,14 @@ node {
 				 -DskipITs=true \
 	             scm:tag'''
 
-       stage "Deploy & site deploy"
+       stage name:"Deploy & site deploy", concurrency: 1
        sh '''mvn \
              --errors \
              --settings $PATH_TO_SETTINGS_XML \
              -DnewVersion='''+newVersion+''' \
              -DskipTests=true \
 			 -DskipITs=true \
-             deploy site-deploy'''		
+             deploy site-deploy'''
    }
    
    // TODO: Publish JUnit test reports ... **/target/surefire-reports/*.xml ?
