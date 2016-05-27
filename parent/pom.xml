@@ -347,13 +347,17 @@
 						<additionalparam>-Xdoclint:all</additionalparam>
 					</configuration>
 				</plugin>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>0.7.6.201602180812</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.7.6.201602180812</version>
 				<executions>
 					<execution>
 						<goals>
@@ -385,13 +389,6 @@
 								</rule>
 							</rules>
 						</configuration>
-					</execution>
-					<execution>
-						<id>report-during-pre-site</id>
-						<phase>pre-site</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
 					</execution>
 				</executions>
 			</plugin>
@@ -470,14 +467,5 @@
 			</extension>
 		</extensions>
 	</build>
-
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</reporting>
 
 </project>
