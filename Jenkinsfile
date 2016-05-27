@@ -1,4 +1,5 @@
-node {
+node("1gb") {
+   installToolsIfNecessary()
    def newVersion="3.1."+env.BUILD_NUMBER
    withCredentials([[$class: 'FileBinding', credentialsId: 'settings.xml', variable: 'PATH_TO_SETTINGS_XML']]) {
 	   stage 'Checkout'
@@ -30,4 +31,9 @@ node {
    }
    
    // TODO: Publish JUnit test reports ... **/target/surefire-reports/*.xml ?
+}
+
+def installToolsIfNecessary() {
+   tool 'git'
+   tool 'mvn'
 }
