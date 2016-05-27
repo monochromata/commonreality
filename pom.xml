@@ -98,11 +98,9 @@
 						<id>report-during-pre-site</id>
 						<phase>pre-site</phase>
 						<goals>
+							<goal>merge</goal>
 							<goal>report-aggregate</goal>
 						</goals>
-						<configuration>
-							<dataFileIncludes>**/target/*.exec</dataFileIncludes>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
