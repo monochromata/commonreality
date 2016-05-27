@@ -435,6 +435,13 @@
 							</rules>
 						</configuration>
 					</execution>
+					<execution>
+						<id>report-during-pre-site</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -507,5 +514,14 @@
 			</extension>
 		</extensions>
 	</build>
+	
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
 
 </project>
