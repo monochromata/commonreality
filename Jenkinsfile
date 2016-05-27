@@ -34,6 +34,7 @@ node("1gb") {
 }
 
 def installToolsIfNecessary() {
+   tool 'jdk8'
    tool 'git'
    tool 'mvn'
 }
