@@ -51,6 +51,7 @@ node("1gb") {
    // TODO: Publish JUnit test reports ... **/target/surefire-reports/*.xml ?
 }
 
+// TODO: Move to workflowLibs
 def installToolsIfNecessary() {
    sh '''echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list \
         && apt-get update \
