@@ -112,6 +112,6 @@ def installToolsIfNecessary() {
 	        && apt-get remove --yes openjdk-7-jdk \
 	        && apt-get install --yes openjdk-8-jre-headless openjdk-8-jdk \
 	        && /usr/sbin/update-java-alternatives -s java-1.8.0-openjdk-amd64 \
-	        && apt-get install --yes git maven libxml-xpath-perl'''
+	        && apt-get install --yes curl git maven libxml-xpath-perl'''
     }
 }
