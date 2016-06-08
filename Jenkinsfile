@@ -84,19 +84,15 @@ def getNextVersion() {
     sh 'git log --max-count=1 > '+commitFile
     def lastCommitMessage = readFile commitFile
     sh 'rm '+commitFile
-	echo "Last commit message: "+lastCommitMessage
 	
 	// Create new version number
 	def newVersion = oldVersion
 	String[] parts = oldVersion.split("\\.")
 	if(lastCommitMessage.contains("+majorVersion")) {
-		echo "increment major version ..."
 		newVersion = (parts[0].toInteger()+1)+".0.0"
 	} else if(lastCommitMessage.contains("+minorVersion")) {
-		echo "increment minor version ..."
 		newVersion = parts[0]+"."+(parts[1].toInteger()+1)+".0"
 	} else {
-		echo "increment patch level ..."
 		newVersion = parts[0]+"."+parts[1]+"."+(parts[2].toInteger()+1)
 	}
 	echo "Updating version $oldVersion -> $newVersion"
