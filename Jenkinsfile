@@ -69,15 +69,15 @@ def maven(String optionsAndGoals) {
 //		 * starts with a patch number of 0 if the minor was incremented (same for minor if major was incremented)
 def getNextVersion() {
 	def tmpDir=pwd tmp: true
+
+	// Get last release version
 	def mavenMetaDataFile = tmpDir+'/maven-metadata.xml'
 	def versionFile = tmpDir+'/maven.release'
+	sh 'curl Config.releaseMetaDataURL > '+mavenMetaDataFile
 	sh 'xpath -e metadata/versioning/release -q maven-metadata.xml | sed --regexp-extended "s/<\\/?release>//g" > '+versionFile
 	def oldVersion = readFile versionFile
 	sh 'rm '+mavenMetaDataFile
 	sh 'rm '+versionFile
-
-	// Get last release version
-	curl Config.releaseMetaDataURL > maven-
 
     // Determine increment operation from last commit message
     def commitFile=tmpDir+'/last-commit-message.txt'
