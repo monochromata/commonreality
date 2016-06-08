@@ -69,8 +69,13 @@ def maven(String optionsAndGoals) {
 //       ! Note that from then on (including "Set versions" stage, concurrency 1
 //		   will be required.
 def getNextVersion() {
-	echo "Change title: "+env.CHANGE_TITLE
-	if(env.CHANGE_TITLE.contains("+major")) {
+    def tmpDir=pwd tmp: true
+    def commitFile=tmpDir+'/last-commit-message.txt'
+    sh 'git log --max-count=1 > '+commitFile
+    def lastCommitMessage = readFile commitFile
+    sh 'rm '+commitFile
+	echo "Last commit message: "+lastCommitMessage
+	if(lastCommitMessage.contains("+major")) {
 		echo "+major detected"
 	}
 	return Config.versionPrefix+env.BUILD_NUMBER
