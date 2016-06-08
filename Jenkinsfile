@@ -73,7 +73,7 @@ def getNextVersion() {
 	// Get last release version
 	def mavenMetaDataFile = tmpDir+'/maven-metadata.xml'
 	def versionFile = tmpDir+'/maven.release'
-	sh 'curl --silent '+Config.releaseMetaDataURL+' > '+mavenMetaDataFile
+	sh 'curl '+Config.releaseMetaDataURL+' > '+mavenMetaDataFile
 	sh 'xpath -e metadata/versioning/release -q maven-metadata.xml | sed --regexp-extended "s/<\\/?release>//g" > '+versionFile
 	def oldVersion = readFile versionFile
 	sh 'rm '+mavenMetaDataFile
