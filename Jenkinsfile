@@ -91,13 +91,13 @@ def getNextVersion() {
 	String[] parts = oldVersion.split("\\.")
 	if(lastCommitMessage.contains("+majorVersion")) {
 		echo "increment major version ..."
-		newVersion = (Integer.parseInt(parts[0])+1)+".0.0"
+		newVersion = (parts[0].toInteger()+1)+".0.0"
 	} else if(lastCommitMessage.contains("+minorVersion")) {
 		echo "increment minor version ..."
-		newVersion = parts[0]+"."+(Integer.parseInt(parts[1])+1)+".0"
+		newVersion = parts[0]+"."+(parts[1].toInteger()+1)+".0"
 	} else {
 		echo "increment patch level ..."
-		newVersion = parts[0]+"."+parts[1]+"."+(Integer.parseInt(parts[2])+1)
+		newVersion = parts[0]+"."+parts[1]+"."+(parts[2].toInteger()+1)
 	}
 	echo "Updating version $oldVersion -> $newVersion"
 	return newVersion
