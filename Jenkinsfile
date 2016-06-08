@@ -58,7 +58,7 @@ def maven(String optionsAndGoals) {
    		 -Dgpg.secretKeyring=$PATH_TO_GPG_SECRET_KEYRING \
          --errors \
          --settings $PATH_TO_SETTINGS_XML \
-         -DnewVersion='''Config.+newVersion+''' \
+         -DnewVersion='''+Config.newVersion+''' \
          '''+optionsAndGoals
 }
 
