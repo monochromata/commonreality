@@ -88,7 +88,7 @@ def getNextVersion() {
 	
 	// Create new version number
 	def newVersion = oldVersion
-	String[] parts = oldVersion.split("\.")
+	String[] parts = oldVersion.split("\\.")
 	if(lastCommitMessage.contains("+majorVersion")) {
 		echo "increment major version ..."
 		newVersion = (Integer.parseInt(parts[0])+1)+".0.0"
