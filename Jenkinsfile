@@ -69,6 +69,10 @@ def maven(String optionsAndGoals) {
 //       ! Note that from then on (including "Set versions" stage, concurrency 1
 //		   will be required.
 def getNextVersion() {
+	echo "Change title: "+env.CHANGE_TITLE
+	if(env.CHANGE_TITLE.contains("+major")) {
+		echo "+major detected"
+	}
 	return Config.versionPrefix+env.BUILD_NUMBER
 }
 
