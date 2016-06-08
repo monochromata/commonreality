@@ -6,7 +6,7 @@ class Config {
 
 // TODO: Even this might be moved into workflowLibs, passing just a Config instance
 node("1gb") {
-   Config.newVersion = getNextVersion
+   Config.newVersion = getNextVersion()
    installToolsIfNecessary()
    withCredentials([[$class: 'FileBinding', credentialsId: 'settings.xml', variable: 'PATH_TO_SETTINGS_XML'],
    					[$class: 'FileBinding', credentialsId: 'jarsigner.keystore', variable: 'PATH_TO_JARSIGNER_KEYSTORE'],
