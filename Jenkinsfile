@@ -71,7 +71,7 @@ def getNextVersion() {
 	def tmpDir=pwd tmp: true
 	def mavenMetaDataFile = tmpDir+'/maven-metadata.xml'
 	def versionFile = tmpDir+'/maven.release'
-	sh "xpath -e metadata/versioning/release -q maven-metadata.xml | sed --regexp-extended 's/<\/?release>//g' > "+versionFile
+	sh 'xpath -e metadata/versioning/release -q maven-metadata.xml | sed --regexp-extended "s/<\/?release>//g" > '+versionFile
 	def oldVersion = readFile versionFile
 	sh 'rm '+mavenMetaDataFile
 	sh 'rm '+versionFile
