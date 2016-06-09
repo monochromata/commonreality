@@ -96,7 +96,7 @@ def getNextVersion() {
 		newVersion = parts[0]+"."+parts[1]+"."+(parts[2].toInteger()+1)
 	}
 	echo "Updating version $oldVersion -> $newVersion"
-	currentBuild.displayName = currentBuild.number+' v'+newNumber
+	currentBuild.displayName = '#'+currentBuild.number+' v'+newVersion
 	return newVersion
 }
 
