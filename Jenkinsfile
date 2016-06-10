@@ -75,7 +75,7 @@ def getNextVersion() {
 	def versionFile = tmpDir+'/maven.release'
 	sh 'curl --silent '+Config.releaseMetaDataURL+' > '+mavenMetaDataFile
 	sh 'xpath -e metadata/versioning/release -q '+mavenMetaDataFile+' | sed --regexp-extended "s/<\\/?release>//g" > '+versionFile
-	def oldVersion = readFile versionFile
+	def oldVersion = readFile(versionFile).trim()
 	sh 'rm '+mavenMetaDataFile
 	sh 'rm '+versionFile
 
@@ -88,7 +88,7 @@ def getNextVersion() {
     // Determine last commit hash
     def commitHashFile=tmpDir+'/last-commit-hash.txt'
     sh 'git log --oneline --max-count=1 | cut --delimiter=" " --fields=1 >'+commitHashFile
-    def lastCommitHash = readFile commitHashFile
+    def lastCommitHash = readFile(commitHashFile).trim()
     sh 'rm '+commitHashFile
 	
 	// Create new version number
