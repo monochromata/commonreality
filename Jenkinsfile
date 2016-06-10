@@ -22,7 +22,7 @@ node("1gb") {
 		   stage name: 'Set versions', concurrency: 1
 		   Config.newVersion = getNextVersion()
 		   maven('''--file parent/pom.xml \
-		   			-Dcommonreality.eclipse.version='''+newVersion.replaceAll('-', '.')+''' \	       				 
+		   			-Dcommonreality.eclipse.version='''+newVersion.replaceAll('-', '.')+''' \
 				    versions:set''')
 	       
 	       stage name: "Clean & verify", concurrency: 1
@@ -35,7 +35,7 @@ node("1gb") {
 	       		 && ssh-keygen -f ~/.ssh/known_hosts -R $UPLOAD_SERVER_NAME \
 	       		 && cat $PATH_TO_UPLOAD_SERVER_SSH_FINGERPRINT_FILE >> ~/.ssh/known_hosts'''
 	       // Retry is necessary because upload is unreliable
-	       retry(3) {
+	       retry(5) {
 	       		maven('''-Dcommonreality.eclipse.version='''+newVersion.replaceAll('-', '.')+''' \
 	       				 -DskipTests=true \
 	       				 -DskipITs=true \
@@ -44,7 +44,7 @@ node("1gb") {
 	             
 	       stage name:"Site deploy", concurrency: 1
 	       // Retry is necessary because upload is unreliable
-	       retry(3) {
+	       retry(5) {
 	       		maven('''-Dcommonreality.eclipse.version='''+newVersion.replaceAll('-', '.')+''' \
 	       				 -DskipTests=true \
 	       				 -DskipITs=true \
