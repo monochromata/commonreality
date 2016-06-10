@@ -22,11 +22,11 @@ node("1gb") {
 		   stage name: 'Set versions', concurrency: 1
 		   Config.newVersion = getNextVersion()
 		   maven('''--file parent/pom.xml \
-		   			-Dcommonreality.eclipse.version='''+newVersion.replaceAll('-', '.')+''' \
+		   			-Dcommonreality.eclipse.version='''+Config.newVersion.replaceAll('-', '.')+''' \
 				    versions:set''')
 	       
 	       stage name: "Clean & verify", concurrency: 1
-	       maven('''-Dcommonreality.eclipse.version='''+newVersion.replaceAll('-', '.')+''' \
+	       maven('''-Dcommonreality.eclipse.version='''+Config.newVersion.replaceAll('-', '.')+''' \
 	       		  clean verify''')
 	
 	       stage name:"Deploy", concurrency: 1
@@ -36,7 +36,7 @@ node("1gb") {
 	       		 && cat $PATH_TO_UPLOAD_SERVER_SSH_FINGERPRINT_FILE >> ~/.ssh/known_hosts'''
 	       // Retry is necessary because upload is unreliable
 	       retry(5) {
-	       		maven('''-Dcommonreality.eclipse.version='''+newVersion.replaceAll('-', '.')+''' \
+	       		maven('''-Dcommonreality.eclipse.version='''+Config.newVersion.replaceAll('-', '.')+''' \
 	       				 -DskipTests=true \
 	       				 -DskipITs=true \
 	       				 deploy''')
@@ -45,7 +45,7 @@ node("1gb") {
 	       stage name:"Site deploy", concurrency: 1
 	       // Retry is necessary because upload is unreliable
 	       retry(5) {
-	       		maven('''-Dcommonreality.eclipse.version='''+newVersion.replaceAll('-', '.')+''' \
+	       		maven('''-Dcommonreality.eclipse.version='''+Config.newVersion.replaceAll('-', '.')+''' \
 	       				 -DskipTests=true \
 	       				 -DskipITs=true \
 	       				 site-deploy''')
