@@ -76,6 +76,10 @@
 		<mars-repo.url>http://download.eclipse.org/releases/mars</mars-repo.url>
 		<!-- TODO: Use commonreality.org -->
 		<commonreality.version>${project.version}</commonreality.version>
+		<!-- Set the version used by Eclipse equal to the Maven version by default.
+		     It needs to be overridden with a command-line parameter if a qualifier
+		     is appended to the Maven version (i.e. 0.0.0-foo, which needs to be 0.0.0.foo in the Eclipse version). -->
+		<commonreality.eclipse.version>${commonreality.version}</commonreality.eclipse.version>
 		<commonreality.server>monochromata.de</commonreality.server>
 		<commonreality.ftp.server>ftp.${commonreality.server}</commonreality.ftp.server>
 		<commonreality.download.prefix>http://${commonreality.server}</commonreality.download.prefix>
