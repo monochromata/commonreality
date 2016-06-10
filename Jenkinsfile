@@ -79,15 +79,22 @@ def getNextVersion() {
 	sh 'rm '+mavenMetaDataFile
 	sh 'rm '+versionFile
 
-    // Determine increment operation from last commit message
+    // Determine last commit message
     def commitFile=tmpDir+'/last-commit-message.txt'
     sh 'git log --max-count=1 > '+commitFile
     def lastCommitMessage = readFile commitFile
     sh 'rm '+commitFile
+    
+    // Determine last commit hash
+    def commitHashFile=tmpDir+'/last-commit-hash.txt'
+    sh 'git log --oneline --max-count=1 | cut --delimiter=" " --fields=1 >'+commitHashFile
+    def lastCommitHash = readFile commitHashFile
+    sh 'rm '+commitHashFile
 	
 	// Create new version number
 	def newVersion = oldVersion
-	String[] parts = oldVersion.split("\\.")
+	def oldVersionWithoutQualifier = oldVersion.split("-")[0]
+	String[] parts = oldVersionWithoutQualifier.split("\\.")
 	if(lastCommitMessage.contains("+majorVersion")) {
 		newVersion = (parts[0].toInteger()+1)+".0.0"
 	} else if(lastCommitMessage.contains("+minorVersion")) {
@@ -95,6 +102,13 @@ def getNextVersion() {
 	} else {
 		newVersion = parts[0]+"."+parts[1]+"."+(parts[2].toInteger()+1)
 	}
+	
+	// Add last commit hash so permit version numbers to be correlated with Git commits.
+	// Note that the version number in this format of suitable for Maven, but not for Eclipse.
+	// While Maven versions have the format /<major>.<minor>.<patch>-<qualifier>/ , 
+	//     Eclipse versions have the format /<major>.<minor>.<patch>.<qualifier>/ ,
+	// thus - needs to be replaced by . to create the latter out of the former.
+	newVersion += '-'+lastCommitHash
 	echo "Updating version $oldVersion -> $newVersion"
 	currentBuild.displayName = '#'+currentBuild.number+' v'+newVersion
 	return newVersion
