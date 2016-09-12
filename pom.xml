@@ -11,7 +11,7 @@
 	<artifactId>aggregator</artifactId>
 	<version>2.0.0</version>
 	<name>CommonReality</name>
-	<description>The CommonReality aggregator project</description>
+	<description>The CommonReality aggregator project.</description>
 	<url>http://monochromata.de/maven/sites/org.commonreality/</url>
 	<packaging>pom</packaging>
 
