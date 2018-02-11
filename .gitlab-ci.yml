@@ -1,0 +1,16 @@
+# Pipeline configuration based on https://gitlab.com/de.monochromata/build-tools
+    
+# Cache downloaded dependencies and plugins between builds.
+.cache: &cache
+  cache:
+    paths:
+      - .m2/repository
+
+# Build master branch
+deploy:jdk8:
+  image: registry.gitlab.com/de.monochromata/build-tools/maven-tycho-jdk8:latest
+  <<: *cache
+  script:
+    - build --recipe=maven-tycho
+  only:
+    - master

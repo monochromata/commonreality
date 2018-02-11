@@ -74,12 +74,6 @@
 		<netty.version>5.0.0.Alpha2</netty.version>
 		<rhino.version>1.7.7</rhino.version>
 		<mars-repo.url>http://download.eclipse.org/releases/mars</mars-repo.url>
-		<!-- TODO: Use commonreality.org -->
-		<commonreality.version>${project.version}</commonreality.version>
-		<!-- Set the version used by Eclipse equal to the Maven version by default.
-		     It needs to be overridden with a command-line parameter if a qualifier
-		     is appended to the Maven version (i.e. 0.0.0-foo, which needs to be 0.0.0.foo in the Eclipse version). -->
-		<commonreality.eclipse.version>${commonreality.version}</commonreality.eclipse.version>
 		<commonreality.server>monochromata.de</commonreality.server>
 		<commonreality.ftp.server>ftp.${commonreality.server}</commonreality.ftp.server>
 		<commonreality.download.prefix>http://${commonreality.server}</commonreality.download.prefix>
@@ -253,74 +247,74 @@
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>api</artifactId>
-				<version>${commonreality.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>core</artifactId>
-				<version>${commonreality.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>mina</artifactId>
-				<version>${commonreality.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>modalities</artifactId>
-				<version>${commonreality.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>modalities.spatial</artifactId>
-				<version>${commonreality.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>net</artifactId>
-				<version>${commonreality.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>net</artifactId>
-				<version>${commonreality.version}</version>
+				<version>${project.version}</version>
 				<type>test-jar</type>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>netty</artifactId>
-				<version>${commonreality.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>sensors</artifactId>
-				<version>${commonreality.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>sensors.base</artifactId>
-				<version>${commonreality.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>sensors.swing</artifactId>
-				<version>${commonreality.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>sensors.xml</artifactId>
-				<version>${commonreality.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>support</artifactId>
-				<version>${commonreality.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.commonreality</groupId>
 				<artifactId>time</artifactId>
-				<version>${commonreality.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

@@ -338,14 +338,14 @@
 									<!-- Is already a bundle, hence no instructions are specified. -->
 								</artifact>
 								<artifact>
-									<id>org.commonreality:api:${commonreality.version}</id>
+									<id>org.commonreality:api:${project.version}</id>
 									<source>true</source>
 									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality API</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.api</Bundle-SymbolicName>
-										<Bundle-Version>${commonreality.eclipse.version}</Bundle-Version>
+										<Bundle-Version>${project.version}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<Export-Package>*</Export-Package>
@@ -354,18 +354,18 @@
 									</instructions>
 								</artifact>
 								<artifact>
-									<id>org.commonreality:core:${commonreality.version}</id>
+									<id>org.commonreality:core:${project.version}</id>
 									<source>true</source>
 									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality core implementation</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.core</Bundle-SymbolicName>
-										<Bundle-Version>${commonreality.eclipse.version}</Bundle-Version>
+										<Bundle-Version>${project.version}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Needs to be kept in sync with dependencies in core POM -->
-										<Require-Bundle>org.commonreality.net;bundle-version="${commonreality.eclipse.version}",org.commonreality.api;bundle-version="${commonreality.eclipse.version}",org.commonreality.time;bundle-version="${commonreality.eclipse.version}",org.commonreality.support;bundle-version="${commonreality.eclipse.version}"</Require-Bundle>
+										<Require-Bundle>org.commonreality.net;bundle-version="${project.version}",org.commonreality.api;bundle-version="${project.version}",org.commonreality.time;bundle-version="${project.version}",org.commonreality.support;bundle-version="${project.version}"</Require-Bundle>
 										<Eclipse-RegisterBuddy>org.commonreality.net,org.commonreality.api,org.commonreality.time,org.commonreality.support</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
@@ -374,19 +374,19 @@
 									</instructions>
 								</artifact>
 								<artifact>
-									<id>org.commonreality:mina:${commonreality.version}</id>
+									<id>org.commonreality:mina:${project.version}</id>
 									<source>true</source>
 									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality networking based on Apache Mina</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.mina</Bundle-SymbolicName>
-										<Bundle-Version>${commonreality.eclipse.version}</Bundle-Version>
+										<Bundle-Version>${project.version}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Needs to be kept in sync with dependencies in mina POM -->
 										<!-- NOTE: The bundle symbolic name of org.apache.mina:mina-transport-apr is org.apache.mina.transport.SOCKET.apr (all lower-case)! -->
-										<Require-Bundle>org.commonreality.net;bundle-version="${commonreality.eclipse.version}",commons-logging;bundle-version="${commons.logging.version}",com.jcraft.jzlib;bundle-version="${jzlib.version}",slf4j.api;bundle-version="${slf4j.version}",slf4j.nop;bundle-version="${slf4j.version}",org.apache.mina.core;bundle-version="${mina.version}",org.apache.mina.filter.compression;bundle-version="${mina.version}",org.apache.mina.statemachine;bundle-version="${mina.version}",org.apache.mina.transport.socket.apr;bundle-version="${mina.version}"</Require-Bundle>
+										<Require-Bundle>org.commonreality.net;bundle-version="${project.version}",commons-logging;bundle-version="${commons.logging.version}",com.jcraft.jzlib;bundle-version="${jzlib.version}",slf4j.api;bundle-version="${slf4j.version}",slf4j.nop;bundle-version="${slf4j.version}",org.apache.mina.core;bundle-version="${mina.version}",org.apache.mina.filter.compression;bundle-version="${mina.version}",org.apache.mina.statemachine;bundle-version="${mina.version}",org.apache.mina.transport.socket.apr;bundle-version="${mina.version}"</Require-Bundle>
 										<Eclipse-RegisterBuddy>org.commonreality.net,commons-logging,com.jcraft.jzlib,slf4j.api,slf4j.nop,org.apache.mina.core,org.apache.mina.filter.compression,org.apache.mina.statemachine,org.apache.mina.transport.socket.apr</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
@@ -395,18 +395,18 @@
 									</instructions>
 								</artifact>
 								<artifact>
-									<id>org.commonreality:modalities:${commonreality.version}</id>
+									<id>org.commonreality:modalities:${project.version}</id>
 									<source>true</source>
 									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality modalities</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.modalities</Bundle-SymbolicName>
-										<Bundle-Version>${commonreality.eclipse.version}</Bundle-Version>
+										<Bundle-Version>${project.version}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Needs to be kept in sync with dependencies in modalities POM -->
-										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${commonreality.eclipse.version}",org.commonreality.core;bundle-version="${commonreality.eclipse.version}"</Require-Bundle>
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${project.version}",org.commonreality.core;bundle-version="${project.version}"</Require-Bundle>
 										<Eclipse-RegisterBuddy>commons-logging,org.commonreality.api,org.commonreality.core</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
@@ -415,18 +415,18 @@
 									</instructions>
 								</artifact>
 								<artifact>
-									<id>org.commonreality:modalities.spatial:${commonreality.version}</id>
+									<id>org.commonreality:modalities.spatial:${project.version}</id>
 									<source>true</source>
 									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality spatial modality</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.modalities.spatial</Bundle-SymbolicName>
-										<Bundle-Version>${commonreality.eclipse.version}</Bundle-Version>
+										<Bundle-Version>${project.version}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Needs to be kept in sync with dependencies in modalities.spatial POM -->
-										<Require-Bundle>org.commonreality.api;bundle-version="${commonreality.eclipse.version}",org.commonreality.modalities;bundle-version="${commonreality.eclipse.version}",org.commonreality.core;bundle-version="${commonreality.eclipse.version}"</Require-Bundle>
+										<Require-Bundle>org.commonreality.api;bundle-version="${project.version}",org.commonreality.modalities;bundle-version="${project.version}",org.commonreality.core;bundle-version="${project.version}"</Require-Bundle>
 										<Eclipse-RegisterBuddy>org.commonreality.api,org.commonreality.modalities,org.commonreality.core</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
@@ -435,18 +435,18 @@
 									</instructions>
 								</artifact>
 								<artifact>
-									<id>org.commonreality:net:${commonreality.version}</id>
+									<id>org.commonreality:net:${project.version}</id>
 									<source>true</source>
 									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality networking base</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.net</Bundle-SymbolicName>
-										<Bundle-Version>${commonreality.eclipse.version}</Bundle-Version>
+										<Bundle-Version>${project.version}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in net POM -->
-										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${commonreality.eclipse.version}",org.commonreality.support;bundle-version="${commonreality.eclipse.version}"</Require-Bundle>
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${project.version}",org.commonreality.support;bundle-version="${project.version}"</Require-Bundle>
 										<Eclipse-RegisterBuddy>commons-logging,org.commonreality.api,org.commonreality.support</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
@@ -455,18 +455,18 @@
 									</instructions>
 								</artifact>
 								<artifact>
-									<id>org.commonreality:netty:${commonreality.version}</id>
+									<id>org.commonreality:netty:${project.version}</id>
 									<source>true</source>
 									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality networking based on netty.io</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.netty</Bundle-SymbolicName>
-										<Bundle-Version>${commonreality.eclipse.version}</Bundle-Version>
+										<Bundle-Version>${project.version}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in netty POM. -->
-										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.net;bundle-version="${commonreality.eclipse.version}",org.commonreality.support;bundle-version="${commonreality.eclipse.version}",io.netty.buffer;bundle-version="${netty.version}",io.netty.codec;bundle-version="${netty.version}",io.netty.common;bundle-version="${netty.version}",io.netty.handler;bundle-version="${netty.version}",io.netty.resolver;bundle-version="${netty.version}",io.netty.transport;bundle-version="${netty.version}"</Require-Bundle>
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.net;bundle-version="${project.version}",org.commonreality.support;bundle-version="${project.version}",io.netty.buffer;bundle-version="${netty.version}",io.netty.codec;bundle-version="${netty.version}",io.netty.common;bundle-version="${netty.version}",io.netty.handler;bundle-version="${netty.version}",io.netty.resolver;bundle-version="${netty.version}",io.netty.transport;bundle-version="${netty.version}"</Require-Bundle>
 										<Eclipse-RegisterBuddy>commons-logging,org.commonreality.net,org.commonreality.support,io.netty.buffer,io.netty.codec,io.netty.common,io.netty.handler,io.netty.resolverio.netty.transport</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy> 
 										<Export-Package>*</Export-Package>
@@ -475,18 +475,18 @@
 									</instructions>
 								</artifact>
 								<artifact>
-									<id>org.commonreality:sensors:${commonreality.version}</id>
+									<id>org.commonreality:sensors:${project.version}</id>
 									<source>true</source>
 									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality common sensors</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.sensors</Bundle-SymbolicName>
-										<Bundle-Version>${commonreality.eclipse.version}</Bundle-Version>
+										<Bundle-Version>${project.version}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in sensors POM. -->
-										<Require-Bundle>org.commonreality.api;bundle-version="${commonreality.eclipse.version}",org.commonreality.core;bundle-version="${commonreality.eclipse.version}",org.commonreality.modalities;bundle-version="${commonreality.eclipse.version}",org.commonreality.net;bundle-version="${commonreality.eclipse.version}",org.commonreality.time;bundle-version="${commonreality.eclipse.version}"</Require-Bundle>
+										<Require-Bundle>org.commonreality.api;bundle-version="${project.version}",org.commonreality.core;bundle-version="${project.version}",org.commonreality.modalities;bundle-version="${project.version}",org.commonreality.net;bundle-version="${project.version}",org.commonreality.time;bundle-version="${project.version}"</Require-Bundle>
 										<Eclipse-RegisterBuddy>org.commonreality.api,org.commonreality.core,org.commonreality.modalities,org.commonreality.net,org.commonreality.time</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
@@ -495,18 +495,18 @@
 									</instructions>
 								</artifact>
 								<artifact>
-									<id>org.commonreality:sensors.base:${commonreality.version}</id>
+									<id>org.commonreality:sensors.base:${project.version}</id>
 									<source>true</source>
 									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality sensor base classes</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.sensors.base</Bundle-SymbolicName>
-										<Bundle-Version>${commonreality.eclipse.version}</Bundle-Version>
+										<Bundle-Version>${project.version}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in sensors.base POM. -->
-										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core-java;bundle-version="${javolution.core.java.version}",org.commonreality.api;bundle-version="${commonreality.eclipse.version}",org.commonreality.core;bundle-version="${commonreality.eclipse.version}",org.commonreality.net;bundle-version="${commonreality.eclipse.version}",org.commonreality.time;bundle-version="${commonreality.eclipse.version}"</Require-Bundle>
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core-java;bundle-version="${javolution.core.java.version}",org.commonreality.api;bundle-version="${project.version}",org.commonreality.core;bundle-version="${project.version}",org.commonreality.net;bundle-version="${project.version}",org.commonreality.time;bundle-version="${project.version}"</Require-Bundle>
 										<Eclipse-RegisterBuddy>commons-logging,org.javolution,org.javolution.core-java,org.commonreality.api,org.commonreality.core,org.commonreality.net,org.commonreality.time</Eclipse-RegisterBuddy> 
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
@@ -515,18 +515,18 @@
 									</instructions>
 								</artifact>
 								<artifact>
-									<id>org.commonreality:sensors.swing:${commonreality.version}</id>
+									<id>org.commonreality:sensors.swing:${project.version}</id>
 									<source>true</source>
 									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality Swing sensor</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.sensors.swing</Bundle-SymbolicName>
-										<Bundle-Version>${commonreality.eclipse.version}</Bundle-Version>
+										<Bundle-Version>${project.version}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in sensors.swing POM. -->
-										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${commonreality.eclipse.version}",org.commonreality.modalities;bundle-version="${commonreality.eclipse.version}",org.commonreality.sensors;bundle-version="${commonreality.eclipse.version}",org.commonreality.sensors.base;bundle-version="${commonreality.eclipse.version}"</Require-Bundle> 
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.commonreality.api;bundle-version="${project.version}",org.commonreality.modalities;bundle-version="${project.version}",org.commonreality.sensors;bundle-version="${project.version}",org.commonreality.sensors.base;bundle-version="${project.version}"</Require-Bundle> 
 										<Eclipse-RegisterBuddy>commons-logging,org.commonreality.api,org.commonreality.modalities,org.commonreality.sensors,org.commonreality.sensors.base</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
@@ -535,18 +535,18 @@
 									</instructions>
 								</artifact>
 								<artifact>
-									<id>org.commonreality:sensors.xml:${commonreality.version}</id>
+									<id>org.commonreality:sensors.xml:${project.version}</id>
 									<source>true</source>
 									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality XML sensor</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.sensors.xml</Bundle-SymbolicName>
-										<Bundle-Version>${commonreality.eclipse.version}</Bundle-Version>
+										<Bundle-Version>${project.version}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in sensors.xml POM. -->
-										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core-java;bundle-version="${javolution.core.java.version}",org.commonreality.api;bundle-version="${commonreality.eclipse.version}",org.commonreality.core;bundle-version="${commonreality.eclipse.version}",org.commonreality.modalities;bundle-version="${commonreality.eclipse.version}",org.commonreality.net;bundle-version="${commonreality.eclipse.version}",org.commonreality.sensors;bundle-version="${commonreality.eclipse.version}",org.commonreality.sensors.base;bundle-version="${commonreality.eclipse.version}",org.commonreality.time;bundle-version="${commonreality.eclipse.version}"</Require-Bundle>
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core-java;bundle-version="${javolution.core.java.version}",org.commonreality.api;bundle-version="${project.version}",org.commonreality.core;bundle-version="${project.version}",org.commonreality.modalities;bundle-version="${project.version}",org.commonreality.net;bundle-version="${project.version}",org.commonreality.sensors;bundle-version="${project.version}",org.commonreality.sensors.base;bundle-version="${project.version}",org.commonreality.time;bundle-version="${project.version}"</Require-Bundle>
 										<Eclipse-RegisterBuddy>commons-logging,org.javolution,org.javolution.core-java,org.commonreality.api,org.commonreality.core,org.commonreality.modalities,org.commonreality.net,org.commonreality.sensors,org.commonreality.sensors.base,org.commonreality.time</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
@@ -555,14 +555,14 @@
 									</instructions>
 								</artifact>
 								<artifact>
-									<id>org.commonreality:support:${commonreality.version}</id>
+									<id>org.commonreality:support:${project.version}</id>
 									<source>true</source>
 									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality classes supporting the implementation</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.support</Bundle-SymbolicName>
-										<Bundle-Version>${commonreality.eclipse.version}</Bundle-Version>
+										<Bundle-Version>${project.version}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in support POM. -->
@@ -575,18 +575,18 @@
 									</instructions>
 								</artifact>
 								<artifact>
-									<id>org.commonreality:time:${commonreality.version}</id>
+									<id>org.commonreality:time:${project.version}</id>
 									<source>true</source>
 									<singleton>true</singleton>
 									<instructions>
 										<Bundle-ManifestVersion>${bundle.manifest.version}</Bundle-ManifestVersion>
 										<Bundle-Name>CommonReality time implementations</Bundle-Name>
 										<Bundle-SymbolicName>org.commonreality.time</Bundle-SymbolicName>
-										<Bundle-Version>${commonreality.eclipse.version}</Bundle-Version>
+										<Bundle-Version>${project.version}</Bundle-Version>
 										<Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 										<Bundle-RequiredExecutionEnvironment>${bundle.required.execution.environment}</Bundle-RequiredExecutionEnvironment>
 										<!-- Keep in sync with dependencies in time POM. -->
-										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core-java;bundle-version="${javolution.core.java.version}",org.commonreality.api;bundle-version="${commonreality.eclipse.version}",org.commonreality.support;bundle-version="${commonreality.eclipse.version}"</Require-Bundle>
+										<Require-Bundle>commons-logging;bundle-version="${commons.logging.version}",org.javolution;bundle-version="${javolution.version}",org.javolution.core-java;bundle-version="${javolution.core.java.version}",org.commonreality.api;bundle-version="${project.version}",org.commonreality.support;bundle-version="${project.version}"</Require-Bundle>
 										<Eclipse-RegisterBuddy>commons-logging,org.javolution,org.javolution.core-java,org.commonreality.api,org.commonreality.support</Eclipse-RegisterBuddy>
 										<Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
 										<Export-Package>*</Export-Package>
